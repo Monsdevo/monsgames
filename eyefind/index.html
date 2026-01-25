@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>eye find</title>
+</head>
+<body>
+    <header>
+        <div style="padding-top: 20px;">
+            <div>
+                <div class="logocontainer">
+                    <div style="display: flex;">
+                        <img src="eyefindlogo.png" alt="eyefindlogo" style="width: 250px; height:auto;">
+                        <div alt="buttoncontainer" style="display: flex; align-items: center; padding-left: 50px; width: 800px; gap: 50px;">
+                            <button class="mailbtn" style="display: inline-flex; width: auto; height: auto;">
+                                <img src="email-309491.svg" alt="mailicon" style="width: 40px; height: auto; padding-bottom: 5px;">
+                                <p style="font-size: large;">Inbox</p>
+                            </button>
+                            <img src="line.png" alt="line" style="height: 30px; width: auto;">
+                            <button class="pencilbtn">
+                                <img src="pencil.svg" alt="pencilicon" style="width: 40px; height: auto; padding-bottom: 10px;">
+                                <p style="font-size: large;"> Compose New</p>
+                            </button>
+                            <div style="display: flex; flex-direction: row; align-items: center; gap: 20px; padding-left: 190px;">
+                                <div style="text-align: right; color: #ffffff; ">                    
+                                    <p style="font-size: 15px;"> North Yankton</p>
+                                    <p style="font-size: 20px;"> Wed</p>
+                                </div> 
+                                <img src="line.png" alt="line" style="height: 85px; width: 2px; border-radius: 3px;">
+                                <img src="https://static.vecteezy.com/system/resources/previews/023/258/075/non_2x/weather-icon-cloudy-sky-icon-free-png.png" alt="weathericon" style="width: 50px; height: auto;">
+                            </div>
+
+                        </div>
+                    </div>
+                    <div style="display: flex; flex-direction: row; padding-bottom: 20px; margin-top: -110px; gap: 20px;">
+                        <input class="searchbox" id="searchbox" onkeydown= "checkInput(event)" type="text" placeholder="Search Eyefind" style="font-size: large;">
+                        <button class="randombtn"><p style="font-size: 20px; text-align: center; align-items: center; justify-content: center; color: #ffffff; margin: 0%;">RANDOM</p></button>
+                    </div>
+                </div> 
+                
+        </div>               
+    </header>
+
+    <nav class="category-nav" style="display: flex; align-items: center; justify-content: center; padding: 5px;">
+        <div style="display: flex; flex-direction: row; justify-content: center; border-right: #e1dfdf 2px solid; padding-right: 25px; margin: 0%;">
+            <img src="mediacategory.png" alt="mediacategoryicon" style="height: 50px; width: auto;">
+            <button class="category-btns" style="margin: 0%;"><p style="font-size: 16px;margin: 0%;">MEDIA AND <br>ENTERTAINMENT</p></button>         
+        </div>
+        <div style="display: flex; flex-direction: row; align-items: center; justify-content: center; border-right: #e1dfdf 2px solid; padding-right: 10px; margin: 0%;">
+            <img src="foodcategory.png" alt="foodcategoryicon" style="height: 50px; width: auto; ">
+            <button class="category-btns" style="margin: 0%;"><p style="font-size: 16px;margin: 0%;">FOOD <br>AND DRINK</p></button>
+        </div>
+        <div style="display: flex; flex-direction: row; align-items: center; justify-content: center; border-right: #e1dfdf 2px solid; padding-right: 20px; margin: 0%;">
+            <img src="moneycategory.png" alt="moneycategoryicon" style="height: 50px; width: auto; margin: 0%;">
+            <button class="category-btns" style="margin: 0%;"><p style="font-size: 16px;margin: 0%;">MONEY <br>AND SERVICES</p></button>
+        </div>
+        <div style="display: flex; align-items: center; flex-direction: row; justify-content: center; border-right: #e1dfdf 2px solid; padding-right: 3
+        0px; margin: 0%;">
+            <img src="travelcategory.png" alt="travelcategoryicon" style="height: 50px; width: auto;">
+            <button class="category-btns" style="margin: 0%;"><p style="font-size: 16px;margin: 0%;">TRAVEL <br>AND TRANSPORTATION</p></button>
+        </div>
+        <div style="display: flex; align-items: center; flex-direction: row; justify-content: center; padding-right: 20px; margin: 0%;">
+            <img src="fashioncategory.png" alt="fashioncategoryicon" style="height: 40px; width: auto;">
+            <button class="category-btns" style="margin: 0%;"><p style="font-size: 16px; margin: 0%;">FASHION <br>AND HEALTH</p></button>
+        </div>
+    </nav>
+    <script src="script.js" defer></script>
+    <div class="grid-spadcontainer">
+        <button class="ad-btn" style="display: flex; flex-direction: column; align-items: center;">
+            <p style="font-size: large; margin-bottom: -30px; z-index: 0; color: #ffffff;"> SPONSORED ADVERTISEMENT</p>
+            <img src="menusitecovers/legendarymotorsports.png" alt="lms" style="border: #047392 7px solid; border-top: #047392 45px solid; box-shadow: 0 -7px 0 #fabc04; border-radius: 15px;">
+        </button>
+        <button class="ad-btn" style="display: flex; flex-direction: column; align-items: center;">
+            <p style="font-size: large; margin-bottom: -30px; z-index: 0; color: #ffffff;"> SPONSORED ADVERTISEMENT</p>
+            <img src="menusitecovers/diamondcasino.png" alt="diamondcasino" style="border: #047392 7px solid; border-top: #047392 45px solid; box-shadow: 0 -7px 0 #fabc04; border-radius: 15px;">
+        </button>
+        <button class="ad-btn" style="display: flex; flex-direction: column; align-items: center;">
+            <p style="font-size: large; margin-bottom: -30px; z-index: 0; color: #ffffff;"> SPONSORED ADVERTISEMENT</p>
+            <img src="menusitecovers/sanandreas.png" alt="sanandreas    " style="border: #047392 7px solid; border-top: #047392 45px solid; box-shadow: 0 -7px 0 #fabc04; border-radius: 15px;">
+        </button>
+    </div>
+    <div class="grid-adcontainer">
+        <button class="ad-btn" style="display: flex; flex-direction: column; align-items: center;">     
+            <img src="menusitecovers/mazebank.png" alt="sanandreas" style="height: 95px; width: auto;">
+        </button>
+        <button class="ad-btn" style="display: flex; flex-direction: column; align-items: center;">     
+            <img src="menusitecovers/warstock.png" alt="sanandreas" style="height: 95px; width: auto;">
+        </button>
+        <button class="ad-btn" style="display: flex; flex-direction: column; align-items: center;">     
+            <img src="menusitecovers/arenawar.jpeg" alt="sanandreas" style="height: 95px; width: auto;">
+        </button>
+        <button class="ad-btn" style="display: flex; flex-direction: column; align-items: center;">     
+            <img src="menusitecovers/elitastravel.png" alt="sanandreas" style="height: 95px; width: auto;">
+        </button>
+        <button class="ad-btn" style="display: flex; flex-direction: column; align-items: center;">     
+            <img src="menusitecovers/dynasty8.jpeg" alt="sanandreas" style="height: 95px; width: auto;">
+        </button>
+    </div>
+    <div class="grid-adcontainer">
+        <button class="ad-btn" style="display: flex; flex-direction: column; align-items: center;">     
+            <img src="menusitecovers/Lifeinvader.png" alt="sanandreas" style="height: 90px; width: auto;">
+        </button>
+        <button class="ad-btn" style="display: flex; flex-direction: column; align-items: center;">     
+            <img src="menusitecovers/hellhole.png" alt="sanandreas" style="height: 90px; width: auto;">
+        </button>
+        <button class="ad-btn" style="display: flex; flex-direction: column; align-items: center;">     
+            <img src="menusitecovers/beseecher.png" alt="sanandreas" style="height: 90px; width: auto;">
+        </button>
+        <button class="ad-btn" style="display: flex; flex-direction: column; align-items: center;">     
+            <img src="menusitecovers/cultstoppers.png" alt="sanandreas" style="height: 90px; width: auto;">
+        </button>
+        <button class="ad-btn" style="display: flex; flex-direction: column; align-items: center;">     
+            <img src="menusitecovers/sanandreas.png" alt="sanandreas" style="height: 90px; width: auto;">
+        </button>
+    </div>
+</body>
+</html>

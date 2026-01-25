@@ -1,0 +1,146 @@
+
+div.relative {
+    position: relative;
+    left: 70px;
+}
+body{   
+    margin: 0%;
+    background-color: rgb(255, 255, 255);
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+header{
+    background-color: #498bc2;
+    gap: 10px;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border-bottom: #fabc04 9px solid;
+}
+.logocontainer{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 120px;
+    padding-left: 100px;
+}
+.mailbtn{
+    display: flex;
+    background-color: transparent;
+    color: #ffffff;
+    border: #ffffff;
+    border-radius: 5px;
+    transition: 0.5s;
+}
+.mailbtn:hover{
+    display: flex;
+    background-color: transparent;
+    color: #053d6c;
+    border: #ffffff;
+    border-radius: 5px;
+    transition: 0.5s;
+    cursor: pointer;
+}
+.pencilbtn{
+    display: flex;
+    background-color: transparent;
+    color: #ffffff;
+    border: #ffffff;
+    border-radius: 5px;
+    transition: 0.5s;
+}
+.pencilbtn:hover{
+    display: flex;
+    background-color: transparent;
+    color: #053d6c;
+    border: #ffffff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.searchbox{
+    background-color: #ffffff;
+    background-image:url('magnifying-glass-1976105.svg');
+    background-size: 40px;
+    background-position: 5px 5px;
+    background-repeat: no-repeat;
+    padding-left: 50px;
+    width: 820px;
+    height: 50px;
+    border-radius: 7px;
+    gap: 10px;
+    border: 5px solid #ffffff;
+    transition: 0.5s;
+}
+.searchbox:focus{
+    background-color: #e1dfdf;      
+    background-image:url('magnifying-glass-1976105.svg');
+    background-size: 40px;
+    background-position: 5px 5px;
+    background-repeat: no-repeat;
+    padding-left: 50px;
+    width: 750px;
+    height: 50px;
+    border-radius: 7px;
+    border: 5px solid #3c709b;
+    gap: 10px;
+}
+.randombtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 60px;
+    background-color: #047392; 
+    border-radius: 10px; 
+    transition: 0.5s;
+    border: transparent;
+}
+.randombtn:hover{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 60px;
+    background-color: #0195be; 
+    border-radius: 10px;
+    cursor: pointer;
+}
+.category-nav{
+    background-color: #ebebeb;
+    border-top: transparent;
+    gap: 50px;
+    border-bottom: #e1dfdf 3px solid;
+}
+.category-btns{
+    background-color: #ebebeb;
+    border-color: transparent;
+}
+.grid-spadcontainer {
+    display: grid;
+    justify-content: center;
+    gap: 10px;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 600px;
+    margin: auto;
+    padding-top: 50px;
+}
+.grid-adcontainer{
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(5, 0fr);
+    padding-top: 15px;
+}
+.ad-btn{
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+    transition: 0.5s;
+    border: 0px;
+    background-color: transparent;
+}
+.ad-btn:hover{
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+    border: 0px;
+    background-color: transparent;
+    transform: translateY(-10px);
+    cursor: pointer;
+}
