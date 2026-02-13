@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support - Imposter | Mons Games</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        .support-container {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 24px 60px;
+        }
+
+        .support-card {
+            background: rgba(20, 20, 20, 0.8);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            backdrop-filter: blur(12px);
+            padding: 60px 40px;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 0 40px rgba(57, 255, 20, 0.1);
+        }
+
+        .support-card h1 {
+            font-family: var(--font-heading);
+            color: var(--text-main);
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .support-card p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: transparent;
+            border: 2px solid var(--neon-green);
+            color: var(--neon-green);
+            padding: 16px 40px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .contact-btn:hover {
+            background: var(--neon-green);
+            color: var(--dark-bg);
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* reuse hero bg from main but lighter */
+        .support-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('../assets/imposter-people.png');
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+            opacity: 0.15;
+            filter: blur(8px);
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar glassy">
+        <div class="container nav-flex">
+            <div class="logo"><a href="../index.html">Mons Games</a></div>
+            <div class="nav-links">
+                <a href="index.html">Back to Imposter</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="support-bg"></div>
+
+    <div class="support-container">
+        <div class="support-card">
+            <i class="fas fa-headset" style="font-size: 4rem; color: var(--neon-red); margin-bottom: 30px;"></i>
+            <h1>Need Help?</h1>
+            <p>Encountered a bug? Have a suggestion? Or just want to say hi?<br>We're here to help you survive.</p>
+
+            <a href="mailto:monsgemas@gmail.com" class="contact-btn">
+                <i class="fas fa-envelope"></i> Contact Support
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Mons Games. All rights reserved. <a href="privacypolicy.html">Privacy Policy</a> | <a
+                    href="../index.html">Back to Home</a></p>
+        </div>
+    </footer>
+</body>
+
+</html>
