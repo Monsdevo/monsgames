@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imposter - Trust No One | Mons Games</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Cinzel:wght@700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar glassy">
+        <div class="container nav-flex">
+            <div class="logo"><a href="../index.html">Mons Games</a></div>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#gallery">Gallery</a>
+                <a href="https://apps.apple.com/us/app/imposter-party-game/idexample" class="cta-button">Download</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="container hero-content">
+            <img src="../assets/imposter.png" alt="IMPOSTER" class="hero-logo" style="width: 300px; height: auto;">
+            <p class="tagline">Trust No One. Blend In. Survive.</p>
+            <div class="hero-buttons">
+                <a href="https://apps.apple.com/us/app/imposter-party-game/idexample" class="app-store-btn">
+                    <i class="fab fa-apple"></i> Download on App Store
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card glassy-card">
+                    <i class="fas fa-users-slash"></i>
+                    <h3>Social Deduction</h3>
+                    <p>Identify the Imposter before it's too late. Or lie your way to victory.</p>
+                </div>
+                <div class="feature-card glassy-card">
+                    <i class="fas fa-user-secret"></i>
+                    <h3>Role Mechanics</h3>
+                    <p>Unique roles with special abilities to help—or hinder—your team.</p>
+                </div>
+                <div class="feature-card glassy-card">
+                    <i class="fas fa-hourglass-half"></i>
+                    <h3>Real-time Strategy</h3>
+                    <p>Fast-paced rounds where every second and every decision counts.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Mons Games. All rights reserved. <a href="privacypolicy.html">Privacy Policy</a> | <a
+                    href="../index.html">Back to Home</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple parallax effect for hero bg
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const bg = document.querySelector('.hero-bg');
+            bg.style.transform = `translateY(${scrolled * 0.5}px)`;
+        });
+    </script>
+</body>
+
+</html>

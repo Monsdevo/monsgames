@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login / Register</title>
+    <link rel="stylesheet" href="loginregisterstyles.css">
+</head>
+<body>
+    <div class="card-container">
+        <!-- Login Sayfası -->
+        <form action="login.php" method="POST">
+            <div class="card-face login-container">
+                <h1 style="color: #ffffff;">Login</h1>
+                <input type="email" class="input-fields" id="email" name="email" placeholder="Email" required style="background-image: url('icons/user-solid.svg'); background-repeat: no-repeat; background-position: right; background-size: 15px 15px;">
+                <br><input type="password" class="input-fields" id="password" name="password" placeholder="Password" required style="background-image: url('icons/lock-solid.svg'); background-repeat: no-repeat; background-position: right; background-size: 15px 15px;"><br>
+                <a href="/"><button class="bn632-hover bn25">Login</button></a>
+                <a href="#" class="flip-link" style="color: rgb(255, 255, 255);">Don't have an account?</a>
+            </div>
+        </form>
+        <!-- Register Sayfası -->
+            
+        <form action="register.php" method="POST">
+            <div class="card-face register-container">
+                <h1 style="color: #ffffff;">Register</h1>
+                <input type="text" class="input-fields" name="name" placeholder="Name" required><br>
+                <input type="email" class="input-fields" name="email" placeholder="Email" required style="background-image: url('icons/user-solid.svg'); background-repeat: no-repeat; background-position: right; background-size: 15px 15px;"><br>
+                <input type="password" class="input-fields" name="password" placeholder="Password" required style="background-image: url('icons/lock-solid.svg'); background-repeat: no-repeat; background-position: right; background-size: 15px 15px;"><br>
+                <a href="/"><button class="bn632-hover bn25">Register</button></a>
+                <a href="#" class="flip-link" style="color: rgb(255, 255, 255);">Already have an account?</a> 
+            </div>
+        </form>
+            
+    </div>
+    <script src="https://kit.fontawesome.com/928433457f.js" crossorigin="anonymous"></script>
+    <script src="loginregisterscript.js"></script>
+</body>
+</html>

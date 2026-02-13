@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="besinzinciriconwhite.png">
+    <title>Besin Zinciri</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+  </a>
+
+    <div class="sec-center"> 	
+        <input class="dropdown" type="checkbox" id="dropdown" name="dropdown"/>
+        <label class="for-dropdown" for="dropdown">Daha Fazla Örnek<i class="uil uil-arrow-down"></i></label>
+        <div class="section-dropdown"> 
+            <button onclick="changeChain('seaChain')" class="uil-arrow-right">Su Ekosistemi</button>
+            <button onclick="changeChain('tropicalChain')" class="uil-arrow-right">Yağmur Ormanı Ekosistemi</button>
+            <button onclick="changeChain('stepBiom')" class="uil-arrow-right">Bozkır Ekosistemi</button>
+            
+        </div>
+    </div>
+    <div class="chain-line" id="chainoutput">
+        <div class="animal-container">
+            <div class="btn" id="animal"> <img src="hawk.png" alt="hawk" style="height: 150px; width: auto;"></div>
+            <div class="animal-description"><h1>Şahin</h1><span>
+                🦅 Şahin eksilirse: <br>Yılanlar avcı kaybettiği için artar <br>Yılanlar artınca kurbağa azalır <br>Kurbağa azalınca çekirge artar <br>Çekirge artarsa bitkiler azalır
+            </span></div>
+        </div>    
+        <div class="animal-container">
+            <div class="btn" id="animal"> <img src="snake.png" alt="snake" style="height: 150px; width: auto;"></div>
+            <div class="animal-description"><h1>Yılan</h1><span style="font-size: 16px;">
+                🐍 Yılan eksilirse: <br>Kurbağalar artar <br>Kurbağa artınca → çekirgeler azalır <br>Çekirge azalınca bitki artabilir <br>Şahinler aç kalır → şahin azalır</span></div>
+        </div>  
+        <div class="animal-container">
+            <div class="btn" id="animal"> <img src="frog.png" alt="frog" style="height: 150px; width: auto;"></div>
+            <div class="animal-description"><h1>Kurbağa</h1><span style="font-size: 15px;">
+                🐸 Kurbağa eksilirse:<br> Yılanlar yiyecek bulamaz → azalır <br>Şahinler dolaylı olarak aç kalır → azalır <br>Çekirgeler avlanmadığı için çoğalır → artar<br> Çekirgeler çoğalınca → bitkiler azalır
+            </span></div>
+        </div>  
+        <div class="animal-container">
+            <div class="btn" id="animal"> <img src="grasshopper.png" alt="grasshopper" style="height: 150px; width: 150px; object-fit: contain;"></div>
+            <div class="animal-description"><h1>Çekirge</h1><span style="font-size: 15px;">
+                🦗 Çekirge eksilirse:<br> Kurbağalar ana besinini kaybeder → azalır<br> Yılanlar kurbağa bulamaz → azalır <br>Şahinler de yine aç kalır → azalır <br>Bitkilere baskı azalır → çoğalabilir
+            </span></div>
+        </div>  
+        <div class="animal-container">
+            <div class="btn" id="animal"> <img src="wheat.png" alt="wheat" style="height: 150px; width: 150px; object-fit: contain;"></div>
+            <div class="animal-description"><h1>Bitki</h1><span style="font-size: 14px;">🌿 Bitki eksilirse:<br>
+                Çekirgeler aç kalır → sayıları azalır<br> Kurbağalar yemek bulamaz → ve azalır<br> Yılanlar kurbağa bulamaz → azalır<br> Şahinler yılan avlayamaz → azalır
+            </span></div>
+        </div>  
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
