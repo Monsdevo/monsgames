@@ -731,7 +731,46 @@ a:focus,
     text-decoration: none !important;
 }
 
-/* ... existing styles ... */
+/* Infoseek Card Specifics */
+.infoseek-card {
+    background: #0b0c10;
+    border: 1px solid #1f2833;
+    box-shadow: 0 10px 30px rgba(77, 168, 218, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.infoseek-card::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(77, 168, 218, 0.1) 0%, transparent 70%);
+    z-index: 1;
+}
+
+.infoseek-card .app-card-content {
+    background: linear-gradient(to top, #0b0c10 10%, transparent);
+}
+
+.infoseek-card h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    letter-spacing: 1px;
+    color: #66fcf1;
+}
+
+.infoseek-card .app-link {
+    color: #4DA8DA;
+}
+
+.infoseek-card-link:hover .infoseek-card {
+    box-shadow: 0 0 30px rgba(102, 252, 241, 0.3);
+    border-color: #66fcf1;
+}
+
 
 /* Apps Section */
 .apps-section {
