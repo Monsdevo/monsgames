@@ -812,6 +812,53 @@ a:focus,
     border-color: #FF9800;
 }
 
+/* Talkboy Card Specifics */
+.talkboy-card {
+    background: #FDFBF7;
+    border: 1px solid #FFF5E6;
+    box-shadow: 0 10px 30px rgba(92, 75, 81, 0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+.talkboy-card::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(255, 179, 71, 0.15) 0%, transparent 70%);
+    z-index: 1;
+}
+
+.talkboy-card .app-card-content {
+    background: linear-gradient(to top, #FDFBF7 10%, transparent);
+}
+
+.talkboy-card h3 {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    color: #3E3136;
+}
+
+.talkboy-card p {
+    color: #5C4B51;
+}
+
+.talkboy-card .app-link {
+    color: #cc841c;
+    font-weight: 700;
+}
+
+.talkboy-card-link:hover .talkboy-card {
+    box-shadow: 0 15px 40px rgba(255, 179, 71, 0.2);
+    border-color: rgba(255, 179, 71, 0.4);
+    transform: translateY(-5px);
+}
+
+
 
 /* Apps Section */
 .apps-section {

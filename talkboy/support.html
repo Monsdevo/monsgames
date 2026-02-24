@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support - Talkboy | Mons Games</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .support-container {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 24px 60px;
+        }
+
+        .support-card {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(255, 255, 255, 1);
+            border-radius: 30px;
+            backdrop-filter: blur(15px);
+            padding: 70px 50px;
+            max-width: 650px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(92, 75, 81, 0.08);
+        }
+
+        .support-card h1 {
+            color: var(--text-dark);
+            font-size: 3rem;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+
+        .support-card p {
+            color: var(--text-main);
+            font-size: 1.2rem;
+            margin-bottom: 45px;
+            line-height: 1.7;
+        }
+
+        .icon-circle {
+            width: 120px;
+            height: 120px;
+            background: var(--light-bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 35px;
+            box-shadow: inset 0 5px 15px rgba(255, 179, 71, 0.2);
+            border: 2px solid var(--secondary-bg);
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--text-dark);
+            color: white;
+            padding: 18px 50px;
+            border-radius: 50px;
+            font-size: 1.15rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            transition: 0.3s;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(62, 49, 54, 0.15);
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-4px);
+            background: var(--accent-dark);
+            box-shadow: 0 15px 30px rgba(204, 132, 28, 0.25);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background-soft"></div>
+
+    <nav class="navbar glassy">
+        <div class="container nav-flex">
+            <div class="logo"><a href="../index.html">Mons Games</a></div>
+            <div class="nav-links">
+                <a href="index.html">Back to Talkboy</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="support-container">
+        <div class="support-card">
+            <div class="icon-circle">
+                <i class="fas fa-heart" style="font-size: 3.5rem; color: var(--accent-orange);"></i>
+            </div>
+            <h1>How can we assist?</h1>
+            <p>From troubleshooting AI analysis to general feedback, we're here to help you get the most out of your
+                communication coaching.</p>
+
+            <a href="mailto:monsgames@gmail.com" class="contact-btn">
+                <i class="fas fa-paper-plane"></i> Send a Message
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Mons Games. All rights reserved. <a href="privacypolicy.html">Privacy Policy</a> | <a
+                    href="../index.html">Back to Home</a></p>
+        </div>
+    </footer>
+</body>
+
+</html>
