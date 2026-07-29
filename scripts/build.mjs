@@ -13,7 +13,7 @@ await mkdir(resolve(dist, "server"), { recursive: true });
 for (const file of ["index.html", "portfolio.css", "portfolio.js", "CNAME", "app-ads.txt", "privacy.html", "privacy-policy.html"]) {
   await cp(resolve(root, file), resolve(dist, "client", file));
 }
-for (const file of ["bad-haunts-logo.png", "mons-games-social.png"]) {
+for (const file of ["bad-haunts-logo.png", "mons-games-mark.png", "mons-games-social.png"]) {
   await cp(resolve(root, "assets", file), resolve(dist, "client", "assets", file));
 }
 
@@ -32,7 +32,8 @@ const worker = `export default {
 await writeFile(resolve(dist, "server", "index.js"), worker, "utf8");
 
 const html = await readFile(resolve(dist, "client", "index.html"), "utf8");
-for (const asset of ["portfolio.css", "portfolio.js", "assets/bad-haunts-logo.png", "assets/mons-games-social.png"]) {
+for (const asset of ["portfolio.css", "portfolio.js", "assets/bad-haunts-logo.png", "assets/mons-games-mark.png", "assets/mons-games-social.png"]) {
   if (!html.includes(asset)) throw new Error(`Built HTML is missing ${asset}`);
 }
 console.log("Mons Games production build is ready.");
+

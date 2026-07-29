@@ -16,3 +16,16 @@
 @media(max-width:500px){.eyebrow{flex-direction:column;align-items:flex-start;gap:.35rem}.eyebrow span+span::before{display:none}.button-row{align-items:stretch;flex-direction:column}.button,.button-row .text-link{width:100%}.button-row .text-link{min-height:3rem;justify-content:space-between}.hero-studio-card__bottom{gap:.5rem;flex-direction:column}.hero-studio-card__bottom span::after{display:none}.metadata-list{grid-template-columns:1fr}.metadata-list li:nth-child(even){padding-left:0;border-left:0}.footer-top,.footer-bottom{flex-direction:column}.footer-top p{text-align:left}.footer-links{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}}@media(prefers-contrast:more){:root{--muted:#d7d3cb;--line:rgba(241,238,230,.38);--strong:rgba(241,238,230,.62)}}
 .game-logo{display:block;width:min(100%,25rem);height:auto;margin:0 0 2rem;object-fit:contain;object-position:left center}.header-social--pending,.text-link--pending{color:#65625d;cursor:default;text-decoration:none}.header-social--pending:hover,.text-link--pending:hover{color:#65625d}
+/* Mons Games studio mark */
+.studio-mark__logo{display:grid;place-items:center;width:2.15rem;height:2.15rem;overflow:hidden;border:1px solid var(--strong)}
+.studio-mark__logo img{display:block;width:162%;max-width:none;height:auto;transform:translateY(2%)}
+.studio-mark:hover .studio-mark__logo,.studio-mark:focus-visible .studio-mark__logo{border-color:var(--orange)}
+.studio-signal::after{display:none}
+.studio-signal__logo{position:relative;z-index:2;display:grid;place-items:center;width:8rem;height:8rem;overflow:hidden}
+.studio-signal__logo img{display:block;width:162%;max-width:none;height:auto;transform:translateY(2%)}
+.studio-mark--footer .studio-mark__logo{width:3.25rem;height:3.25rem}
+/* The hero presentation uses offset editorial frames, not the discarded signal concept. */
+.studio-signal{border:1px solid var(--line);border-radius:0;transform:rotate(-3deg)}
+.studio-signal::before{display:block;inset:10%;border-color:rgba(217,117,77,.42);border-radius:0;transform:rotate(6deg)}
+.studio-signal::after,.studio-signal__ring{display:none}
+.studio-signal__logo{transform:rotate(3deg)}
