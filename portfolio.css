@@ -15,17 +15,18 @@
 @media(max-width:760px){:root{--side:1.1rem;--gap:6rem}html{scroll-padding-top:4.75rem}.header-inner{min-height:4.25rem}.hero{min-height:auto;padding-top:3rem}.hero-grid,.section-heading,.concept-intro,.match-loop,.about-grid,.contact-panel{grid-template-columns:1fr}.hero-grid{min-height:0}.hero h1{font-size:clamp(3.45rem,16vw,5.7rem)}.hero-studio-card{min-height:24rem}.hero-index{display:none}.section-heading,.concept-intro{gap:1.5rem}.section-note{margin:0}.principle-grid,.concept-grid{grid-template-columns:1fr}.principle{min-height:auto;padding:1.5rem 0 2rem}.principle+.principle{padding-left:0;border-top:1px solid var(--line);border-left:0}.principle h3{padding-top:3rem}.project-card__media{min-height:29rem}.media-frame{min-height:27rem}.media-frame__note{bottom:1.25rem;left:1.25rem}.project-card__content{min-height:0}.project-status{margin-bottom:4rem}.game-title-lockup{font-size:clamp(4rem,21vw,6rem)}.steam-note{margin-top:2rem}.concept-card:last-child{grid-column:auto}.concept-card__visual{height:20rem}.concept-card__copy{min-height:auto;padding-bottom:2.5rem}.match-loop{gap:2.5rem}.match-loop__note{grid-column:1;margin:0}.devlog-card,.devlog-empty{grid-template-columns:1fr}.devlog-card__thumb{min-height:21rem;border-right:0;border-bottom:1px solid var(--line)}.devlog-meta{margin-bottom:3rem}.devlog-empty span{padding-bottom:.35rem}.devlog-empty p{padding:.35rem 0 1.5rem;border-left:0}.about-grid{gap:2rem}.about-copy{padding-top:0}.contact-panel{gap:3rem}.contact-email{font-size:clamp(1.35rem,7vw,2.3rem)}.footer-links{grid-template-columns:1fr 1fr}}
 @media(max-width:500px){.eyebrow{flex-direction:column;align-items:flex-start;gap:.35rem}.eyebrow span+span::before{display:none}.button-row{align-items:stretch;flex-direction:column}.button,.button-row .text-link{width:100%}.button-row .text-link{min-height:3rem;justify-content:space-between}.hero-studio-card__bottom{gap:.5rem;flex-direction:column}.hero-studio-card__bottom span::after{display:none}.metadata-list{grid-template-columns:1fr}.metadata-list li:nth-child(even){padding-left:0;border-left:0}.footer-top,.footer-bottom{flex-direction:column}.footer-top p{text-align:left}.footer-links{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}}@media(prefers-contrast:more){:root{--muted:#d7d3cb;--line:rgba(241,238,230,.38);--strong:rgba(241,238,230,.62)}}
-.game-logo{display:block;width:min(100%,25rem);height:auto;margin:0 0 2rem;object-fit:contain;object-position:left center}.header-social--pending,.text-link--pending{color:#65625d;cursor:default;text-decoration:none}.header-social--pending:hover,.text-link--pending:hover{color:#65625d}
+.game-logo{display:block;width:min(100%,28rem);height:auto;max-height:18rem;margin:0 0 2rem;object-fit:contain;object-position:left center}.header-social--pending,.text-link--pending{color:#65625d;cursor:default;text-decoration:none}.header-social--pending:hover,.text-link--pending:hover{color:#65625d}
 /* Mons Games studio mark */
-.studio-mark__logo{display:grid;place-items:center;width:2.15rem;height:2.15rem;overflow:hidden;border:1px solid var(--strong)}
-.studio-mark__logo img{display:block;width:162%;max-width:none;height:auto;transform:translateY(2%)}
+.studio-mark__logo{display:grid;place-items:center;width:2.4rem;height:2.4rem;padding:.22rem;overflow:visible;border:1px solid var(--strong)}
+.studio-mark__logo img{display:block;width:100%;height:100%;max-width:100%;object-fit:contain;transform:none}
 .studio-mark:hover .studio-mark__logo,.studio-mark:focus-visible .studio-mark__logo{border-color:var(--orange)}
 .studio-signal::after{display:none}
-.studio-signal__logo{position:relative;z-index:2;display:grid;place-items:center;width:8rem;height:8rem;overflow:hidden}
-.studio-signal__logo img{display:block;width:162%;max-width:none;height:auto;transform:translateY(2%)}
-.studio-mark--footer .studio-mark__logo{width:3.25rem;height:3.25rem}
+.studio-signal__logo{position:relative;z-index:2;display:grid;place-items:center;width:10rem;height:10rem;padding:.5rem;overflow:visible}
+.studio-signal__logo img{display:block;width:100%;height:100%;max-width:100%;object-fit:contain;transform:none}
+.studio-mark--footer .studio-mark__logo{width:3.5rem;height:3.5rem;padding:.3rem}
 /* The hero presentation uses offset editorial frames, not the discarded signal concept. */
 .studio-signal{border:1px solid var(--line);border-radius:0;transform:rotate(-3deg)}
 .studio-signal::before{display:block;inset:10%;border-color:rgba(217,117,77,.42);border-radius:0;transform:rotate(6deg)}
 .studio-signal::after,.studio-signal__ring{display:none}
 .studio-signal__logo{transform:rotate(3deg)}
+
