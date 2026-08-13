@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="tr" data-theme="system">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f5f5f7" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#111214" media="(prefers-color-scheme: dark)">
+  <meta name="color-scheme" content="light dark">
+  <title>Mustafi Takvimi</title>
+  <meta name="description" content="On beş günlük haftalar ve 360 günlük yıllar için çalışan Mustafi takvimi ve etkinlik yöneticisi.">
+  <link rel="icon" type="image/png" href="../assets/mons-games-mark.png">
+  <link rel="stylesheet" href="./calendar.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body data-app-state="loading">
+  <a class="skip-link" href="#calendar-view">Takvime geç</a>
+
+  <div class="app-shell" id="app">
+    <header class="app-toolbar" aria-label="Takvim araç çubuğu">
+      <div class="toolbar__brand">
+        <a class="brand-link" href="../" aria-label="Mons Games ana sayfası">
+          <span class="brand-mark" aria-hidden="true">M</span>
+          <span class="brand-name">Mustafi Takvimi</span>
+        </a>
+        <button class="icon-button sidebar-toggle" id="sidebar-toggle" type="button" aria-label="Kenar çubuğunu aç" aria-controls="sidebar" aria-expanded="false">
+          <span class="sidebar-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+
+      <div class="toolbar__navigation" aria-label="Tarih gezinmesi">
+        <div class="button-pair">
+          <button class="icon-button" id="prev-btn" type="button" aria-label="Önceki dönem" title="Önceki dönem">
+            <span aria-hidden="true">‹</span>
+          </button>
+          <button class="icon-button" id="next-btn" type="button" aria-label="Sonraki dönem" title="Sonraki dönem">
+            <span aria-hidden="true">›</span>
+          </button>
+        </div>
+        <button class="toolbar-button toolbar-button--today" id="today-btn" type="button">Bugün</button>
+      </div>
+
+      <div class="toolbar__title" aria-live="polite" aria-atomic="true">
+        <p class="toolbar__period" id="period-title">—</p>
+        <p class="toolbar__period-detail" id="period-subtitle">Mustafi Takvimi</p>
+      </div>
+
+      <div class="toolbar__actions">
+        <button class="icon-button" id="search-toggle" type="button" aria-label="Etkinliklerde ara" aria-controls="search-panel" aria-expanded="false" title="Ara">
+          <span class="search-icon" aria-hidden="true"></span>
+        </button>
+        <button class="primary-button" id="new-event-btn" type="button">
+          <span aria-hidden="true">＋</span><span class="primary-button__label">Yeni etkinlik</span>
+        </button>
+        <label class="view-picker" for="view-select">
+          <span class="sr-only">Takvim görünümü</span>
+          <select id="view-select" aria-label="Takvim görünümü">
+            <option value="month">Ay</option>
+            <option value="week">15 Gün</option>
+            <option value="day">Gün</option>
+            <option value="year">Yıl</option>
+            <option value="agenda">Ajanda</option>
+          </select>
+        </label>
+        <button class="icon-button" id="settings-btn" type="button" aria-label="Ayarları aç" title="Ayarlar">
+          <span class="settings-icon" aria-hidden="true">⚙</span>
+        </button>
+      </div>
+
+      <form class="search-panel" id="search-panel" role="search" hidden>
+        <label class="search-field" for="search-input">
+          <span class="search-icon" aria-hidden="true"></span>
+          <span class="sr-only">Etkinlik ara</span>
+          <input id="search-input" type="search" autocomplete="off" placeholder="Başlık, konum veya notlarda ara">
+        </label>
+        <button class="text-button" id="search-close" type="button">Kapat</button>
+        <div class="search-results" id="search-results" role="listbox" aria-label="Arama sonuçları" hidden></div>
+      </form>
+    </header>
+
+    <div class="today-strip" aria-live="polite">
+      <span class="today-dot" aria-hidden="true"></span>
+      <strong id="today-summary">Bugün hesaplanıyor…</strong>
+      <span id="gregorian-summary" class="today-strip__secondary"></span>
+      <span id="timezone-label" class="today-strip__timezone"></span>
+    </div>
+
+    <div class="app-layout">
+      <div class="sidebar-scrim" id="sidebar-scrim" hidden></div>
+      <aside class="calendar-sidebar" id="sidebar" aria-label="Takvim seçenekleri">
+        <section class="sidebar-section current-date-card" aria-labelledby="sidebar-date-title">
+          <div class="date-token" aria-hidden="true">
+            <span id="today-month-token">AY</span>
+            <strong id="today-day-token">—</strong>
+          </div>
+          <div>
+            <h2 id="sidebar-date-title">Bugün</h2>
+            <p id="sidebar-weekday">—</p>
+          </div>
+        </section>
+
+        <section class="sidebar-section" aria-labelledby="calendars-title">
+          <div class="sidebar-heading">
+            <h2 id="calendars-title">Takvimler</h2>
+            <button class="small-icon-button" id="add-category-button" type="button" aria-label="Yeni takvim kategorisi ekle" title="Kategori ekle">＋</button>
+          </div>
+          <div class="category-list" id="category-filters" role="group" aria-label="Görünür takvim kategorileri"></div>
+          <p class="sidebar-empty" id="category-empty" hidden>Henüz kategori yok.</p>
+        </section>
+
+        <section class="sidebar-section" aria-labelledby="jump-title">
+          <h2 id="jump-title">Tarihe git</h2>
+          <form class="jump-form" id="goto-form">
+            <div class="compact-fields">
+              <label>Yıl<input id="goto-year" name="year" type="text" inputmode="text" required aria-describedby="jump-year-hint"></label>
+              <label>Ay<input id="goto-month" name="month" type="number" inputmode="numeric" min="1" max="12" step="1" required></label>
+              <label>Gün<input id="goto-day" name="day" type="number" inputmode="numeric" min="1" max="30" step="1" required></label>
+            </div>
+            <p class="field-hint" id="jump-year-hint">Milattan önce için “1 MMÖ” yazabilirsiniz.</p>
+            <p class="form-error" id="jump-error" role="alert" hidden></p>
+            <button class="secondary-button secondary-button--full" type="submit">Tarihi göster</button>
+          </form>
+        </section>
+
+        <section class="sidebar-section sidebar-section--grow" aria-labelledby="filter-title">
+          <h2 id="filter-title">Etkinlik filtresi</h2>
+          <label class="field-label" for="color-filter">Renk</label>
+          <select id="color-filter">
+            <option value="all">Tüm renkler</option>
+          </select>
+          <button class="quiet-button" id="clear-filters" type="button">Filtreleri temizle</button>
+        </section>
+
+        <p class="storage-note" id="storage-status" role="status">Yerel veri hazırlanıyor…</p>
+      </aside>
+
+      <main class="calendar-workspace" id="calendar-view" tabindex="-1">
+        <div class="loading-state" id="loading-state" role="status">
+          <span class="loading-spinner" aria-hidden="true"></span>
+          <span>Takvim hazırlanıyor…</span>
+        </div>
+
+        <div class="error-state" id="app-error" role="alert" hidden>
+          <strong>Takvim açılamadı.</strong>
+          <p id="app-error-message">Beklenmeyen bir sorun oluştu.</p>
+          <button class="secondary-button" id="retry-button" type="button">Yeniden dene</button>
+        </div>
+
+        <section class="calendar-view calendar-view--month" id="month-view" data-view="month" aria-labelledby="period-title">
+          <div class="calendar-scroll" tabindex="0" aria-label="15 sütunlu Mustafi ayı">
+            <div class="month-canvas">
+              <div class="weekday-header" id="month-weekday-header" role="row"></div>
+              <div class="month-grid" id="month-grid" role="grid" aria-rowcount="2" aria-colcount="15"></div>
+            </div>
+          </div>
+          <section class="selected-day-agenda" id="mobile-agenda" aria-labelledby="selected-day-title">
+            <div class="selected-day-agenda__heading">
+              <div>
+                <p class="section-eyebrow">Seçili gün</p>
+                <h2 id="selected-day-title">Bir gün seçin</h2>
+              </div>
+              <button class="small-primary-button" id="selected-day-new-event" type="button">＋ Etkinlik</button>
+            </div>
+            <div id="selected-day-events" class="selected-day-events">
+              <p class="empty-message">Etkinlikleri görmek için takvimden bir gün seçin.</p>
+            </div>
+          </section>
+        </section>
+
+        <section class="calendar-view calendar-view--week" id="week-view" data-view="week" aria-labelledby="period-title" hidden>
+          <div class="calendar-scroll calendar-scroll--week" tabindex="0" aria-label="15 günlük Mustafi haftası">
+            <div class="week-canvas">
+              <div class="week-header" id="week-header" role="row"></div>
+              <div class="week-all-day" id="week-all-day" aria-label="Tüm gün etkinlikleri"></div>
+              <div class="week-grid" id="week-grid" role="grid" aria-colcount="15"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="calendar-view calendar-view--day" id="day-view" data-view="day" aria-labelledby="period-title" hidden>
+          <header class="day-header">
+            <div class="day-number" id="day-number">—</div>
+            <div><p id="day-weekday">—</p><h2 id="day-date-title">—</h2><p id="day-gregorian-date" class="muted-text"></p></div>
+          </header>
+          <section class="all-day-row" aria-labelledby="all-day-heading">
+            <h3 id="all-day-heading">Tüm gün</h3>
+            <div id="day-all-day-events" class="all-day-events"></div>
+          </section>
+          <div class="day-timeline" id="day-timeline" aria-label="24 saatlik zaman çizelgesi"></div>
+        </section>
+
+        <section class="calendar-view calendar-view--year" id="year-view" data-view="year" aria-labelledby="period-title" hidden>
+          <div class="year-grid" id="year-grid" aria-label="12 aylık Mustafi yılı"></div>
+        </section>
+
+        <section class="calendar-view calendar-view--agenda" id="agenda-view" data-view="agenda" aria-labelledby="period-title" hidden>
+          <header class="agenda-header">
+            <div><p class="section-eyebrow">Yaklaşanlar</p><h2>Ajanda</h2></div>
+            <label class="agenda-range" for="agenda-range-select">Aralık
+              <select id="agenda-range-select">
+                <option value="30">30 gün</option>
+                <option value="90">90 gün</option>
+                <option value="360">1 Mustafi yılı</option>
+                <option value="all">Tümü</option>
+              </select>
+            </label>
+          </header>
+          <div class="agenda-list" id="agenda-list" aria-live="polite"></div>
+          <div class="empty-state" id="agenda-empty" hidden>
+            <span aria-hidden="true">○</span>
+            <h3>Ajanda boş</h3>
+            <p>Bu aralıkta gösterilecek bir etkinlik yok.</p>
+            <button class="secondary-button" type="button" data-open-event-editor>Etkinlik ekle</button>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <nav class="mobile-view-nav" aria-label="Takvim görünümü">
+      <button type="button" data-set-view="month" aria-current="page"><span aria-hidden="true">▦</span>Ay</button>
+      <button type="button" data-set-view="week"><span aria-hidden="true">▥</span>15 Gün</button>
+      <button type="button" data-set-view="day"><span aria-hidden="true">▤</span>Gün</button>
+      <button type="button" data-set-view="year"><span aria-hidden="true">▦</span>Yıl</button>
+      <button type="button" data-set-view="agenda"><span aria-hidden="true">☷</span>Ajanda</button>
+    </nav>
+  </div>
+
+  <dialog class="modal event-modal" id="event-dialog" aria-labelledby="event-dialog-title">
+    <form class="modal-card event-form" id="event-form" method="dialog" novalidate>
+      <header class="modal-header">
+        <div><p class="modal-kicker" id="event-dialog-kicker">Etkinlik</p><h2 id="event-dialog-title">Yeni etkinlik</h2></div>
+        <button class="modal-close" type="button" data-close-dialog="event-dialog" aria-label="Pencereyi kapat">×</button>
+      </header>
+      <div class="modal-body event-form__body">
+        <input id="event-id" name="id" type="hidden">
+        <input id="event-series-id" name="seriesId" type="hidden">
+        <label class="field field--title" for="event-title"><span>Başlık</span><input id="event-title" name="title" type="text" maxlength="160" autocomplete="off" placeholder="Etkinlik adı" required autofocus></label>
+
+        <fieldset class="form-section date-section">
+          <legend>Tarih ve saat</legend>
+          <div class="date-block">
+            <span class="date-block__label">Başlangıç</span>
+            <div class="date-time-grid">
+              <label>Yıl<input id="start-year" name="startYear" type="text" inputmode="text" required></label>
+              <label>Ay<input id="start-month" name="startMonth" type="number" inputmode="numeric" min="1" max="12" step="1" required></label>
+              <label>Gün<input id="start-day" name="startDay" type="number" inputmode="numeric" min="1" max="30" step="1" required></label>
+              <label class="time-field">Saat<input id="start-time" name="startTime" type="time" step="60" required></label>
+            </div>
+          </div>
+          <div class="date-block">
+            <span class="date-block__label">Bitiş</span>
+            <div class="date-time-grid">
+              <label>Yıl<input id="end-year" name="endYear" type="text" inputmode="text" required></label>
+              <label>Ay<input id="end-month" name="endMonth" type="number" inputmode="numeric" min="1" max="12" step="1" required></label>
+              <label>Gün<input id="end-day" name="endDay" type="number" inputmode="numeric" min="1" max="30" step="1" required></label>
+              <label class="time-field">Saat<input id="end-time" name="endTime" type="time" step="60" required></label>
+            </div>
+          </div>
+          <label class="switch-row" for="all-day"><span><strong>Tüm gün</strong><small>Saat alanlarını kullanma</small></span><input id="all-day" name="allDay" type="checkbox" role="switch"></label>
+          <p class="form-error" id="event-date-error" role="alert" hidden></p>
+        </fieldset>
+
+        <fieldset class="form-section color-section">
+          <legend>Renk</legend>
+          <div class="color-options" id="event-color">
+            <label class="color-option color-option--red"><input type="radio" name="color" value="red" checked><span aria-label="Kırmızı"></span></label>
+            <label class="color-option color-option--orange"><input type="radio" name="color" value="orange"><span aria-label="Turuncu"></span></label>
+            <label class="color-option color-option--yellow"><input type="radio" name="color" value="yellow"><span aria-label="Sarı"></span></label>
+            <label class="color-option color-option--green"><input type="radio" name="color" value="green"><span aria-label="Yeşil"></span></label>
+            <label class="color-option color-option--blue"><input type="radio" name="color" value="blue"><span aria-label="Mavi"></span></label>
+            <label class="color-option color-option--indigo"><input type="radio" name="color" value="indigo"><span aria-label="Çivit mavisi"></span></label>
+            <label class="color-option color-option--purple"><input type="radio" name="color" value="purple"><span aria-label="Mor"></span></label>
+            <label class="color-option color-option--gray"><input type="radio" name="color" value="gray"><span aria-label="Gri"></span></label>
+          </div>
+        </fieldset>
+
+        <div class="form-grid">
+          <label class="field" for="event-category"><span>Takvim / kategori</span><select id="event-category" name="categoryId" required></select></label>
+          <label class="field" for="event-location"><span>Konum</span><input id="event-location" name="location" type="text" maxlength="240" autocomplete="off" placeholder="İsteğe bağlı"></label>
+          <label class="field" for="event-reminder"><span>Hatırlatıcı</span><select id="event-reminder" name="reminderMinutes">
+            <option value="none">Yok</option><option value="0">Etkinlik anında</option><option value="5">5 dakika önce</option><option value="15">15 dakika önce</option><option value="30">30 dakika önce</option><option value="60">1 saat önce</option><option value="1440">1 gün önce</option>
+          </select></label>
+          <label class="field" for="event-repeat"><span>Tekrarlama</span><select id="event-repeat" name="recurrence">
+            <option value="none">Tekrarlama yok</option><option value="daily">Her gün</option><option value="weekly">Her Mustafi haftası</option><option value="monthly">Her Mustafi ayı</option><option value="yearly">Her Mustafi yılı</option><option value="custom">Özel…</option>
+          </select></label>
+        </div>
+
+        <fieldset class="form-section recurrence-options" id="recurrence-options" hidden>
+          <legend>Özel tekrarlama</legend>
+          <div class="inline-fields">
+            <label>Her<input id="event-repeat-interval" name="recurrenceInterval" type="number" min="1" max="999" step="1" value="1"></label>
+            <label><span class="sr-only">Tekrarlama birimi</span><select id="event-repeat-unit" name="recurrenceUnit"><option value="day">günde</option><option value="week">Mustafi haftasında</option><option value="month">Mustafi ayında</option><option value="year">Mustafi yılında</option></select></label>
+          </div>
+          <fieldset class="nested-fieldset" id="event-repeat-end-type">
+            <legend>Bitiş</legend>
+            <label class="radio-row"><input type="radio" name="recurrenceEnd" value="never" checked> Süresiz</label>
+            <label class="radio-row"><input type="radio" name="recurrenceEnd" value="date"> Bu tarihte:
+              <span class="triple-input"><input id="event-repeat-until-year" name="recurrenceEndYear" type="text" inputmode="text" aria-label="Tekrar bitiş yılı"><input id="event-repeat-until-month" name="recurrenceEndMonth" type="number" inputmode="numeric" min="1" max="12" aria-label="Tekrar bitiş ayı"><input id="event-repeat-until-day" name="recurrenceEndDay" type="number" inputmode="numeric" min="1" max="30" aria-label="Tekrar bitiş günü"></span>
+            </label>
+            <label class="radio-row"><input type="radio" name="recurrenceEnd" value="count"> Şu kadar oluşumdan sonra: <input class="short-input" id="event-repeat-count" name="recurrenceCount" type="number" min="1" max="10000" step="1" value="10"></label>
+          </fieldset>
+        </fieldset>
+
+        <label class="field" for="event-notes"><span>Açıklama / not</span><textarea id="event-notes" name="notes" rows="4" maxlength="4000" placeholder="Bağlantılar, hazırlık notları veya ayrıntılar"></textarea></label>
+        <p class="form-error" id="event-form-error" role="alert" hidden></p>
+      </div>
+      <footer class="modal-footer">
+        <button class="danger-button" id="event-delete" type="button" hidden>Sil</button>
+        <span class="modal-footer__spacer"></span>
+        <button class="secondary-button" id="event-cancel" type="button" data-close-dialog="event-dialog">İptal</button>
+        <button class="primary-button" id="event-save-button" type="submit">Kaydet</button>
+      </footer>
+    </form>
+  </dialog>
+
+  <dialog class="modal compact-modal" id="event-details-dialog" aria-labelledby="event-details-title">
+    <article class="modal-card">
+      <header class="modal-header">
+        <div><p class="modal-kicker" id="event-details-date">Etkinlik</p><h2 id="event-details-title">—</h2></div>
+        <button class="modal-close" type="button" data-close-dialog="event-details-dialog" aria-label="Pencereyi kapat">×</button>
+      </header>
+      <div class="modal-body event-details" id="event-details-content"></div>
+      <footer class="modal-footer">
+        <button class="danger-button" id="details-delete-button" type="button">Sil</button>
+        <span class="modal-footer__spacer"></span>
+        <button class="secondary-button" type="button" data-close-dialog="event-details-dialog">Kapat</button>
+        <button class="primary-button" id="details-edit-button" type="button">Düzenle</button>
+      </footer>
+    </article>
+  </dialog>
+
+  <dialog class="modal settings-modal" id="settings-dialog" aria-labelledby="settings-title">
+    <form class="modal-card" id="settings-form" method="dialog">
+      <header class="modal-header">
+        <div><p class="modal-kicker">Tercihler</p><h2 id="settings-title">Ayarlar</h2></div>
+        <button class="modal-close" type="button" data-close-dialog="settings-dialog" aria-label="Pencereyi kapat">×</button>
+      </header>
+      <div class="modal-body settings-body">
+        <fieldset class="settings-group">
+          <legend>Görünüm</legend>
+          <div class="theme-picker" id="theme-select" role="radiogroup" aria-label="Tema">
+            <label><input type="radio" name="theme" value="system" checked><span><i class="theme-preview theme-preview--system" aria-hidden="true"></i>Sistem</span></label>
+            <label><input type="radio" name="theme" value="light"><span><i class="theme-preview theme-preview--light" aria-hidden="true"></i>Açık</span></label>
+            <label><input type="radio" name="theme" value="dark"><span><i class="theme-preview theme-preview--dark" aria-hidden="true"></i>Koyu</span></label>
+          </div>
+          <label class="switch-row" for="show-gregorian"><span><strong>Miladi karşılığı göster</strong><small>Mustafi tarihinin altında ikincil olarak görünür.</small></span><input id="show-gregorian" name="showGregorian" type="checkbox" role="switch" checked></label>
+        </fieldset>
+
+        <fieldset class="settings-group">
+          <legend>Tarih ve saat</legend>
+          <label class="field" for="timezone-select"><span>Zaman dilimi</span><input id="timezone-select" name="timezone" type="text" list="timezone-options" autocomplete="off" placeholder="Europe/Istanbul" required></label>
+          <datalist id="timezone-options"><option value="Europe/Istanbul"><option value="Europe/London"><option value="Europe/Berlin"><option value="America/New_York"><option value="America/Los_Angeles"><option value="Asia/Tokyo"><option value="Australia/Sydney"><option value="UTC"></datalist>
+          <p class="field-hint">Tarayıcı zaman diliminiz varsayılan olarak kullanılır. Geçerli bir IANA zaman dilimi seçin.</p>
+          <p class="form-error" id="timezone-error" role="alert" hidden></p>
+        </fieldset>
+
+        <fieldset class="settings-group">
+          <legend>Veriler</legend>
+          <div class="data-actions">
+            <button class="secondary-button" id="export-json" type="button">JSON dışa aktar</button>
+            <button class="secondary-button" id="import-json" type="button">JSON içe aktar</button>
+            <button class="secondary-button" id="export-ics" type="button">.ics dışa aktar</button>
+            <input id="import-json-file" type="file" accept="application/json,.json" hidden>
+          </div>
+          <p class="field-hint">İçe aktarma mevcut verileri silmeden önce onay ister. .ics dosyası Mustafi tarihlerini doğru Miladi günlere dönüştürür.</p>
+          <p class="form-error" id="data-action-error" role="alert" hidden></p>
+        </fieldset>
+      </div>
+      <footer class="modal-footer"><span class="modal-footer__spacer"></span><button class="secondary-button" id="settings-close" type="button" data-close-dialog="settings-dialog">İptal</button><button class="primary-button" type="submit">Ayarları kaydet</button></footer>
+    </form>
+  </dialog>
+
+  <dialog class="modal compact-modal" id="category-dialog" aria-labelledby="category-dialog-title">
+    <form class="modal-card" id="category-form" method="dialog">
+      <header class="modal-header"><div><p class="modal-kicker">Takvimler</p><h2 id="category-dialog-title">Yeni kategori</h2></div><button class="modal-close" type="button" data-close-dialog="category-dialog" aria-label="Pencereyi kapat">×</button></header>
+      <div class="modal-body"><input id="category-id" name="id" type="hidden"><label class="field" for="category-name"><span>Kategori adı</span><input id="category-name" name="name" type="text" maxlength="80" required></label><fieldset class="form-section"><legend>Renk</legend><div class="color-options" id="category-color-options"></div></fieldset><p class="form-error" id="category-form-error" role="alert" hidden></p></div>
+      <footer class="modal-footer"><button class="danger-button" id="category-delete-button" type="button" hidden>Sil</button><span class="modal-footer__spacer"></span><button class="secondary-button" type="button" data-close-dialog="category-dialog">İptal</button><button class="primary-button" type="submit">Kaydet</button></footer>
+    </form>
+  </dialog>
+
+  <dialog class="modal confirm-modal" id="delete-dialog" aria-labelledby="delete-title">
+    <form class="modal-card" method="dialog">
+      <div class="confirm-symbol" aria-hidden="true">!</div>
+      <div class="modal-body confirm-copy"><h2 id="delete-title">Etkinlik silinsin mi?</h2><p id="delete-message">Bu işlem etkinliği takviminizden kaldırır.</p></div>
+      <footer class="modal-footer"><button class="secondary-button" id="delete-cancel" value="cancel">Vazgeç</button><button class="danger-button danger-button--filled" id="delete-confirm" value="confirm">Sil</button></footer>
+    </form>
+  </dialog>
+
+  <dialog class="modal compact-modal" id="series-scope-dialog" aria-labelledby="series-scope-title">
+    <form class="modal-card" method="dialog">
+      <header class="modal-header"><div><p class="modal-kicker">Tekrarlayan etkinlik</p><h2 id="series-scope-title">Hangisi değiştirilsin?</h2></div><button class="modal-close" type="button" data-close-dialog="series-scope-dialog" aria-label="Pencereyi kapat">×</button></header>
+      <div class="modal-body scope-options"><button type="button" data-series-scope="occurrence"><strong>Yalnızca bu oluşum</strong><span>Serinin diğer tarihleri değişmez.</span></button><button type="button" data-series-scope="series"><strong>Tüm seri</strong><span>Bu etkinliğin bütün oluşumlarını etkiler.</span></button></div>
+      <footer class="modal-footer"><span class="modal-footer__spacer"></span><button class="secondary-button" type="button" data-close-dialog="series-scope-dialog">İptal</button></footer>
+    </form>
+  </dialog>
+
+  <dialog class="modal confirm-modal" id="import-confirm-dialog" aria-labelledby="import-confirm-title">
+    <form class="modal-card" method="dialog">
+      <div class="confirm-symbol confirm-symbol--info" aria-hidden="true">↥</div>
+      <div class="modal-body confirm-copy"><h2 id="import-confirm-title">Veriler içe aktarılsın mı?</h2><p>Geçerli etkinlikler korunur; aynı kimliğe sahip kayıtlar içe aktarılan dosyayla güncellenir.</p></div>
+      <footer class="modal-footer"><button class="secondary-button" value="cancel">Vazgeç</button><button class="primary-button" id="confirm-import-button" value="confirm">İçe aktar</button></footer>
+    </form>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden>
+    <span id="toast-message">Etkinlik silindi.</span>
+    <button id="toast-undo" type="button">Geri al</button>
+    <button class="toast-close" id="toast-close" type="button" aria-label="Bildirimi kapat">×</button>
+  </div>
+
+  <template id="weekday-template"><div class="weekday-cell" role="columnheader"><span class="weekday-full"></span><span class="weekday-short" aria-hidden="true"></span></div></template>
+  <template id="month-day-template"><button class="month-day" type="button" role="gridcell"><span class="month-day__number"></span><span class="month-day__events"></span><span class="month-day__dots" aria-hidden="true"></span></button></template>
+  <template id="event-chip-template"><button class="event-chip" type="button"><span class="event-chip__time"></span><span class="event-chip__title"></span></button></template>
+  <template id="year-month-template"><button class="year-month" type="button"><span class="year-month__title"></span><span class="year-month__weekdays" aria-hidden="true"></span><span class="year-month__days"></span></button></template>
+  <template id="agenda-item-template"><article class="agenda-item"><time class="agenda-item__date"></time><span class="agenda-item__color" aria-hidden="true"></span><button class="agenda-item__content" type="button"><strong class="agenda-item__title"></strong><span class="agenda-item__meta"></span></button></article></template>
+  <template id="timeline-hour-template"><div class="timeline-hour"><time></time><div class="timeline-hour__line"></div></div></template>
+  <template id="category-item-template"><div class="category-item"><label><input type="checkbox" checked><span class="category-color" aria-hidden="true"></span><span class="category-name"></span></label><button type="button" aria-label="Kategoriyi düzenle">•••</button></div></template>
+
+  <div class="sr-only" id="live-announcer" aria-live="polite" aria-atomic="true"></div>
+</body>
+</html>
