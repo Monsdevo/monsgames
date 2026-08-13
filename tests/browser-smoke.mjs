@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { writeFile } from "node:fs/promises";
 
 const CDP_HTTP = process.env.CDP_HTTP ?? "http://127.0.0.1:9231";
 const APP_URL = process.env.APP_URL ?? "http://127.0.0.1:4174/mustafi-takvimi/";
@@ -41,19 +42,28 @@ async function waitFor(expression, timeout = 5000) {
     if (await evaluate(expression)) return;
     await new Promise((resolve) => setTimeout(resolve, 50));
   }
-  throw new Error(`Beklenen tarayıcı durumu oluşmadı: ${expression}`);
+  const diagnostic = await evaluate(`(() => ({ appState: document.body?.dataset.appState, appError: document.querySelector('#app-error-message')?.textContent, readyState: document.readyState }))()`);
+  throw new Error(`Beklenen tarayıcı durumu oluşmadı: ${expression}\n${JSON.stringify(diagnostic)}`);
 }
 async function viewport(width, height) {
   await send("Emulation.setDeviceMetricsOverride", { width, height, deviceScaleFactor: 1, mobile: width <= 600 });
   await new Promise((resolve) => setTimeout(resolve, 100));
-  return evaluate(`(() => ({
+  return evaluate(`(() => {
+    const fab = document.querySelector('#new-event-btn').getBoundingClientRect();
+    const monthScroller = document.querySelector('#month-view .calendar-scroll');
+    return ({
     width: innerWidth,
     globalOverflow: document.documentElement.scrollWidth > innerWidth,
+    monthOverflow: monthScroller.scrollWidth > monthScroller.clientWidth + 1,
     columns: getComputedStyle(document.querySelector('#month-grid')).gridTemplateColumns.split(' ').length,
     headers: document.querySelectorAll('#month-weekday-header .weekday-cell').length,
     mobileAgenda: getComputedStyle(document.querySelector('#mobile-agenda')).display,
-    mobileNav: getComputedStyle(document.querySelector('.mobile-view-nav')).display
-  }))()`);
+    mobileNav: getComputedStyle(document.querySelector('.mobile-view-nav')).display,
+    mobileNavItems: document.querySelectorAll('.mobile-view-nav button').length,
+    toolbarCreateDisplay: getComputedStyle(document.querySelector('#new-event-toolbar-btn')).display,
+    selectedTitle: document.querySelector('#selected-day-title').textContent,
+    fab: { left: fab.left, right: fab.right, width: fab.width, height: fab.height }
+  }); })()`);
 }
 
 await send("Page.enable");
@@ -66,7 +76,7 @@ await waitFor(`document.body?.dataset.appState === 'ready'`, 8000);
 assert.match(await evaluate(`document.querySelector('#today-summary').textContent`), /^Bugün:/);
 assert.equal(await evaluate(`document.querySelectorAll('#month-grid .month-day').length`), 30);
 
-for (const [width, height] of [[1440, 1000], [900, 1000], [390, 844]]) {
+for (const [width, height] of [[1440, 1000], [900, 1000], [430, 932], [390, 844], [360, 800]]) {
   const layout = await viewport(width, height);
   assert.equal(layout.width, width);
   assert.equal(layout.columns, 15);
@@ -75,6 +85,43 @@ for (const [width, height] of [[1440, 1000], [900, 1000], [390, 844]]) {
   if (width <= 900) {
     assert.notEqual(layout.mobileAgenda, "none");
     assert.notEqual(layout.mobileNav, "none");
+    assert.equal(layout.mobileNavItems, 5);
+  }
+  if (width <= 600) {
+    assert.equal(layout.monthOverflow, false);
+    assert.equal(layout.toolbarCreateDisplay, "none");
+    assert.match(layout.selectedTitle, /gün$/);
+    assert.ok(layout.fab.left >= 0 && layout.fab.right <= width, `Mobil yeni etkinlik düğmesi ekran içinde olmalı: ${JSON.stringify(layout.fab)}`);
+    assert.ok(layout.fab.height >= 44);
+    if (process.env.MOBILE_SCREENSHOT && width === 390) {
+      const screenshot = await send("Page.captureScreenshot", { format: "png", captureBeyondViewport: false });
+      await writeFile(process.env.MOBILE_SCREENSHOT, Buffer.from(screenshot.data, "base64"));
+    }
+    await evaluate(`document.querySelector('#new-event-btn').click()`);
+    await waitFor(`document.querySelector('#event-dialog').open`);
+    const mobileForm = await evaluate(`(() => {
+      const card = document.querySelector('#event-dialog .modal-card').getBoundingClientRect();
+      const header = document.querySelector('#event-dialog .modal-header').getBoundingClientRect();
+      const body = document.querySelector('#event-dialog .modal-body');
+      const footer = document.querySelector('#event-dialog .modal-footer').getBoundingClientRect();
+      const save = document.querySelector('#event-save-button').getBoundingClientRect();
+      const cancel = document.querySelector('#event-cancel').getBoundingClientRect();
+      const title = document.querySelector('#event-title').getBoundingClientRect();
+      return { card: { left: card.left, top: card.top, right: card.right, bottom: card.bottom, height: card.height }, header: { top: header.top, bottom: header.bottom }, bodyScrollTop: body.scrollTop, footerBottom: footer.bottom, save: { left: save.left, right: save.right, height: save.height }, cancel: { left: cancel.left, right: cancel.right }, titleHeight: title.height };
+    })()`);
+    assert.ok(mobileForm.card.left >= 0 && mobileForm.card.right <= width);
+    assert.ok(mobileForm.card.bottom <= height);
+    assert.ok(mobileForm.footerBottom <= height);
+    assert.ok(mobileForm.header.top >= 0 && mobileForm.header.bottom <= height, `Mobil form başlığı görünür olmalı: ${JSON.stringify(mobileForm)}`);
+    assert.equal(mobileForm.bodyScrollTop, 0, `Mobil form en üstten açılmalı: ${JSON.stringify(mobileForm)}`);
+    assert.ok(mobileForm.save.right <= width && mobileForm.cancel.left >= 0 && mobileForm.save.right - mobileForm.save.left >= 56, `Mobil form eylemleri ekranda ve okunabilir kalmalı: ${JSON.stringify(mobileForm)}`);
+    assert.ok(mobileForm.save.height >= 44 && mobileForm.titleHeight >= 44, `Mobil form hedefleri en az 44 px olmalı: ${JSON.stringify(mobileForm)}`);
+    if (process.env.MOBILE_MODAL_SCREENSHOT && width === 390) {
+      const screenshot = await send("Page.captureScreenshot", { format: "png", captureBeyondViewport: false });
+      await writeFile(process.env.MOBILE_MODAL_SCREENSHOT, Buffer.from(screenshot.data, "base64"));
+    }
+    await evaluate(`document.querySelector('#event-cancel').click()`);
+    await waitFor(`!document.querySelector('#event-dialog').open`);
   }
 }
 
@@ -92,7 +139,7 @@ for (const [view, check] of Object.entries(viewChecks)) {
   await waitFor(check);
 }
 
-await evaluate(`document.querySelector('#new-event-btn').click()`);
+await evaluate(`document.querySelector('#new-event-toolbar-btn').click()`);
 await waitFor(`document.querySelector('#event-dialog').open`);
 await evaluate(`(() => {
   document.querySelector('#event-title').value = 'Tarayıcı Test Etkinliği';
@@ -153,6 +200,17 @@ await send("Page.reload", { ignoreCache: true });
 await waitFor(`document.body?.dataset.appState === 'ready'`, 8000);
 await evaluate(`(() => { document.querySelector('#agenda-range-select').value='90'; const select = document.querySelector('#view-select'); select.value='agenda'; select.dispatchEvent(new Event('change',{bubbles:true})); })()`);
 await waitFor(`document.querySelectorAll('#agenda-list .agenda-item').length === 3`);
+
+// Search opens the matching event without rebuilding the calendar behind the input.
+await evaluate(`document.querySelector('#search-toggle').click()`);
+await waitFor(`!document.querySelector('#search-panel').hidden`);
+await evaluate(`(() => { const input=document.querySelector('#search-input'); input.value='Tarayıcı'; input.dispatchEvent(new Event('input',{bubbles:true})); })()`);
+await waitFor(`document.querySelectorAll('[data-search-event]').length >= 1`);
+await evaluate(`document.querySelector('[data-search-event]').click()`);
+await waitFor(`document.querySelector('#event-details-dialog').open`);
+assert.equal(await evaluate(`document.querySelector('#event-details-title').textContent`), "Tarayıcı Test Etkinliği");
+await evaluate(`document.querySelector('#event-details-dialog [data-close-dialog]').click()`);
+await waitFor(`!document.querySelector('#event-details-dialog').open`);
 
 await evaluate(`document.querySelector('#settings-btn').click()`);
 await waitFor(`document.querySelector('#settings-dialog').open`);

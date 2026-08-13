@@ -23,6 +23,8 @@ const COLOR_MAP = Object.freeze({
   blue: "#007aff", indigo: "#5856d6", purple: "#af52de", gray: "#8e8e93",
 });
 const SHORT_WEEKDAYS = Object.freeze(["P.ev", "Paz", "Pzt", "S.ev", "Sal", "S.er", "Ç.ev", "Çar", "Ç.er", "P.ev", "Per", "P.er", "C.ev", "Cum", "Cmt"]);
+const NARROW_WEEKDAYS = Object.freeze(["Pe", "P", "Pt", "Se", "S", "Sr", "Çe", "Ç", "Çr", "Pv", "Pr", "Prt", "Ce", "C", "Ct"]);
+const COLOR_NAMES = Object.freeze({ red: "Kırmızı", orange: "Turuncu", yellow: "Sarı", green: "Yeşil", blue: "Mavi", indigo: "Çivit mavisi", purple: "Mor", gray: "Gri" });
 const VIEW_IDS = Object.freeze({ month: "month-view", week: "week-view", day: "day-view", year: "year-view", agenda: "agenda-view" });
 const state = {
   store: null,
@@ -41,6 +43,7 @@ const state = {
   undoEvent: null,
   tickTimer: null,
   dragged: null,
+  suppressDayClick: null,
 };
 
 function esc(value) {
@@ -139,6 +142,31 @@ function setPeriodTitle(text, subtitle = "Mustafi Takvimi") {
   $("#period-subtitle").textContent = subtitle;
 }
 
+function motionBehavior() { return matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"; }
+
+function revealSelectedDay(day, { focus = false, showAgenda = false } = {}) {
+  requestAnimationFrame(() => {
+    const target = $(`[data-select-day="${CSS.escape(String(day))}"]`);
+    if (!target) return;
+    target.scrollIntoView({ block: "nearest", inline: "nearest", behavior: motionBehavior() });
+    if (focus) target.focus({ preventScroll: true });
+    if (showAgenda && matchMedia("(max-width: 600px)").matches) {
+      const agenda = $("#mobile-agenda");
+      const navHeight = $(".mobile-view-nav")?.getBoundingClientRect().height ?? 0;
+      if (agenda.getBoundingClientRect().top > innerHeight - navHeight - 24) agenda.scrollIntoView({ block: "nearest", behavior: motionBehavior() });
+    }
+  });
+}
+
+function selectMonthDay(day, options = {}) {
+  state.selectedDay = BigInt(day);
+  state.cursorDay = state.selectedDay;
+  renderMonth();
+  wireDynamicInteractions();
+  announce(`${formatMustafiLong(state.selectedDay)} seçildi.`);
+  revealSelectedDay(state.selectedDay, options);
+}
+
 function eventChip(event, compact = false) {
   const time = event.allDay ? "Tüm gün" : minutesToText(event.startMinute);
   return `<button class="event-chip${compact ? " event-chip--compact" : ""}" type="button" draggable="true" data-event-id="${esc(event.sourceEventId ?? event.id)}" data-occurrence-day="${event.startDay}" style="--event-color:${esc(eventColor(event))}" title="${esc(event.title)}"><span class="event-chip__time">${esc(time)}</span><span class="event-chip__title">${esc(event.title)}</span></button>`;
@@ -150,7 +178,7 @@ function renderMonth() {
   const end = start + 29n;
   const events = visibleEvents(start, end);
   setPeriodTitle(`${MUSTAFI_MONTH_NAMES[cursor.month - 1]} ${formatEraYear(cursor.year)}`, "30 gün · 2 Mustafi haftası");
-  $("#month-weekday-header").innerHTML = MUSTAFI_WEEKDAY_NAMES.map((name, index) => `<div class="weekday-cell" role="columnheader" aria-label="${esc(name)}"><span class="weekday-full">${esc(name)}</span><span class="weekday-short" aria-hidden="true">${esc(SHORT_WEEKDAYS[index])}</span></div>`).join("");
+  $("#month-weekday-header").innerHTML = MUSTAFI_WEEKDAY_NAMES.map((name, index) => `<div class="weekday-cell" role="columnheader" aria-label="${esc(name)}"><span class="weekday-full">${esc(name)}</span><span class="weekday-short" aria-hidden="true">${esc(SHORT_WEEKDAYS[index])}</span><span class="weekday-narrow" aria-hidden="true">${esc(NARROW_WEEKDAYS[index])}</span></div>`).join("");
   $("#month-grid").innerHTML = Array.from({ length: 30 }, (_, index) => {
     const day = start + BigInt(index);
     const dayEvents = events.filter((event) => event.startDay <= day && event.endDay >= day);
@@ -158,7 +186,7 @@ function renderMonth() {
     const isSelected = sameDay(day, state.selectedDay);
     const labels = dayEvents.slice(0, 3).map((event) => eventChip(event, true)).join("");
     const dots = dayEvents.slice(0, 6).map((event) => `<i style="--event-color:${esc(eventColor(event))}"></i>`).join("");
-    return `<div class="month-day${isToday ? " is-today" : ""}${isSelected ? " is-selected" : ""}" role="gridcell" data-day="${day}" tabindex="0" aria-label="${esc(formatMustafiLong(day))}, ${dayEvents.length} etkinlik" draggable="false"><button class="month-day__hit" type="button" data-select-day="${day}" aria-label="${esc(formatMustafiLong(day))}"><span class="month-day__number">${index + 1}</span></button><span class="month-day__events">${labels}</span><span class="month-day__dots" aria-hidden="true">${dots}</span></div>`;
+    return `<div class="month-day${isToday ? " is-today" : ""}${isSelected ? " is-selected" : ""}" role="gridcell" data-day="${day}" aria-selected="${isSelected}" aria-rowindex="${Math.floor(index / 15) + 1}" aria-colindex="${index % 15 + 1}" aria-label="${esc(formatMustafiLong(day))}, ${dayEvents.length} etkinlik" draggable="false"><button class="month-day__hit" type="button" data-select-day="${day}" tabindex="${isSelected ? "0" : "-1"}" ${isToday ? 'aria-current="date"' : ""} aria-label="${esc(formatMustafiLong(day))}"><span class="month-day__number">${index + 1}</span></button><span class="month-day__events">${labels}</span><span class="month-day__dots" aria-hidden="true">${dots}</span></div>`;
   }).join("");
   renderSelectedDay();
 }
@@ -173,7 +201,7 @@ function renderWeek() {
   const end = start + 14n;
   const events = visibleEvents(start, end);
   setPeriodTitle(`${formatMustafiCompact(start)} – ${formatMustafiCompact(end)}`, "Tam 15 günlük Mustafi haftası");
-  $("#week-header").innerHTML = MUSTAFI_WEEKDAY_NAMES.map((name, index) => { const day = start + BigInt(index); const m = absoluteDayToMustafi(day); return `<button class="week-day-heading${sameDay(day, state.today.absoluteDay) ? " is-today" : ""}" type="button" data-open-day="${day}"><span>${esc(SHORT_WEEKDAYS[index])}</span><strong>${m.day}</strong></button>`; }).join("");
+  $("#week-header").innerHTML = MUSTAFI_WEEKDAY_NAMES.map((name, index) => { const day = start + BigInt(index); const m = absoluteDayToMustafi(day); return `<button class="week-day-heading${sameDay(day, state.today.absoluteDay) ? " is-today" : ""}" type="button" data-open-day="${day}" aria-label="${esc(formatMustafiLong(day))}"><span>${esc(SHORT_WEEKDAYS[index])}</span><strong>${m.day}</strong></button>`; }).join("");
   $("#week-all-day").innerHTML = Array.from({ length: 15 }, (_, index) => { const day = start + BigInt(index); return `<div class="week-all-day-cell" data-drop-day="${day}">${events.filter((event) => event.allDay && event.startDay <= day && event.endDay >= day).map((event) => eventChip(event, true)).join("")}</div>`; }).join("");
   const timed = events.filter((event) => !event.allDay);
   $("#week-grid").innerHTML = Array.from({ length: 15 }, (_, index) => { const day = start + BigInt(index); const items = timed.filter((event) => sameDay(event.startDay, day)).map((event) => `<button class="timeline-event timeline-event--week" type="button" draggable="true" data-event-id="${esc(event.sourceEventId ?? event.id)}" data-occurrence-day="${event.startDay}" style="--event-color:${esc(eventColor(event))};--start:${event.startMinute};--duration:${Math.max(30, event.endMinute - event.startMinute)}"><strong>${esc(event.title)}</strong><span>${minutesToText(event.startMinute)}</span></button>`).join(""); return `<div class="week-column" data-drop-day="${day}">${items}</div>`; }).join("");
@@ -225,14 +253,16 @@ function renderAgenda() {
   } else end = state.cursorDay + BigInt(Number(range) - 1);
   const events = visibleEvents(state.cursorDay, end);
   setPeriodTitle("Ajanda", `${formatMustafiCompact(state.cursorDay)} tarihinden itibaren`);
-  $("#agenda-list").innerHTML = events.map((event) => `<article class="agenda-item"><time>${esc(formatMustafiCompact(event.startDay))}<small>${esc(absoluteDayToMustafi(event.startDay).weekdayName)}</small></time><span class="agenda-item__color" style="--event-color:${esc(eventColor(event))}"></span><button class="agenda-item__content" type="button" data-event-id="${esc(event.sourceEventId ?? event.id)}" data-occurrence-day="${event.startDay}"><strong>${esc(event.title)}</strong><span>${event.allDay ? "Tüm gün" : `${minutesToText(event.startMinute)}–${minutesToText(event.endMinute)}`} · ${esc(categoryName(event))}${event.location ? ` · ${esc(event.location)}` : ""}</span></button></article>`).join("");
+  $("#agenda-list").innerHTML = events.map((event) => `<article class="agenda-item"><time class="agenda-item__date">${esc(formatMustafiCompact(event.startDay))}<small>${esc(absoluteDayToMustafi(event.startDay).weekdayName)}</small></time><span class="agenda-item__color" style="--event-color:${esc(eventColor(event))}"></span><button class="agenda-item__content" type="button" data-event-id="${esc(event.sourceEventId ?? event.id)}" data-occurrence-day="${event.startDay}" aria-label="${esc(event.title)}, ${esc(formatMustafiCompact(event.startDay))}"><strong class="agenda-item__title">${esc(event.title)}</strong><span class="agenda-item__meta">${event.allDay ? "Tüm gün" : `${minutesToText(event.startMinute)}–${minutesToText(event.endMinute)}`} · ${esc(categoryName(event))}${event.location ? ` · ${esc(event.location)}` : ""}</span></button></article>`).join("");
   $("#agenda-empty").hidden = events.length > 0;
 }
 
 function renderSelectedDay() {
   const day = state.selectedDay;
   const events = visibleEvents(day, day);
-  $("#selected-day-title").textContent = formatMustafiLong(day);
+  const value = absoluteDayToMustafi(day);
+  $("#selected-day-title").textContent = `${value.weekdayName}, ${value.day}. gün`;
+  $("#selected-day-period").textContent = `${MUSTAFI_MONTH_NAMES[value.month - 1]} ${formatEraYear(value.year)}`;
   $("#selected-day-events").innerHTML = events.length ? events.map((event) => `<div class="selected-event"><span style="--event-color:${esc(eventColor(event))}"></span><button type="button" data-event-id="${esc(event.sourceEventId ?? event.id)}" data-occurrence-day="${event.startDay}"><strong>${esc(event.title)}</strong><small>${event.allDay ? "Tüm gün" : minutesToText(event.startMinute)} · ${esc(categoryName(event))}</small></button></div>`).join("") : `<p class="empty-message">Bu günde etkinlik yok.</p>`;
 }
 
@@ -249,7 +279,10 @@ function render() {
   if (!state.today || !state.settings) return;
   for (const [view, id] of Object.entries(VIEW_IDS)) $("#" + id).hidden = view !== state.view;
   $("#view-select").value = state.view;
-  $$('[data-set-view]').forEach((button) => button.toggleAttribute("aria-current", button.dataset.setView === state.view));
+  $$('[data-set-view]').forEach((button) => {
+    if (button.dataset.setView === state.view) button.setAttribute("aria-current", "page");
+    else button.removeAttribute("aria-current");
+  });
   document.body.dataset.view = state.view;
   if (state.view === "month") renderMonth();
   if (state.view === "week") renderWeek();
@@ -280,7 +313,21 @@ function navigate(direction) {
   render();
 }
 
-function openDialog(dialog) { if (!dialog.open) dialog.showModal(); }
+const dialogReturnFocus = new WeakMap();
+function openDialog(dialog, preferredFocus = null) {
+  if (dialog.open) return;
+  const active = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+  dialogReturnFocus.set(dialog, active);
+  dialog.addEventListener("close", () => {
+    const target = dialogReturnFocus.get(dialog);
+    dialogReturnFocus.delete(dialog);
+    if (!target?.isConnected) return;
+    const parentDialog = target.closest("dialog");
+    if (!parentDialog || parentDialog.open) target.focus({ preventScroll: true });
+  }, { once: true });
+  dialog.showModal();
+  requestAnimationFrame(() => (preferredFocus ?? $("[autofocus], input:not([type=hidden]), select, textarea, button", dialog))?.focus({ preventScroll: true }));
+}
 function closeDialog(dialog) { if (dialog.open) dialog.close(); }
 function populateDate(prefix, day) {
   const value = absoluteDayToMustafi(day);
@@ -333,7 +380,7 @@ function openEventEditor(day = state.selectedDay, event = null, occurrenceDay = 
   $("#event-delete").hidden = !event;
   setFieldError($("#event-form-error")); setFieldError($("#event-date-error"));
   toggleAllDay();
-  openDialog($("#event-dialog"));
+  openDialog($("#event-dialog"), $("#event-title"));
 }
 
 function recurrenceFromForm() {
@@ -385,7 +432,17 @@ async function saveEventFromForm(event) {
       }
     } else await state.store.saveEvent(payload);
     await reloadData(); closeDialog($("#event-dialog")); render(); showToast("Etkinlik kaydedildi.");
-  } catch (error) { setFieldError($("#event-form-error"), error.message); }
+  } catch (error) {
+    setFieldError($("#event-form-error"), error.message);
+    const invalid = $("#event-form :invalid");
+    if (invalid) {
+      invalid.setAttribute("aria-invalid", "true");
+      invalid.focus({ preventScroll: false });
+    } else {
+      $("#event-form-error").tabIndex = -1;
+      $("#event-form-error").focus({ preventScroll: false });
+    }
+  }
 }
 
 function chooseSeriesScope() {
@@ -438,7 +495,7 @@ function openCategoryEditor(category = null) {
   $("#category-form").reset(); $("#category-id").value = category?.id ?? ""; $("#category-name").value = category?.name ?? "";
   $("#category-dialog-title").textContent = category ? "Kategoriyi düzenle" : "Yeni kategori";
   $("#category-delete-button").hidden = !category;
-  $("#category-color-options").innerHTML = Object.entries(COLOR_MAP).map(([name, color], index) => `<label class="color-option color-option--${name}"><input type="radio" name="categoryColor" value="${color}" ${(category?.color === color || (!category && index === 0)) ? "checked" : ""}><span aria-label="${name}"></span></label>`).join("");
+  $("#category-color-options").innerHTML = Object.entries(COLOR_MAP).map(([name, color], index) => `<label class="color-option color-option--${name}"><input type="radio" name="categoryColor" value="${color}" aria-label="${esc(COLOR_NAMES[name])}" ${(category?.color === color || (!category && index === 0)) ? "checked" : ""}><span aria-hidden="true"></span></label>`).join("");
   openDialog($("#category-dialog"));
 }
 
@@ -449,7 +506,29 @@ async function saveCategory(event) {
 }
 
 function wireDynamicInteractions() {
-  $$('[data-select-day]').forEach((button) => button.addEventListener("click", () => { state.selectedDay = BigInt(button.dataset.selectDay); renderMonth(); wireDynamicInteractions(); }));
+  $$('[data-select-day]').forEach((button) => {
+    button.addEventListener("click", () => {
+      if (state.suppressDayClick === button.dataset.selectDay) { state.suppressDayClick = null; return; }
+      selectMonthDay(button.dataset.selectDay, { showAgenda: true });
+    });
+    button.addEventListener("keydown", (event) => {
+      const current = BigInt(button.dataset.selectDay);
+      const month = absoluteDayToMustafi(current);
+      const start = mustafiToAbsoluteDay(month.year, month.month, 1);
+      const index = Number(current - start);
+      let nextIndex = null;
+      if (event.key === "ArrowLeft") nextIndex = index - 1;
+      if (event.key === "ArrowRight") nextIndex = index + 1;
+      if (event.key === "ArrowUp") nextIndex = index - 15;
+      if (event.key === "ArrowDown") nextIndex = index + 15;
+      if (event.key === "Home") nextIndex = Math.floor(index / 15) * 15;
+      if (event.key === "End") nextIndex = Math.floor(index / 15) * 15 + 14;
+      if (nextIndex == null) return;
+      event.preventDefault();
+      nextIndex = Math.max(0, Math.min(29, nextIndex));
+      selectMonthDay(start + BigInt(nextIndex), { focus: true });
+    });
+  });
   $$('[data-open-day]').forEach((button) => button.addEventListener("click", () => { state.cursorDay = BigInt(button.dataset.openDay); state.selectedDay = state.cursorDay; setView("day"); }));
   $$('[data-open-month]').forEach((button) => button.addEventListener("click", () => { const year = absoluteDayToMustafi(state.cursorDay).year; state.cursorDay = mustafiToAbsoluteDay(year, Number(button.dataset.openMonth), 1); state.selectedDay = state.cursorDay; setView("month"); }));
   $$('[data-event-id]').forEach((button) => button.addEventListener("click", (event) => { event.stopPropagation(); openEventDetails(button.dataset.eventId, button.dataset.occurrenceDay); }));
@@ -457,20 +536,34 @@ function wireDynamicInteractions() {
   $$('[data-edit-category]').forEach((button) => button.addEventListener("click", () => openCategoryEditor(state.categories.find((category) => category.id === button.dataset.editCategory))));
   $$('[data-day]').forEach((cell) => {
     let longPressTimer;
-    const cancel = () => clearTimeout(longPressTimer);
+    let originX = 0;
+    let originY = 0;
+    const cancel = () => { clearTimeout(longPressTimer); longPressTimer = null; };
     cell.addEventListener("pointerdown", (event) => {
       if (event.pointerType !== "touch" && event.pointerType !== "pen") return;
+      if (event.target.closest("[data-event-id]")) return;
+      originX = event.clientX;
+      originY = event.clientY;
       longPressTimer = setTimeout(() => {
         state.selectedDay = BigInt(cell.dataset.day);
+        state.cursorDay = state.selectedDay;
+        state.suppressDayClick = cell.dataset.day;
+        setTimeout(() => { if (state.suppressDayClick === cell.dataset.day) state.suppressDayClick = null; }, 900);
         openEventEditor(state.selectedDay);
         navigator.vibrate?.(20);
       }, 560);
     });
     cell.addEventListener("pointerup", cancel);
     cell.addEventListener("pointercancel", cancel);
-    cell.addEventListener("pointermove", cancel);
+    cell.addEventListener("pointermove", (event) => {
+      if (Math.hypot(event.clientX - originX, event.clientY - originY) > 10) cancel();
+    }, { passive: true });
   });
-  $$('[draggable="true"]').forEach((element) => element.addEventListener("dragstart", () => { state.dragged = { id: element.dataset.eventId, occurrenceDay: BigInt(element.dataset.occurrenceDay) }; }));
+  const finePointer = matchMedia("(pointer: fine)").matches;
+  $$('[draggable="true"]').forEach((element) => {
+    element.draggable = finePointer;
+    if (finePointer) element.addEventListener("dragstart", () => { state.dragged = { id: element.dataset.eventId, occurrenceDay: BigInt(element.dataset.occurrenceDay) }; });
+  });
   $$('[data-day], [data-drop-day]').forEach((target) => { target.addEventListener("dragover", (event) => event.preventDefault()); target.addEventListener("drop", async (event) => { event.preventDefault(); if (!state.dragged) return; await moveDraggedToDay(BigInt(target.dataset.day ?? target.dataset.dropDay)); }); });
   $$('[data-drop-minute]').forEach((target) => { target.addEventListener("dragover", (event) => event.preventDefault()); target.addEventListener("drop", async (event) => { event.preventDefault(); if (!state.dragged) return; await moveDraggedToTime(Number(target.dataset.dropMinute)); }); });
 }
@@ -518,6 +611,43 @@ async function performImport() {
   catch (error) { closeDialog($("#import-confirm-dialog")); setFieldError($("#data-action-error"), error.message); }
 }
 
+function setSidebarOpen(open, { restoreFocus = true } = {}) {
+  document.body.classList.toggle("sidebar-open", open);
+  $("#sidebar-toggle").setAttribute("aria-expanded", String(open));
+  $("#sidebar-toggle").setAttribute("aria-label", open ? "Kenar çubuğunu kapat" : "Kenar çubuğunu aç");
+  $("#sidebar-scrim").hidden = !open;
+  for (const selector of ["#calendar-view", ".mobile-view-nav", ".today-strip"]) {
+    const element = $(selector);
+    if (element) element.inert = open;
+  }
+  if (open) requestAnimationFrame(() => $("button, input, select, textarea, a[href]", $("#sidebar"))?.focus());
+  else if (restoreFocus) $("#sidebar-toggle").focus({ preventScroll: true });
+}
+
+function closeSearch({ restoreFocus = true } = {}) {
+  $("#search-panel").hidden = true;
+  $("#search-toggle").setAttribute("aria-expanded", "false");
+  if (restoreFocus) $("#search-toggle").focus({ preventScroll: true });
+}
+
+function updateSearchResults() {
+  const query = $("#search-input").value.trim();
+  const results = searchEvents(state.events, query).slice(0, 10);
+  $("#search-results").hidden = !query;
+  $("#search-results").innerHTML = results.length
+    ? results.map((item) => `<div role="listitem"><button type="button" data-search-event="${esc(item.id)}" aria-label="${esc(item.title)}, ${esc(formatMustafiCompact(item.startDay))}"><strong>${esc(item.title)}</strong><span>${esc(formatMustafiCompact(item.startDay))}</span></button></div>`).join("")
+    : `<p>Sonuç bulunamadı.</p>`;
+  $$('[data-search-event]').forEach((button) => button.addEventListener("click", () => {
+    const item = findSourceEvent(button.dataset.searchEvent);
+    if (!item) return;
+    state.cursorDay = item.startDay;
+    state.selectedDay = item.startDay;
+    closeSearch();
+    render();
+    openEventDetails(item.id, item.startDay);
+  }));
+}
+
 function bindStaticInteractions() {
   $("#prev-btn").addEventListener("click", () => navigate(-1)); $("#next-btn").addEventListener("click", () => navigate(1));
   $("#today-btn").addEventListener("click", () => { refreshToday(); state.cursorDay = state.today.absoluteDay; state.selectedDay = state.cursorDay; render(); });
@@ -539,19 +669,37 @@ function bindStaticInteractions() {
   $("#goto-form").addEventListener("submit", (event) => { event.preventDefault(); try { state.cursorDay = mustafiToAbsoluteDay(parseVisibleYear($("#goto-year").value), Number($("#goto-month").value), Number($("#goto-day").value)); state.selectedDay = state.cursorDay; setFieldError($("#jump-error")); render(); } catch (error) { setFieldError($("#jump-error"), error.message); } });
   $("#color-filter").addEventListener("change", (event) => { state.color = event.target.value; render(); });
   $("#clear-filters").addEventListener("click", () => { state.color = "all"; state.query = ""; $("#search-input").value = ""; render(); });
-  $("#search-toggle").addEventListener("click", () => { $("#search-panel").hidden = false; $("#search-toggle").setAttribute("aria-expanded", "true"); $("#search-input").focus(); });
-  $("#search-close").addEventListener("click", () => { $("#search-panel").hidden = true; $("#search-toggle").setAttribute("aria-expanded", "false"); });
-  $("#search-input").addEventListener("input", (event) => { state.query = event.target.value; const results = searchEvents(state.events, state.query).slice(0, 10); $("#search-results").hidden = !state.query; $("#search-results").innerHTML = results.map((item) => `<button type="button" data-search-event="${esc(item.id)}"><strong>${esc(item.title)}</strong><span>${esc(formatMustafiCompact(item.startDay))}</span></button>`).join("") || `<p>Sonuç bulunamadı.</p>`; $$('[data-search-event]').forEach((button) => button.addEventListener("click", () => { const item = findSourceEvent(button.dataset.searchEvent); state.cursorDay = item.startDay; state.selectedDay = item.startDay; $("#search-panel").hidden = true; setView("agenda"); })); render(); });
+  $("#search-toggle").addEventListener("click", () => { $("#search-panel").hidden = false; $("#search-toggle").setAttribute("aria-expanded", "true"); updateSearchResults(); $("#search-input").focus(); });
+  $("#search-close").addEventListener("click", () => closeSearch());
+  $("#search-input").addEventListener("input", updateSearchResults);
   $("#agenda-range-select").addEventListener("change", render);
-  $("#sidebar-toggle").addEventListener("click", () => { const open = document.body.classList.toggle("sidebar-open"); $("#sidebar-toggle").setAttribute("aria-expanded", String(open)); $("#sidebar-scrim").hidden = !open; });
-  $("#sidebar-scrim").addEventListener("click", () => { document.body.classList.remove("sidebar-open"); $("#sidebar-toggle").setAttribute("aria-expanded", "false"); $("#sidebar-scrim").hidden = true; });
+  $("#sidebar-toggle").addEventListener("click", () => setSidebarOpen(!document.body.classList.contains("sidebar-open")));
+  $("#sidebar-scrim").addEventListener("click", () => setSidebarOpen(false));
   $$('[data-close-dialog]').forEach((button) => button.addEventListener("click", () => closeDialog($("#" + button.dataset.closeDialog))));
   $("#export-json").addEventListener("click", () => downloadCalendarJSON({ events: state.events, categories: state.categories, settings: state.settings }));
   $("#export-ics").addEventListener("click", () => { try { downloadCalendarICS(state.events.map((event) => ({ ...event, categoryName: categoryName(event) })), { rangeStart: state.today.absoluteDay - 360n, rangeEnd: state.today.absoluteDay + 3600n }); } catch (error) { setFieldError($("#data-action-error"), error.message); } });
   $("#import-json").addEventListener("click", () => $("#import-json-file").click());
   $("#import-json-file").addEventListener("change", async (event) => { const file = event.target.files[0]; if (!file) return; state.pendingImport = await file.text(); openDialog($("#import-confirm-dialog")); event.target.value = ""; });
   $("#confirm-import-button").addEventListener("click", (event) => { event.preventDefault(); performImport(); });
-  document.addEventListener("keydown", (event) => { if (event.target.matches("input,textarea,select") || event.ctrlKey || event.metaKey || event.altKey) return; if (event.key === "ArrowLeft") navigate(-1); if (event.key === "ArrowRight") navigate(1); if (event.key.toLowerCase() === "t") $("#today-btn").click(); if (event.key.toLowerCase() === "n") openEventEditor(state.selectedDay); });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && !$("#search-panel").hidden) { event.preventDefault(); closeSearch(); return; }
+    if (event.key === "Escape" && document.body.classList.contains("sidebar-open") && !$("dialog[open]")) { event.preventDefault(); setSidebarOpen(false); return; }
+    if (document.body.classList.contains("sidebar-open") && event.key === "Tab") {
+      const focusable = $$("button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), a[href]", $("#sidebar")).filter((element) => !element.hidden);
+      if (focusable.length) {
+        const first = focusable[0]; const last = focusable.at(-1);
+        if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+        else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+      }
+      return;
+    }
+    if (event.target.matches("input,textarea,select,button") || event.target.closest("[role=grid],dialog") || event.ctrlKey || event.metaKey || event.altKey) return;
+    if (event.key === "ArrowLeft") navigate(-1);
+    if (event.key === "ArrowRight") navigate(1);
+    if (event.key.toLowerCase() === "t") $("#today-btn").click();
+    if (event.key.toLowerCase() === "n") openEventEditor(state.selectedDay);
+  });
+  matchMedia("(min-width: 901px)").addEventListener("change", (event) => { if (event.matches && document.body.classList.contains("sidebar-open")) setSidebarOpen(false, { restoreFocus: false }); });
 }
 
 async function initialize() {

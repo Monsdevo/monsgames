@@ -48,7 +48,7 @@
         <button class="icon-button" id="search-toggle" type="button" aria-label="Etkinliklerde ara" aria-controls="search-panel" aria-expanded="false" title="Ara">
           <span class="search-icon" aria-hidden="true"></span>
         </button>
-        <button class="primary-button" id="new-event-btn" type="button">
+        <button class="primary-button" id="new-event-toolbar-btn" type="button" aria-label="Yeni etkinlik ekle" data-open-event-editor>
           <span aria-hidden="true">＋</span><span class="primary-button__label">Yeni etkinlik</span>
         </button>
         <label class="view-picker" for="view-select">
@@ -73,7 +73,7 @@
           <input id="search-input" type="search" autocomplete="off" placeholder="Başlık, konum veya notlarda ara">
         </label>
         <button class="text-button" id="search-close" type="button">Kapat</button>
-        <div class="search-results" id="search-results" role="listbox" aria-label="Arama sonuçları" hidden></div>
+        <div class="search-results" id="search-results" role="list" aria-label="Arama sonuçları" aria-live="polite" hidden></div>
       </form>
     </header>
 
@@ -152,11 +152,13 @@
               <div class="month-grid" id="month-grid" role="grid" aria-rowcount="2" aria-colcount="15"></div>
             </div>
           </div>
+          <p class="month-mobile-tip"><span aria-hidden="true">↟</span> Bir güne dokunun; hızlıca etkinlik eklemek için basılı tutun.</p>
           <section class="selected-day-agenda" id="mobile-agenda" aria-labelledby="selected-day-title">
             <div class="selected-day-agenda__heading">
               <div>
                 <p class="section-eyebrow">Seçili gün</p>
                 <h2 id="selected-day-title">Bir gün seçin</h2>
+                <p class="selected-day-period" id="selected-day-period"></p>
               </div>
               <button class="small-primary-button" id="selected-day-new-event" type="button">＋ Etkinlik</button>
             </div>
@@ -215,11 +217,15 @@
       </main>
     </div>
 
+    <button class="primary-button mobile-create-button" id="new-event-btn" type="button" aria-label="Seçili güne yeni etkinlik ekle">
+      <span aria-hidden="true">＋</span><span class="primary-button__label">Yeni etkinlik</span>
+    </button>
+
     <nav class="mobile-view-nav" aria-label="Takvim görünümü">
       <button type="button" data-set-view="month" aria-current="page"><span aria-hidden="true">▦</span>Ay</button>
       <button type="button" data-set-view="week"><span aria-hidden="true">▥</span>15 Gün</button>
       <button type="button" data-set-view="day"><span aria-hidden="true">▤</span>Gün</button>
-      <button type="button" data-set-view="year"><span aria-hidden="true">▦</span>Yıl</button>
+      <button type="button" data-set-view="year"><span aria-hidden="true">▧</span>Yıl</button>
       <button type="button" data-set-view="agenda"><span aria-hidden="true">☷</span>Ajanda</button>
     </nav>
   </div>
@@ -262,14 +268,14 @@
         <fieldset class="form-section color-section">
           <legend>Renk</legend>
           <div class="color-options" id="event-color">
-            <label class="color-option color-option--red"><input type="radio" name="color" value="red" checked><span aria-label="Kırmızı"></span></label>
-            <label class="color-option color-option--orange"><input type="radio" name="color" value="orange"><span aria-label="Turuncu"></span></label>
-            <label class="color-option color-option--yellow"><input type="radio" name="color" value="yellow"><span aria-label="Sarı"></span></label>
-            <label class="color-option color-option--green"><input type="radio" name="color" value="green"><span aria-label="Yeşil"></span></label>
-            <label class="color-option color-option--blue"><input type="radio" name="color" value="blue"><span aria-label="Mavi"></span></label>
-            <label class="color-option color-option--indigo"><input type="radio" name="color" value="indigo"><span aria-label="Çivit mavisi"></span></label>
-            <label class="color-option color-option--purple"><input type="radio" name="color" value="purple"><span aria-label="Mor"></span></label>
-            <label class="color-option color-option--gray"><input type="radio" name="color" value="gray"><span aria-label="Gri"></span></label>
+            <label class="color-option color-option--red"><input type="radio" name="color" value="red" aria-label="Kırmızı" checked><span aria-hidden="true"></span></label>
+            <label class="color-option color-option--orange"><input type="radio" name="color" value="orange" aria-label="Turuncu"><span aria-hidden="true"></span></label>
+            <label class="color-option color-option--yellow"><input type="radio" name="color" value="yellow" aria-label="Sarı"><span aria-hidden="true"></span></label>
+            <label class="color-option color-option--green"><input type="radio" name="color" value="green" aria-label="Yeşil"><span aria-hidden="true"></span></label>
+            <label class="color-option color-option--blue"><input type="radio" name="color" value="blue" aria-label="Mavi"><span aria-hidden="true"></span></label>
+            <label class="color-option color-option--indigo"><input type="radio" name="color" value="indigo" aria-label="Çivit mavisi"><span aria-hidden="true"></span></label>
+            <label class="color-option color-option--purple"><input type="radio" name="color" value="purple" aria-label="Mor"><span aria-hidden="true"></span></label>
+            <label class="color-option color-option--gray"><input type="radio" name="color" value="gray" aria-label="Gri"><span aria-hidden="true"></span></label>
           </div>
         </fieldset>
 
