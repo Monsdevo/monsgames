@@ -1,212 +1,130 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0a0a0a">
-  <meta name="color-scheme" content="dark">
-  <title>Mons Games — Independent Game Studio</title>
-  <meta name="description" content="Mons Games is an independent studio creating distinctive multiplayer experiences. Currently developing Bad Haunts, an asymmetric horror-comedy.">
-  <meta name="author" content="Mons Games">
-  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0b0a0d">
+  <title>Mons Games — Bad Haunts &amp; player-made stories</title>
+  <meta name="description" content="Meet Mons Games and Bad Haunts: an asymmetric multiplayer horror-comedy where Humans investigate and player-controlled Haunts interfere.">
   <link rel="canonical" href="https://monsgames.net/">
+  <meta property="og:title" content="Mons Games — Games built for player-made stories">
+  <meta property="og:description" content="Discover Bad Haunts, the asymmetric multiplayer horror-comedy in development at Mons Games.">
   <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Mons Games">
-  <meta property="og:title" content="Mons Games — Independent Game Studio">
-  <meta property="og:description" content="Games built for stories players create themselves.">
   <meta property="og:url" content="https://monsgames.net/">
   <meta property="og:image" content="https://monsgames.net/assets/mons-games-social.png">
-  <meta property="og:image:alt" content="Mons Games — Games built for stories players create themselves.">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Mons Games — Independent Game Studio">
-  <meta name="twitter:description" content="Games built for stories players create themselves.">
+  <meta name="twitter:title" content="Mons Games — Bad Haunts">
+  <meta name="twitter:description" content="Humans investigate. Player-controlled Haunts interfere. Follow development at Mons Games.">
   <meta name="twitter:image" content="https://monsgames.net/assets/mons-games-social.png">
-  <link rel="icon" type="image/png" href="assets/mons-games-mark.png">
+  <link rel="icon" href="assets/mons-games-mark.png">
+  <link rel="preload" href="assets/fonts/six-caps.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/courier-prime.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="portfolio.css">
   <script src="portfolio.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="#main-content">Skip to content</a>
-
-  <header class="site-header" data-header>
-    <div class="header-inner">
-      <a class="studio-mark" href="#home" aria-label="Mons Games home">
-        <span class="studio-mark__logo" aria-hidden="true"><img src="assets/mons-games-mark.png" alt=""></span>
-        <span class="studio-mark__name">MONS GAMES</span>
-      </a>
-      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-navigation" data-menu-button>
-        <span class="sr-only">Open navigation</span><span aria-hidden="true"></span><span aria-hidden="true"></span>
-      </button>
-      <nav class="site-nav" id="site-navigation" aria-label="Primary navigation" data-menu>
-        <a href="#home" data-nav-link>Home</a>
-        <a href="#games" data-nav-link>Games</a>
-        <a href="#devlogs" data-nav-link>Devlogs</a>
-        <a href="#about" data-nav-link>About</a>
-        <a href="#contact" data-nav-link>Contact</a>
-      </nav>
-      <a class="header-social" href="https://www.instagram.com/badhaunts/" target="_blank" rel="noopener noreferrer" aria-label="Bad Haunts on Instagram">Bad Haunts IG <span aria-hidden="true">↗</span></a>
-    </div>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="masthead" id="home">
+    <a class="brand" href="#home"><img src="assets/mons-games-mark.png" width="36" height="36" alt=""><span>MONS GAMES</span></a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navigation">Menu</button>
+    <nav id="navigation" aria-label="Main navigation"><a href="#bad-haunts"><span>Game</span></a><a href="#devlogs"><span>Devlog</span></a><a href="#about"><span>Studio</span></a><a href="#contact"><span>Contact</span></a></nav>
   </header>
-
-  <main id="main-content">
-    <section class="hero section-shell" id="home" aria-labelledby="hero-title">
-      <div class="hero-grid">
-        <div class="hero-copy">
-          <p class="eyebrow"><span>Independent game studio</span><span>Creator-led</span></p>
-          <h1 id="hero-title">Games built for stories players create themselves.</h1>
-          <p class="hero-intro">Mons Games creates distinctive multiplayer experiences built around tension, interaction and unforgettable player moments.</p>
-          <div class="button-row">
-            <a class="button button--light" href="#games">Explore our games <span aria-hidden="true">↓</span></a>
-            <a class="button button--quiet" href="#devlogs">Development notes</a>
-          </div>
-        </div>
-        <div class="hero-studio-card" aria-label="Mons Games studio principles">
-          <div class="hero-studio-card__top"><span>MONS / 001</span><span>INDEPENDENT</span></div>
-          <div class="studio-signal" aria-hidden="true"><span class="studio-signal__ring"></span><span class="studio-signal__logo"><img src="assets/mons-games-mark.png" alt=""></span></div>
-          <div class="hero-studio-card__bottom"><span>Player interaction</span><span>Strong identity</span><span>Shareable moments</span></div>
-        </div>
+  <main id="main">
+    <section class="opening" id="bad-haunts" aria-label="Bad Haunts — Humans investigate, Haunts interfere">
+      <div class="book-art" aria-hidden="true">
+        <picture><source srcset="assets/plates/human-page.webp" type="image/webp"><img src="assets/plates/human-page.png" width="1354" height="1161" alt="" fetchpriority="high"></picture>
+        <picture><source srcset="assets/plates/haunt-page.webp" type="image/webp"><img src="assets/plates/haunt-page.png" width="1356" height="1160" alt=""></picture>
       </div>
-      <div class="hero-index" aria-hidden="true"><span>MONS</span><span>GAMES</span></div>
+      <div class="game-identity">
+        <h1><span>Bad</span><span>Haunts</span></h1>
+        <img class="official-game-logo" src="assets/bad-haunts-logo.png" width="1254" height="1254" alt="Bad Haunts official logo">
+        <p class="mobile-premise">An asymmetric multiplayer horror-comedy. <br>Humans investigate. Haunts interfere.</p>
+      </div>
+      <div class="follow-actions">
+        <a class="follow follow--instagram" href="https://www.instagram.com/badhaunts/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none"/></svg><span>Follow on Instagram</span><svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h17m-7-7 7 7-7 7"/></svg></a>
+        <a class="follow follow--youtube" href="https://www.youtube.com/@badhaunts" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="4" fill="currentColor" stroke="none"/><path d="m10 9 6 3-6 3z" class="play" stroke="none"/></svg><span>Watch on YouTube</span><svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h17m-7-7 7 7-7 7"/></svg></a>
+      </div>
+      <p class="studio-line">Games built for stories<br>players create themselves.</p>
+      <article class="role role--human" aria-labelledby="humans-title">
+        <span class="side-tab" aria-hidden="true">SIDE A</span>
+        <h2 id="humans-title">HUMANS</h2>
+        <p class="role-intro">You investigate. <br>Work together. Stay sharp.</p>
+        <h3 class="tools-label">Your tools</h3>
+        <div class="cue cue--one"><h4><button class="cue-switch" type="button" data-cue="mirrors" aria-pressed="false" aria-controls="haunt-mirrors">Mirrors</button></h4><p>Reveal what isn’t <br>supposed to be seen.</p></div>
+        <div class="cue cue--two"><h4><button class="cue-switch" type="button" data-cue="cameras" aria-pressed="false" aria-controls="haunt-cameras">Cameras</button></h4><p>Watch the room. <br>Find what moves.</p></div>
+        <p class="hand-note communication">Communicate. Share info.<br>Evidence over fear.</p>
+        <span class="margin-label" aria-hidden="true">PROMPT BOOK — HUMANS</span>
+      </article>
+      <article class="role role--haunt" aria-labelledby="haunts-title">
+        <span class="side-tab" aria-hidden="true">SIDE B</span>
+        <h2 id="haunts-title">HAUNTS</h2>
+        <p class="role-intro">You sabotage. <br>Mislead. Manipulate. Have fun.</p>
+        <h3 class="tools-label">Your playbook</h3>
+        <div class="cue cue--one" id="haunt-mirrors" data-response="mirrors"><h4>Create distractions</h4><p>Flicker lights. <br>Sabotage mirrors.</p></div>
+        <div class="cue cue--two" id="haunt-cameras" data-response="cameras"><h4>Break the shot</h4><p>Disrupt photography. <br>Break their focus.</p></div>
+        <div class="cue cue--three"><h4>Mislead</h4><p>Real players. <br>Unpredictable plans.</p></div>
+        <span class="margin-label" aria-hidden="true">PROMPT BOOK — HAUNTS</span>
+      </article>
+      <div class="annotations" aria-hidden="true"><span class="hand-note look">Look<br>closer</span><span class="hand-note counter">Counter<br>the look</span><span class="hand-note truth">Find<br>the truth</span><span class="hand-note doubt">Feed the<br>doubt</span><span class="hand-note balance">Keep them<br>off balance</span></div>
+      <ul class="game-facts" aria-label="Game details">
+        <li class="setup">The setup</li><li class="players"><svg viewBox="0 0 48 28" aria-hidden="true"><circle cx="24" cy="7" r="5"/><path d="M15 27v-9c0-7 18-7 18 0v9M4 24v-7c0-4 4-6 8-5m24 0c4-1 8 1 8 5v7"/><circle cx="8" cy="6" r="4"/><circle cx="40" cy="6" r="4"/></svg>2–6 players</li>
+        <li class="platform"><svg viewBox="0 0 40 32" aria-hidden="true"><rect x="2" y="2" width="36" height="23" rx="1"/><path d="M20 25v5m-9 0h18"/></svg>PC</li>
+        <li class="genre"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M11 27C0 23 3 4 20 4s20 19 9 23v9H11z"/><circle cx="13" cy="18" r="4"/><circle cx="27" cy="18" r="4"/><path d="m18 26 2-4 2 4m-7 5v5m5-5v5m5-5v5"/></svg>Horror-comedy</li><li class="development">In development</li>
+      </ul>
+      <p class="sr-only" id="counter-announcement" role="status" aria-live="polite"></p>
     </section>
-
-    <section class="studio-principles section-shell" aria-labelledby="principles-title">
-      <div class="section-heading section-heading--compact">
-        <p class="section-kicker">What we care about</p>
-        <h2 id="principles-title">Systems with room for people.</h2>
-      </div>
-      <div class="principle-grid">
-        <article class="principle"><span class="principle__number">01</span><h3>Interaction first</h3><p>The most interesting part of a multiplayer game is often the person on the other side of it.</p></article>
-        <article class="principle"><span class="principle__number">02</span><h3>A clear point of view</h3><p>Mechanics, sound and visual identity should feel like parts of the same idea.</p></article>
-        <article class="principle"><span class="principle__number">03</span><h3>Stories worth retelling</h3><p>We build for the moments that become clips, jokes and stories after the match is over.</p></article>
-      </div>
-    </section>
-
-    <section class="games section-shell" id="games" aria-labelledby="games-title">
-      <div class="section-heading">
-        <div><p class="section-kicker">Games</p><h2 id="games-title">Current work.</h2></div>
-        <p class="section-note">One project in active development. More will be revealed when they are ready.</p>
-      </div>
-      <article class="project-card" data-project-id="bad-haunts">
-        <div class="project-card__media">
-          <div class="media-frame" role="img" aria-label="Reserved space for approved Bad Haunts development screenshots or footage">
-            <div class="media-frame__grid" aria-hidden="true"></div>
-            <div class="media-frame__mirror media-frame__mirror--one" aria-hidden="true"></div>
-            <div class="media-frame__mirror media-frame__mirror--two" aria-hidden="true"></div>
-            <div class="media-frame__focus" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
-            <div class="media-frame__note"><span>DEVELOPMENT MEDIA</span><strong>Approved screenshots<br>and footage will live here.</strong></div>
-            <span class="media-frame__counter" aria-hidden="true">001 / BH</span>
-          </div>
-        </div>
-        <div class="project-card__content">
-          <div class="project-status"><span class="status-dot" aria-hidden="true"></span><span>Currently in development</span></div>
-          <img class="game-logo" src="assets/bad-haunts-logo.png" alt="Bad Haunts">
-          <p class="project-lead">An asymmetric multiplayer horror-comedy where Humans investigate a location while player-controlled Haunts turn the investigation against them.</p>
-          <p class="project-summary">Cameras, mirrors and teamwork give Humans a way forward. The Haunts make sure that path never stays simple.</p>
-          <ul class="metadata-list" aria-label="Bad Haunts details"><li>Multiplayer horror-comedy</li><li>2–6 players</li><li>PC</li><li>In development</li></ul>
-          <div class="button-row button-row--project">
-            <a class="button button--cream" href="#bad-haunts">Explore Bad Haunts <span aria-hidden="true">↓</span></a>
-            <a class="text-link" href="https://www.instagram.com/badhaunts/" target="_blank" rel="noopener noreferrer">Instagram <span aria-hidden="true">↗</span></a><a class="text-link" href="https://www.youtube.com/@badhaunts" target="_blank" rel="noopener noreferrer">YouTube <span aria-hidden="true">↗</span></a>
-          </div>
-          <p class="steam-note"><span aria-hidden="true"></span> Steam page expected after September 12</p>
-        </div>
+    <section class="match-spread" aria-label="How Bad Haunts plays">
+      <article class="match-side match-side--human">
+        <h2>How it plays</h2><p class="hand-note match-note" aria-hidden="true">Coop on<br>your side</p>
+        <ol>
+          <li><h3>Enter the location</h3><p>Explore together. Use mirrors to reveal Haunts and the anchors that bind them.</p></li>
+          <li><h3>Collect the evidence</h3><p>Photograph what you find. Share information and work out what to trust.</p></li>
+          <li><h3>Seal the anchors</h3><p>Build enough evidence to seal every anchor before time runs out.</p></li>
+        </ol>
+      </article>
+      <article class="match-side match-side--haunt">
+        <h2>How it fights back</h2><p class="hand-note match-note" aria-hidden="true">Chaos on<br>ours</p>
+        <ol>
+          <li><h3>Take the other side</h3><p>You’re the Haunt. Other players are investigating, and you’re working against them.</p></li>
+          <li><h3>Interrupt the investigation</h3><p>Flicker lights, sabotage mirrors and disrupt photographs. Make every clue a little less certain.</p></li>
+          <li><h3>Keep them guessing</h3><p>Mislead the Humans and protect your anchors. The clock is on your side.</p></li>
+        </ol>
       </article>
     </section>
-
-    <section class="game-concept" id="bad-haunts" aria-labelledby="bad-haunts-title">
-      <div class="section-shell">
-        <div class="concept-intro">
-          <p class="section-kicker section-kicker--violet">Bad Haunts / The concept</p>
-          <h2 id="bad-haunts-title">The room tells two different stories.</h2>
-          <p>Humans search for evidence and the anchors binding each Haunt to the world. The Haunts disrupt that investigation in real time—flickering lights, sabotaging mirrors, breaking up photography and creating uncertainty.</p>
-        </div>
-        <div class="concept-grid">
-          <article class="concept-card">
-            <div class="concept-card__visual concept-card__visual--mirror" aria-hidden="true"><span></span></div>
-            <div class="concept-card__copy"><span class="concept-card__index">01</span><h3>Mirrors</h3><p>Mirrors can reveal Haunts and help expose the objects binding them to the world. What appears in the reflection matters.</p></div>
-          </article>
-          <article class="concept-card">
-            <div class="concept-card__visual concept-card__visual--camera" aria-hidden="true"><span class="camera-body"><i></i></span></div>
-            <div class="concept-card__copy"><span class="concept-card__index">02</span><h3>Cameras</h3><p>Photography is an active tool. Images taken directly—or through mirrors—produce the evidence needed to seal anchors.</p></div>
-          </article>
-          <article class="concept-card">
-            <div class="concept-card__visual concept-card__visual--sides" aria-hidden="true"><span>HUMANS</span><i></i><span>HAUNTS</span></div>
-            <div class="concept-card__copy"><span class="concept-card__index">03</span><h3>Two sides</h3><p>Humans investigate together while real players control the frightening side—sabotaging, misleading and choosing when to strike.</p></div>
-          </article>
-        </div>
-        <div class="match-loop">
-          <div class="match-loop__heading"><p class="section-kicker section-kicker--violet">A match in motion</p><h3>Stay close. Or cover more ground.</h3></div>
-          <ol class="match-steps">
-            <li><span>01</span><p>Choose the Human or Haunt side in the lobby.</p></li>
-            <li><span>02</span><p>Explore, interfere and turn every room into a risk.</p></li>
-            <li><span>03</span><p>Photograph Haunts and build enough evidence.</p></li>
-            <li><span>04</span><p>Seal every anchor before the investigation runs out of time.</p></li>
-          </ol>
-          <p class="match-loop__note">The design is still being refined. Numbers, timing and supporting systems may change as playtesting continues.</p>
-        </div>
-        <blockquote class="mirror-line"><p>The mirrors know.</p></blockquote>
+    <section class="devlog" id="devlogs" aria-labelledby="devlog-title">
+      <div class="devlog-title">
+        <h2 id="devlog-title">From ship<br>to motel.</h2>
+        <p class="hand-note">A smaller space.<br>A better kind of chaos.</p>
+        <img src="assets/bad-haunts-logo.png" width="1254" height="1254" alt="Bad Haunts" loading="lazy" decoding="async">
       </div>
-    </section>
-
-    <section class="devlogs section-shell" id="devlogs" aria-labelledby="devlogs-title">
-      <div class="section-heading">
-        <div><p class="section-kicker">Devlogs</p><h2 id="devlogs-title">Notes from development.</h2></div>
-        <p class="section-note">Honest updates on what is playable, what is changing and what still needs work.</p>
-      </div>
-      <div class="devlog-list" data-devlog-list>
-        <article class="devlog-card" data-devlog-id="001">
-          <div class="devlog-card__thumb" aria-hidden="true"><span>DEV / 001</span><div class="motel-plan"><i></i><i></i><i></i><i></i><i></i></div></div>
-          <div class="devlog-card__content">
-            <div class="devlog-meta"><span>Devlog 001</span><span>Development note</span></div>
-            <h3>From Ship to Motel</h3>
-            <p>A playable blockout proved the core loop. It also made the next decision clear: leave the earlier ship concept behind and build a map with a tighter gameplay focus.</p>
-            <details class="devlog-details">
-              <summary><span class="details-label details-label--closed">Read update</span><span class="details-label details-label--open">Close update</span><span class="details-icon" aria-hidden="true"></span></summary>
-              <div class="devlog-details__body">
-                <p>The temporary blockout level gave the core playable logic a place to be tested. With that foundation working, development moved away from an earlier ship-map concept that was too ambitious for the project’s current scope.</p>
-                <p>The new motel is designed around the actual match: a central courtyard, multiple rooms, two levels, balconies, stairs and a swimming pool. Construction and early polish are now underway.</p>
-                <p>Online work is moving alongside the map. Steam lobby systems have been tested across two physical Windows PCs with separate accounts. HUD and menu UI are being redesigned, and music has progressed significantly.</p>
-                <p>There is still substantial work ahead in sound design, onboarding, animation, match feedback, final level art and supporting systems. Bad Haunts is not production-ready, has no announced release date, and its Steam page is expected after September 12.</p>
-                <a class="text-link" href="https://www.instagram.com/badhaunts/" target="_blank" rel="noopener noreferrer">Instagram <span aria-hidden="true">↗</span></a><a class="text-link" href="https://www.youtube.com/@badhaunts" target="_blank" rel="noopener noreferrer">YouTube <span aria-hidden="true">↗</span></a>
-              </div>
-            </details>
+      <article class="devlog-entry" aria-label="Bad Haunts development log 001">
+        <p class="entry-meta">Devlog 001 <span>Development notes</span></p>
+        <p class="entry-lead">The core loop worked. The ship was too big.</p>
+        <p>Our first playable blockout helped us test the investigation and sabotage loop. Moving from a ship to a motel gives that same conflict a tighter, more focused space.</p>
+        <p>The motel brings rooms, balconies and stairs around a central courtyard, with a swimming pool at its heart. It’s a location built to keep both sides close to the action.</p>
+        <details>
+          <summary>Read the build notes <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
+          <div class="build-notes">
+            <p>Steam lobbies have been tested on two physical Windows PCs using separate accounts. UI and music work are also underway.</p>
+            <p>Sound, onboarding, animation, feedback and final art still need work. Bad Haunts is in development; there’s no announced release date yet.</p>
           </div>
-        </article>
-      </div>
-      <div class="devlog-empty"><span>Next note</span><p>Published when there is something useful to show.</p></div>
+        </details>
+        <a class="text-link" href="https://www.youtube.com/@badhaunts" target="_blank" rel="noopener noreferrer">See development on YouTube <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h17m-7-7 7 7-7 7"/></svg></a>
+      </article>
     </section>
-
-    <section class="about section-shell" id="about" aria-labelledby="about-title">
-      <div class="about-grid">
-        <div class="section-heading section-heading--stacked"><p class="section-kicker">About Mons Games</p><h2 id="about-title">Small by design.<br>Serious about the work.</h2></div>
-        <div class="about-copy"><p class="about-copy__lead">Mons Games is an independent game studio focused on systems that bring players together and give them room to create their own stories.</p><p>Its current project, Bad Haunts, combines asymmetric multiplayer design with horror, comedy and player-driven chaos. The studio is creator-led, works in the open when there is meaningful progress to share, and leaves room for future games to establish identities of their own.</p></div>
+    <section class="studio" id="about" aria-labelledby="studio-title">
+      <div class="studio-mark"><img src="assets/mons-games-mark.png" width="1254" height="1254" alt="Mons Games" loading="lazy" decoding="async"></div>
+      <div class="studio-copy">
+        <h2 id="studio-title">We build the game.<br>You make the stories.</h2>
+        <p>Mons Games is an independent, creator-led studio. We make systems that bring players together, then leave room for the unexpected.</p>
+        <p>Right now, that means Bad Haunts: one location, two opposing sides, and a match shaped by the people playing it.</p>
       </div>
     </section>
-
-    <section class="contact section-shell" id="contact" aria-labelledby="contact-title">
-      <div class="contact-panel">
-        <div><p class="section-kicker">Contact</p><h2 id="contact-title">Say hello.</h2><p>General inquiries, support, press, creators and business communication all reach the same place.</p></div>
-        <a class="contact-email" href="mailto:monsgemas@gmail.com"><span>monsgemas@gmail.com</span><span aria-hidden="true">↗</span></a>
-      </div>
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <h2 id="contact-title">Let’s talk.</h2>
+      <div class="contact-copy"><p>Press, creators, partnerships or a question about our games?</p><a href="mailto:monsgemas@gmail.com">monsgemas@gmail.com <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h17m-7-7 7 7-7 7"/></svg></a></div>
     </section>
   </main>
-
-  <footer class="site-footer">
-    <div class="section-shell">
-      <div class="footer-top">
-        <a class="studio-mark studio-mark--footer" href="#home" aria-label="Mons Games home"><span class="studio-mark__logo" aria-hidden="true"><img src="assets/mons-games-mark.png" alt=""></span><span class="studio-mark__name">MONS GAMES</span></a>
-        <p>Independent games with a clear point of view.</p>
-      </div>
-      <div class="footer-links">
-        <div><span class="footer-label">Navigate</span><a href="#games">Games</a><a href="#devlogs">Devlogs</a><a href="#about">About</a><a href="#contact">Contact</a></div>
-        <div><span class="footer-label">Bad Haunts</span><a href="https://www.instagram.com/badhaunts/" target="_blank" rel="noopener noreferrer">Instagram <span aria-hidden="true">↗</span></a><a href="https://www.youtube.com/@badhaunts" target="_blank" rel="noopener noreferrer">YouTube <span aria-hidden="true">↗</span></a><span class="future-link">Steam — expected after Sep 12</span></div>
-        <div><span class="footer-label">Write</span><a href="mailto:monsgemas@gmail.com">monsgemas@gmail.com</a></div>
-      </div>
-      <div class="footer-bottom"><span>© <span data-current-year>2026</span> Mons Games</span><span>Built while the games are, too.</span></div>
-    </div>
-  </footer>
+  <footer class="footer"><a href="#home">Mons Games <span>Back to top</span></a><nav aria-label="Footer"><a href="privacy.html">Privacy</a><a href="privacy-policy.html">Game privacy policy</a><a href="https://www.instagram.com/badhaunts/" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://www.youtube.com/@badhaunts" target="_blank" rel="noopener noreferrer">YouTube</a></nav></footer>
 </body>
 </html>
-
-
-
-

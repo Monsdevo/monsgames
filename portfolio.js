@@ -1,65 +1,46 @@
-﻿(() => {
-  "use strict";
+const menuButton = document.querySelector(".menu-toggle");
+const navigation = document.querySelector("#navigation");
+const narrowNavigation = window.matchMedia("(max-width: 700px)");
+document.documentElement.classList.add("enhanced");
 
-  const header = document.querySelector("[data-header]");
-  const menu = document.querySelector("[data-menu]");
-  const menuButton = document.querySelector("[data-menu-button]");
-  const navLinks = [...document.querySelectorAll("[data-nav-link]")];
-  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+function closeMenu(returnFocus = false) {
+  menuButton.setAttribute("aria-expanded", "false");
+  menuButton.textContent = "Menu";
+  if (returnFocus) menuButton.focus();
+}
+menuButton.addEventListener("click", () => {
+  const opening = menuButton.getAttribute("aria-expanded") !== "true";
+  menuButton.setAttribute("aria-expanded", String(opening));
+  menuButton.textContent = opening ? "Close" : "Menu";
+});
+navigation.addEventListener("click", event => {
+  if (event.target.closest("a")) closeMenu();
+});
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape" && menuButton.getAttribute("aria-expanded") === "true") closeMenu(true);
+});
+document.addEventListener("click", event => {
+  if (!event.target.closest(".masthead")) closeMenu();
+});
+narrowNavigation.addEventListener("change", () => closeMenu());
 
-  const setMenu = (open) => {
-    if (!menu || !menuButton || !header) return;
-    menu.classList.toggle("is-open", open);
-    header.classList.toggle("is-menu-open", open);
-    menuButton.setAttribute("aria-expanded", String(open));
-    menuButton.querySelector(".sr-only").textContent = open ? "Close navigation" : "Open navigation";
-  };
-
-  menuButton?.addEventListener("click", () => setMenu(menuButton.getAttribute("aria-expanded") !== "true"));
-  navLinks.forEach((link) => link.addEventListener("click", () => setMenu(false)));
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") { setMenu(false); menuButton?.focus(); }
+const switches = [...document.querySelectorAll(".cue-switch")];
+const announcement = document.querySelector("#counter-announcement");
+let selectedCue = null;
+function markCounter(cue) {
+  for (const button of switches) button.closest(".cue").classList.toggle("is-linked", button.dataset.cue === cue);
+  for (const response of document.querySelectorAll("[data-response]")) response.classList.toggle("is-linked", response.dataset.response === cue);
+}
+for (const button of switches) {
+  button.addEventListener("pointerenter", () => markCounter(button.dataset.cue));
+  button.addEventListener("pointerleave", () => markCounter(selectedCue));
+  button.addEventListener("focus", () => markCounter(button.dataset.cue));
+  button.addEventListener("blur", () => markCounter(selectedCue));
+  button.addEventListener("click", () => {
+    selectedCue = selectedCue === button.dataset.cue ? null : button.dataset.cue;
+    for (const item of switches) item.setAttribute("aria-pressed", String(item.dataset.cue === selectedCue));
+    markCounter(selectedCue);
+    const response = selectedCue && document.querySelector(`[data-response="${selectedCue}"]`);
+    announcement.textContent = response ? `The Haunts’ counter-move: ${response.textContent.trim()}` : "Counter-move highlight cleared.";
   });
-  window.addEventListener("resize", () => { if (window.innerWidth > 1100) setMenu(false); });
-
-  const updateHeader = () => header?.classList.toggle("is-scrolled", window.scrollY > 24);
-  updateHeader();
-  window.addEventListener("scroll", updateHeader, { passive: true });
-
-  const sections = navLinks.map((link) => document.querySelector(link.getAttribute("href"))).filter(Boolean);
-  if ("IntersectionObserver" in window) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        navLinks.forEach((link) => {
-          const active = link.getAttribute("href") === `#${entry.target.id}`;
-          link.classList.toggle("is-active", active);
-          active ? link.setAttribute("aria-current", "location") : link.removeAttribute("aria-current");
-        });
-      });
-    }, { rootMargin: "-22% 0px -68% 0px" });
-    sections.forEach((section) => observer.observe(section));
-  }
-
-  document.querySelectorAll('a[href^="#"]').forEach((link) => {
-    link.addEventListener("click", (event) => {
-      const selector = link.getAttribute("href");
-      if (!selector || selector === "#") return;
-      const target = document.querySelector(selector);
-      if (!target) return;
-      event.preventDefault();
-      target.scrollIntoView({ behavior: reducedMotion.matches ? "auto" : "smooth", block: "start" });
-      if (history.replaceState) history.replaceState(null, "", selector);
-    });
-  });
-
-  document.querySelectorAll(".devlog-details").forEach((details) => {
-    const sync = () => details.querySelector("summary")?.setAttribute("aria-expanded", String(details.open));
-    details.addEventListener("toggle", sync);
-    sync();
-  });
-
-  document.querySelectorAll("[data-current-year]").forEach((year) => {
-    year.textContent = String(new Date().getFullYear());
-  });
-})();
+}
