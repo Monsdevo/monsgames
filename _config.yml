@@ -1,0 +1,21 @@
+# GitHub Pages publishes main / through Jekyll. Keep development material out
+# of the public site; the separate Sites preview uses scripts/build.mjs.
+exclude:
+  - DESIGN.md
+  - PRODUCT.md
+  - README.md
+  - package.json
+  - package-lock.json
+  - scripts
+  - tests
+  - dist
+  - node_modules
+  - vendor
+  - .agents
+  - .codex
+  - .impeccable
+  - .openai
+  - .site-package
+  - mustafi-takvimi
+  - assets/plates/human-page.webp.json
+  - assets/plates/haunt-page.webp.json
