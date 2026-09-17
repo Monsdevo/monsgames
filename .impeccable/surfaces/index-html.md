@@ -2,27 +2,23 @@
 version: 1
 slug: "index-html"
 primary_target: "index.html"
-related_targets: ["portfolio.css","portfolio.js"]
+related_targets: ["personal.css","portfolio.js","bad-haunts.html"]
 ---
 
-# Homepage
+# Bartu Yılmaz / Mons homepage
 
-Mode: Persuade. Scope: index.html, portfolio.css, portfolio.js. Guide prospective players to Bad Haunts and its development channels, with studio and contact information below.
-
-Approved comp: `.impeccable/mocks/01-open-prompt-book.webp` (user selection, 2026-09-03). Preserve its topology. Disclosed factual corrections: use supplied brand logos; replace invented sound/locked-door mechanics with verified interference mechanics; show in-development status. No new approval round needed for these disclosed corrections.
-
-User-approved authority change (2026-09-03): Asked “Düzeni koruyup taslağı görsel referans kabul ederek mobil uyumluluk ve erişilebilirliği önceliklendirmemi onaylıyor musun?” User answered “onaylıyorum”. The comp is now a visual reference, not pixel-exact authority. Preserve the split-page world; responsive clarity and accessibility outrank lettering/pixel drift. The desktop uses the comp’s wide typographic game title; the supplied official Bad Haunts logo appears visibly in the devlog and mobile introduction.
+Mode: Experience. Refocus the existing homepage on the person, then studio and work. User request 2026-09-17 pins the current Mons mark and header lettering and asks to implement the personal hierarchy now, with other projects supplied later and no placeholders. Retain established cream/black stock and condensed typography; directly adapt this existing surface. The earlier game comp is reference for the preserved game page, not a contract for the personal homepage. English and established destinations remain confirmed.
 
 ## Direction contract
 
-THESIS: Two opposing prompt-book pages make player-created conflict tangible, rejecting the generic cinematic gaming hero.
+THESIS: Bartu Yılmaz / Mons is the author; studio and game are his work.
 
-OWN-WORLD: Cream paper versus black script stock; orange Human cues, violet Haunt replies; condensed display, typewritten notes, ruled controls, authored pencil marks.
+OWN-WORLD: Existing cream paper, black stock, Six Caps lettering, original M mark, orange personal accent and violet game accent.
 
-STORY: Understand the two roles, follow Bad Haunts, read meaningful development progress, contact Mons Games.
+STORY: Meet Bartu; understand his native iOS, Unreal and AI-assisted practice; then discover Mons Games and Bad Haunts; contact him.
 
-FIRST VIEWPORT: Small black masthead; equal Humans/Haunts pages; game identity and stacked follow actions bridge the seam; tool notes flank them. Match metadata closes the spread. Signature interaction connects each Human cue to its Haunt response without hiding information.
+FIRST VIEWPORT: Black masthead; large name on cream left page; Mons mark and alias on black right page; personal introduction and work/contact links below the name. Name and alias lead over all project titles. An editorial dark practice spread follows before the studio/game work, with explicit user-supplied claims and no future-project placeholders.
 
-FORM: Midnight Prompt Book, candidate 5; seed 08898c5a. Numbered match steps continue the production-note grammar.
+FORM: Content-led adaptation of established Midnight Prompt Book (original seed 08898c5a); no new identity tournament. Project arrows move on hover/focus; reduced motion removes movement.
 
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance

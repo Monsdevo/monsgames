@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-03T20:28:39Z",
-  "title": "Design System: Mons Games",
+  "generatedAt": "2026-09-17T11:11:56Z",
+  "title": "Design System: Bartu Yılmaz / Mons",
   "extensions": {
     "colorMeta": {
       "ink": {
@@ -34,21 +34,21 @@
       },
       "orange": {
         "role": "primary",
-        "displayName": "Human Orange",
+        "displayName": "Maker Orange",
         "tonalRamp": [
-          "oklch(15% 0.1802 37.24)",
-          "oklch(26.43% 0.1802 37.24)",
-          "oklch(37.86% 0.1802 37.24)",
-          "oklch(49.29% 0.1802 37.24)",
-          "oklch(60.71% 0.1802 37.24)",
-          "oklch(72.14% 0.1802 37.24)",
-          "oklch(83.57% 0.1802 37.24)",
-          "oklch(95% 0.1802 37.24)"
+          "oklch(15% 0.145 39.5)",
+          "oklch(26.43% 0.145 39.5)",
+          "oklch(37.86% 0.145 39.5)",
+          "oklch(49.29% 0.145 39.5)",
+          "oklch(60.71% 0.145 39.5)",
+          "oklch(72.14% 0.145 39.5)",
+          "oklch(83.57% 0.145 39.5)",
+          "oklch(95% 0.145 39.5)"
         ]
       },
       "violet": {
         "role": "secondary",
-        "displayName": "Haunt Violet",
+        "displayName": "Project Violet",
         "tonalRamp": [
           "oklch(15% 0.1556 300.67)",
           "oklch(26.43% 0.1556 300.67)",
@@ -59,240 +59,156 @@
           "oklch(83.57% 0.1556 300.67)",
           "oklch(95% 0.1556 300.67)"
         ]
-      },
-      "follow-orange": {
-        "role": "primary",
-        "displayName": "Wide Follow Orange",
-        "tonalRamp": [
-          "oklch(15% 0.1843 37.03)",
-          "oklch(26.43% 0.1843 37.03)",
-          "oklch(37.86% 0.1843 37.03)",
-          "oklch(49.29% 0.1843 37.03)",
-          "oklch(60.71% 0.1843 37.03)",
-          "oklch(72.14% 0.1843 37.03)",
-          "oklch(83.57% 0.1843 37.03)",
-          "oklch(95% 0.1843 37.03)"
-        ]
-      },
-      "follow-violet": {
-        "role": "secondary",
-        "displayName": "Wide Follow Violet",
-        "tonalRamp": [
-          "oklch(15% 0.2317 294.67)",
-          "oklch(26.43% 0.2317 294.67)",
-          "oklch(37.86% 0.2317 294.67)",
-          "oklch(49.29% 0.2317 294.67)",
-          "oklch(60.71% 0.2317 294.67)",
-          "oklch(72.14% 0.2317 294.67)",
-          "oklch(83.57% 0.2317 294.67)",
-          "oklch(95% 0.2317 294.67)"
-        ]
-      },
-      "follow-orange-small": {
-        "role": "primary",
-        "displayName": "Small-screen Follow Orange",
-        "tonalRamp": [
-          "oklch(15% 0.1673 41.81)",
-          "oklch(26.43% 0.1673 41.81)",
-          "oklch(37.86% 0.1673 41.81)",
-          "oklch(49.29% 0.1673 41.81)",
-          "oklch(60.71% 0.1673 41.81)",
-          "oklch(72.14% 0.1673 41.81)",
-          "oklch(83.57% 0.1673 41.81)",
-          "oklch(95% 0.1673 41.81)"
-        ]
-      },
-      "follow-violet-small": {
-        "role": "secondary",
-        "displayName": "Small-screen Follow Violet",
-        "tonalRamp": [
-          "oklch(15% 0.1647 300.08)",
-          "oklch(26.43% 0.1647 300.08)",
-          "oklch(37.86% 0.1647 300.08)",
-          "oklch(49.29% 0.1647 300.08)",
-          "oklch(60.71% 0.1647 300.08)",
-          "oklch(72.14% 0.1647 300.08)",
-          "oklch(83.57% 0.1647 300.08)",
-          "oklch(95% 0.1647 300.08)"
-        ]
-      },
-      "paper-rule": {
-        "role": "neutral",
-        "displayName": "Paper Rule",
-        "tonalRamp": [
-          "oklch(15% 0.0699 56.28)",
-          "oklch(26.43% 0.0699 56.28)",
-          "oklch(37.86% 0.0699 56.28)",
-          "oklch(49.29% 0.0699 56.28)",
-          "oklch(60.71% 0.0699 56.28)",
-          "oklch(72.14% 0.0699 56.28)",
-          "oklch(83.57% 0.0699 56.28)",
-          "oklch(95% 0.0699 56.28)"
-        ]
-      },
-      "dark-rule": {
-        "role": "neutral",
-        "displayName": "Dark Rule",
-        "tonalRamp": [
-          "oklch(15% 0.0410 304.28)",
-          "oklch(26.43% 0.0410 304.28)",
-          "oklch(37.86% 0.0410 304.28)",
-          "oklch(49.29% 0.0410 304.28)",
-          "oklch(60.71% 0.0410 304.28)",
-          "oklch(72.14% 0.0410 304.28)",
-          "oklch(83.57% 0.0410 304.28)",
-          "oklch(95% 0.0410 304.28)"
-        ]
       }
     },
     "typographyMeta": {
       "display": {
-        "displayName": "Role Display",
-        "purpose": "Narrow role headings; the wide game wordmark uses its own larger composition sizing."
+        "displayName": "Author Display",
+        "purpose": "Bartu's opening name and the Mons alias; project names stay subordinate."
       },
       "headline": {
-        "displayName": "Section Headline",
-        "purpose": "Large condensed editorial statements."
+        "displayName": "Editorial Headline",
+        "purpose": "Large condensed section statements."
+      },
+      "title": {
+        "displayName": "Practice Title",
+        "purpose": "Uppercase practice headings and project labels."
       },
       "body": {
         "displayName": "Typewritten Body",
-        "purpose": "Essential explanations and long-form reading."
-      },
-      "title": {
-        "displayName": "Cue and Step Title",
-        "purpose": "Bold uppercase typewritten labels."
+        "purpose": "Essential introduction, experience, project, and contact copy."
       },
       "navigation": {
-        "displayName": "Navigation",
-        "purpose": "Tracked condensed navigation and reflowed follow labels."
+        "displayName": "Masthead Navigation",
+        "purpose": "Tracked uppercase portfolio navigation."
       },
-      "tool-label": {
-        "displayName": "Tool Label",
-        "purpose": "Compact role-section headings."
-      },
-      "annotation": {
-        "displayName": "Handwritten Annotation",
-        "purpose": "Short production-note marginalia."
+      "action": {
+        "displayName": "Editorial Action",
+        "purpose": "Underlined portfolio and game links with inline arrows."
       }
     },
     "shadows": [],
     "motion": [
       {
-        "name": "follow-hover",
-        "value": "filter .2s",
-        "purpose": "Brightness feedback on follow actions."
-      },
-      {
-        "name": "cue-color",
-        "value": "color .24s, background-color .24s",
-        "purpose": "Cue state feedback."
-      },
-      {
-        "name": "counter-mark",
-        "value": ".34s cubic-bezier(.16, 1, .3, 1)",
-        "purpose": "Reveal the rectangular counter-cue mark."
+        "name": "arrow-feedback",
+        "value": "transform .3s cubic-bezier(.16,1,.3,1)",
+        "purpose": "A 4px directional nudge on action and game-art arrows."
       },
       {
         "name": "reduced-motion",
         "value": "none",
-        "purpose": "Disable animations and transitions; use automatic rather than smooth scrolling when reduced motion is requested."
+        "purpose": "Disable animation and transition and use automatic scrolling when reduced motion is requested."
       }
     ],
     "breakpoints": [
       {
-        "name": "reflow-max",
-        "value": "1279px"
+        "name": "wide-min",
+        "value": "1700px"
+      },
+      {
+        "name": "compact-max",
+        "value": "1000px"
       },
       {
         "name": "narrow-max",
         "value": "700px"
-      },
-      {
-        "name": "single-role-max",
-        "value": "359px"
       }
     ]
   },
   "components": [
     {
-      "name": "Follow on Instagram",
-      "kind": "button",
-      "refersTo": "follow-instagram",
-      "description": "Square-edged follow link; the wide large-text treatment reflows to a lighter small-screen variant.",
-      "html": "<a class=\"ds-follow-instagram\" href=\"https://www.instagram.com/badhaunts/\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"5\"/><circle cx=\"12\" cy=\"12\" r=\"4\"/><circle cx=\"17.5\" cy=\"6.5\" r=\".8\" fill=\"currentColor\" stroke=\"none\"/></svg><span>Follow on Instagram</span><svg class=\"ds-arrow\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M3 12h17m-7-7 7 7-7 7\"/></svg></a>",
-      "css": ".ds-follow-instagram{display:flex;align-items:center;gap:30px;padding:0 22px;min-height:50px;border:2px solid var(--ink, #0b0a0d);background:#d34718;color:#080708;text-decoration:none;text-transform:uppercase;font:max(24px,calc(30 * var(--u, 1px)))/1 var(--display, \"Six Caps\", \"Arial Narrow\", sans-serif);letter-spacing:.065em;transition:filter .2s}.ds-follow-instagram span{transform:scaleX(1.55);transform-origin:left;-webkit-text-stroke:.5px}.ds-follow-instagram svg{width:30px;height:30px;flex-shrink:0;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}.ds-follow-instagram .ds-arrow{margin-left:auto}.ds-follow-instagram .ds-play{fill:#d34718}.ds-follow-instagram:hover{filter:brightness(1.18)}.ds-follow-instagram:focus-visible{outline:3px solid currentColor;outline-offset:5px}@media(max-width:1279px){.ds-follow-instagram{min-height:54px;padding:0 14px;gap:12px;background:#df642f;color:var(--ink, #0b0a0d);font:500 19px/1.2 \"Barlow Condensed\",\"Arial Narrow\",sans-serif;letter-spacing:.015em}.ds-follow-instagram span{transform:none;-webkit-text-stroke:0}.ds-follow-instagram svg{width:24px;height:24px}.ds-follow-instagram .ds-play{fill:#df642f}}@media(max-width:700px){.ds-follow-instagram{min-height:52px;padding-inline:18px;font-size:21px}}@media(prefers-reduced-motion:reduce){.ds-follow-instagram{transition:none}}"
-    },
-    {
-      "name": "Watch on YouTube",
-      "kind": "button",
-      "refersTo": "follow-youtube",
-      "description": "Square-edged follow link; the wide large-text treatment reflows to a lighter small-screen variant.",
-      "html": "<a class=\"ds-follow-youtube\" href=\"https://www.youtube.com/@badhaunts\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect x=\"2\" y=\"5\" width=\"20\" height=\"14\" rx=\"4\" fill=\"currentColor\" stroke=\"none\"/><path class=\"ds-play\" d=\"m10 9 6 3-6 3z\" stroke=\"none\"/></svg><span>Watch on YouTube</span><svg class=\"ds-arrow\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M3 12h17m-7-7 7 7-7 7\"/></svg></a>",
-      "css": ".ds-follow-youtube{display:flex;align-items:center;gap:30px;padding:0 22px;min-height:50px;border:2px solid var(--ink, #0b0a0d);background:#7939de;color:#080708;text-decoration:none;text-transform:uppercase;font:max(24px,calc(30 * var(--u, 1px)))/1 var(--display, \"Six Caps\", \"Arial Narrow\", sans-serif);letter-spacing:.065em;transition:filter .2s}.ds-follow-youtube span{transform:scaleX(1.55);transform-origin:left;-webkit-text-stroke:.5px}.ds-follow-youtube svg{width:30px;height:30px;flex-shrink:0;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}.ds-follow-youtube .ds-arrow{margin-left:auto}.ds-follow-youtube .ds-play{fill:#7939de}.ds-follow-youtube:hover{filter:brightness(1.18)}.ds-follow-youtube:focus-visible{outline:3px solid currentColor;outline-offset:5px}@media(max-width:1279px){.ds-follow-youtube{min-height:54px;padding:0 14px;gap:12px;background:#a478e8;color:var(--ink, #0b0a0d);font:500 19px/1.2 \"Barlow Condensed\",\"Arial Narrow\",sans-serif;letter-spacing:.015em}.ds-follow-youtube span{transform:none;-webkit-text-stroke:0}.ds-follow-youtube svg{width:24px;height:24px}.ds-follow-youtube .ds-play{fill:#a478e8}}@media(max-width:700px){.ds-follow-youtube{min-height:52px;padding-inline:18px;font-size:21px}}@media(prefers-reduced-motion:reduce){.ds-follow-youtube{transition:none}}"
-    },
-    {
       "name": "Masthead navigation",
       "kind": "nav",
-      "refersTo": "navigation",
-      "description": "Tracked uppercase navigation with a minimum 44px target and orange dividers.",
-      "html": "<nav class=\"ds-nav\" aria-label=\"Main navigation\"><a href=\"#bad-haunts\">Game</a><a href=\"#devlogs\">Devlog</a><a href=\"#about\">Studio</a><a href=\"#contact\">Contact</a></nav>",
-      "css": ".ds-nav{display:flex;flex-wrap:wrap;align-items:center;background:#070707;padding:12px;gap:0}.ds-nav a{display:flex;align-items:center;min-height:44px;padding:0 24px;border-right:1px solid var(--orange,#cf4719);color:#f1f0ee;text-decoration:none;font:500 23px/1 \"Barlow Condensed\",\"Arial Narrow\",sans-serif;letter-spacing:.14em;text-transform:uppercase}.ds-nav a:last-child{border-right:0}.ds-nav a:hover{color:#e97d51}.ds-nav a:focus-visible{outline:3px solid currentColor;outline-offset:5px}@media(max-width:1279px){.ds-nav{gap:12px}.ds-nav a{font-size:18px;letter-spacing:.08em;padding:0 8px;border:0}}"
+      "refersTo": "masthead",
+      "description": "Ink portfolio masthead with tracked, uppercase links and orange hover feedback.",
+      "html": "<nav class=\"ds-portfolio-nav\" aria-label=\"Main navigation\"><a href=\"#about\">About</a><a href=\"#experience\">Experience</a><a href=\"#work\">Work</a><a href=\"#contact\">Contact</a></nav>",
+      "css": ".ds-portfolio-nav{display:flex;align-items:center;gap:44px;padding:12px 24px;background:var(--ink,#0b0a0d);color:var(--paper,#ead8c0)}.ds-portfolio-nav a{display:inline-flex;align-items:center;min-height:44px;color:inherit;text-decoration:none;text-transform:uppercase;font:500 19px/1.2 \"Barlow Condensed\",sans-serif;letter-spacing:.12em}.ds-portfolio-nav a:hover{color:var(--orange,#e97445)}.ds-portfolio-nav a:focus-visible{outline:3px solid currentColor;outline-offset:5px}@media(max-width:700px){.ds-portfolio-nav{justify-content:space-between;gap:10px;flex-wrap:wrap}.ds-portfolio-nav a{font-size:16px;letter-spacing:.04em}}"
     },
     {
-      "name": "Cue switch",
+      "name": "Menu toggle",
       "kind": "button",
-      "refersTo": "cue-switch",
-      "description": "A native dotted-underlined cue control; the selected attribute previews the linked title treatment without requiring JavaScript.",
-      "html": "<div class=\"ds-cue\"><h4><button class=\"ds-cue-switch\" type=\"button\" aria-pressed=\"false\">Mirrors</button></h4><p>Reveal what isn’t supposed to be seen.</p></div>",
-      "css": ".ds-cue{position:relative;max-width:25ch;padding:20px;background:var(--paper, #ead8c0);color:var(--ink, #0b0a0d);font:16px/1.5 var(--body,\"Courier Prime\",monospace)}.ds-cue h4{margin:0 0 5px;font-size:16px;font-weight:700;text-transform:uppercase}.ds-cue p{margin:0}.ds-cue-switch{appearance:none;border:0;background:none;color:inherit;font:inherit;text-transform:inherit;text-align:left;padding:12px 0;margin:-12px 0;min-height:44px;cursor:pointer;text-decoration:underline dotted;text-underline-offset:5px}.ds-cue-switch:hover,.ds-cue-switch[aria-pressed=\"true\"]{color:#9e3819;text-decoration-style:solid;text-decoration-thickness:2px}.ds-cue-switch:focus-visible{outline:3px solid currentColor;outline-offset:5px;color:#9e3819;text-decoration-style:solid;text-decoration-thickness:2px}"
+      "description": "Native mobile navigation control; its expanded state is exposed semantically.",
+      "html": "<button class=\"ds-menu-toggle\" type=\"button\" aria-expanded=\"false\">Menu</button>",
+      "css": ".ds-menu-toggle{min-height:44px;min-width:76px;padding:8px 12px;border:1px solid #918478;border-radius:0;background:var(--ink,#0b0a0d);color:var(--paper,#ead8c0);font:14px/1.2 \"Courier Prime\",monospace;cursor:pointer}.ds-menu-toggle:hover,.ds-menu-toggle[aria-expanded=\"true\"]{border-color:var(--orange,#e97445);color:var(--orange,#e97445)}.ds-menu-toggle:focus-visible{outline:3px solid currentColor;outline-offset:5px}"
     },
     {
-      "name": "Build-note disclosure",
+      "name": "Editorial action link",
+      "kind": "button",
+      "refersTo": "action-link",
+      "description": "Underlined text action with a gently nudged inline arrow.",
+      "html": "<a class=\"ds-action-link\" href=\"#work\">Explore my work <svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M3 12h17m-7-7 7 7-7 7\"/></svg></a>",
+      "css": ".ds-action-link{display:inline-flex;align-items:center;justify-content:space-between;gap:24px;min-height:48px;padding:7px 0;border-bottom:1px solid currentColor;color:var(--ink,#0b0a0d);text-decoration:none;text-transform:uppercase;font:500 21px/1.25 \"Barlow Condensed\",sans-serif;letter-spacing:.035em}.ds-action-link svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;transition:transform .3s cubic-bezier(.16,1,.3,1)}.ds-action-link:hover svg,.ds-action-link:focus-visible svg{transform:translateX(4px)}.ds-action-link:focus-visible{outline:3px solid currentColor;outline-offset:5px}@media(prefers-reduced-motion:reduce){.ds-action-link svg{transition:none}}"
+    },
+    {
+      "name": "Game action link",
+      "kind": "button",
+      "refersTo": "action-link",
+      "description": "The same editorial action language in Bad Haunts' lighter violet project context.",
+      "html": "<a class=\"ds-game-link\" href=\"bad-haunts.html\">Explore Bad Haunts <svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M3 12h17m-7-7 7 7-7 7\"/></svg></a>",
+      "css": ".ds-game-link{display:inline-flex;align-items:center;justify-content:space-between;gap:24px;min-height:48px;padding:7px 0;border-bottom:1px solid currentColor;color:#c5a3f2;background:var(--ink,#0b0a0d);text-decoration:none;text-transform:uppercase;font:500 21px/1.25 \"Barlow Condensed\",sans-serif;letter-spacing:.035em}.ds-game-link svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;transition:transform .3s cubic-bezier(.16,1,.3,1)}.ds-game-link:hover svg,.ds-game-link:focus-visible svg{transform:translateX(4px)}.ds-game-link:focus-visible{outline:3px solid currentColor;outline-offset:5px}@media(prefers-reduced-motion:reduce){.ds-game-link svg{transition:none}}"
+    },
+    {
+      "name": "Experience row",
       "kind": "custom",
-      "refersTo": "build-notes",
-      "description": "Native details/summary framed by fine paper rules, with an inline plus that rotates when open.",
-      "html": "<details class=\"ds-notes\"><summary>Read the build notes <svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M12 5v14M5 12h14\"/></svg></summary><div class=\"ds-notes-body\"><p>Sound, onboarding, animation, feedback and final art still need work. Bad Haunts is in development; there’s no announced release date yet.</p></div></details>",
-      "css": ".ds-notes{background:var(--paper, #ead8c0);color:var(--ink, #0b0a0d);border-block:1px solid #ae8263;font:16px/1.6 var(--body,\"Courier Prime\",monospace);max-width:65ch}.ds-notes summary{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:56px;padding:12px 0;font-weight:700;list-style:none;cursor:pointer}.ds-notes summary::-webkit-details-marker{display:none}.ds-notes summary svg{width:24px;height:24px;flex-shrink:0;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}.ds-notes[open] summary svg{transform:rotate(45deg)}.ds-notes summary:hover{text-decoration:underline;text-underline-offset:.2em}.ds-notes summary:focus-visible{outline:3px solid currentColor;outline-offset:5px}.ds-notes-body{padding-bottom:22px}.ds-notes-body p{margin:0}"
+      "description": "Ruled practice entry with a condensed title and readable typewritten explanation.",
+      "html": "<article class=\"ds-experience-row\"><h3>Native iOS &amp; SaaS</h3><p>More than ten native iOS SaaS experiments, exploring product ideas through hands-on development.</p></article>",
+      "css": ".ds-experience-row{display:grid;grid-template-columns:minmax(160px,.7fr) minmax(0,1.3fr);gap:28px;max-width:800px;padding:25px 0 28px;border-top:1px solid #73637b;border-bottom:1px solid #73637b;background:var(--ink,#0b0a0d);color:var(--paper,#ead8c0)}.ds-experience-row h3{margin:0;color:#c4a0f2;text-transform:uppercase;font:500 28px/1.16 \"Barlow Condensed\",sans-serif;letter-spacing:.025em}.ds-experience-row p{margin:0;max-width:56ch;font:16px/1.6 \"Courier Prime\",monospace}@media(max-width:700px){.ds-experience-row{grid-template-columns:1fr;gap:8px;padding:21px 0 23px}.ds-experience-row h3{font-size:25px}.ds-experience-row p{font-size:15px}}"
+    },
+    {
+      "name": "Bad Haunts feature copy",
+      "kind": "card",
+      "refersTo": "game-panel",
+      "description": "Dark project feature with violet project context; the live page pairs it with the official logo art.",
+      "html": "<article class=\"ds-game-panel\"><h3>Bad Haunts</h3><p class=\"ds-game-type\">Unreal Engine multiplayer · In development</p><p>An asymmetric multiplayer horror-comedy for 2–6 players on PC.</p><a href=\"bad-haunts.html\">Explore Bad Haunts <svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M3 12h17m-7-7 7 7-7 7\"/></svg></a></article>",
+      "css": ".ds-game-panel{max-width:480px;padding:46px 40px;background:var(--ink,#0b0a0d);color:var(--paper,#ead8c0);font:16px/1.6 \"Courier Prime\",monospace}.ds-game-panel h3{margin:0 0 16px;text-transform:uppercase;font:400 76px/1.05 \"Six Caps\",sans-serif;letter-spacing:.03em}.ds-game-panel p{margin:0;max-width:50ch}.ds-game-panel .ds-game-type{margin-bottom:22px;color:var(--violet,#a278e1);text-transform:uppercase;font:500 16px/1.4 \"Barlow Condensed\",sans-serif;letter-spacing:.045em}.ds-game-panel a{display:inline-flex;align-items:center;gap:24px;min-height:48px;margin-top:24px;padding:7px 0;border-bottom:1px solid currentColor;color:#c5a3f2;text-decoration:none;text-transform:uppercase;font:500 21px/1.25 \"Barlow Condensed\",sans-serif;letter-spacing:.035em}.ds-game-panel a svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;transition:transform .3s cubic-bezier(.16,1,.3,1)}.ds-game-panel a:hover svg,.ds-game-panel a:focus-visible svg{transform:translateX(4px)}.ds-game-panel a:focus-visible{outline:3px solid currentColor;outline-offset:5px}@media(prefers-reduced-motion:reduce){.ds-game-panel a svg{transition:none}}"
+    },
+    {
+      "name": "Contact email",
+      "kind": "button",
+      "refersTo": "contact-band",
+      "description": "The portfolio's warm orange, direct contact destination.",
+      "html": "<div class=\"ds-contact-band\"><p>A project, a collaboration, or just a hello.</p><a href=\"mailto:monsgemas@gmail.com\">monsgemas@gmail.com <svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M4 20 20 4M4 4h16v16\"/></svg></a></div>",
+      "css": ".ds-contact-band{padding:32px;background:var(--orange,#e97445);color:var(--ink,#0b0a0d);font:16px/1.6 \"Courier Prime\",monospace}.ds-contact-band p{margin:0}.ds-contact-band a{display:inline-flex;align-items:center;gap:18px;min-height:48px;margin-top:18px;color:inherit;font-size:21px;font-weight:700;overflow-wrap:anywhere}.ds-contact-band a:hover{text-decoration-thickness:2px}.ds-contact-band a:focus-visible{outline:3px solid currentColor;outline-offset:5px}.ds-contact-band svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}"
     }
   ],
   "narrative": {
-    "northStar": "Midnight Prompt Book",
-    "overview": "Midnight Prompt Book pairs cream paper with black script stock: condensed display lettering, typewritten notes, ruled controls, and authored pencil marks. Orange Human cues and violet Haunt replies give opposing voices a shared visual grammar.\n\nThe material is flat and tactile, not a cinematic gaming backdrop. Preserve the recognizable Mons Games and Bad Haunts assets. Responsive clarity and accessibility take precedence over exact lettering and pixel placement; local textures and type carry the identity when the wide composition reflows.",
+    "northStar": "The Maker's Open Book",
+    "overview": "The personal portfolio is an editorial introduction to Bartu Yılmaz / Mons. Warm paper and black stock give his name and mark a two-page opening; the dark practice spread, ruled work entries, and orange contact band move from author to process to projects. The material feels handled and authored, but the content stays plainspoken and legible.\n\nThis document governs `index.html` with `personal.css`. It does not redesign `bad-haunts.html` or replace its `portfolio.css` rules. That dedicated game page keeps its Midnight Prompt Book system: cream and black facing pages, orange Human cues, violet Haunt replies, handwritten annotations, and its existing responsive and interaction behavior. Shared assets and some colors do not make the two pages interchangeable.",
     "keyCharacteristics": [
-      "Opposing paper tones with orange and violet role accents.",
-      "Narrow display type, readable typewritten copy, handwritten annotations.",
-      "Flat page materials, rules, tape tabs, and semantic controls."
+      "A person-first editorial hierarchy: Bartu, practice, Mons Games, Bad Haunts, then contact.",
+      "Flat cream and near-black stock with the existing Mons mark and emphatically narrow lettering.",
+      "Orange as the portfolio's personal/action accent; violet is reserved for game-related work."
     ],
     "rules": [
       {
-        "name": "Opposing Voices",
-        "body": "Use orange for Human cues and violet for Haunt replies; neutral paper and ink carry essential reading.",
+        "name": "The Author Before Roles Rule",
+        "body": "Orange identifies the maker and contact path on the portfolio; the Human-orange/Haunt-violet pairing belongs to `bad-haunts.html` alone.",
         "section": "colors"
       },
       {
-        "name": "Three Voices",
-        "body": "Condensed type announces, typewritten copy explains, and handwriting annotates. Keep these roles distinct.",
+        "name": "The Name Leads Rule",
+        "body": "Use the largest display gesture for Bartu's name; studio and game titles remain subordinate to the author on the homepage.",
         "section": "typography"
       },
       {
-        "name": "Flat Stock",
-        "body": "Create separation with paper tone, rules, and tape, not elevated card shadows.",
+        "name": "The Flat Stock Rule",
+        "body": "Separate stories with paper tone, dark stock, spacing, and rules; do not introduce generic raised cards or shadow stacks.",
         "section": "elevation"
       }
     ],
     "dos": [
-      "Do preserve the cream/black split and orange/violet role distinction.",
-      "Do use the supplied logos and locally served font and texture assets.",
-      "Do keep narrow layouts in normal document flow and retain readable body copy.",
-      "Do retain visible focus, native control semantics, and reduced-motion behavior.",
-      "Do keep desktop follow labels at least 24px; the dark lettering on saturated desktop fills depends on large-text treatment."
+      "Do keep Bartu's name and the existing Mons mark as the opening's visual authority.",
+      "Do keep cream/ink stock, Six Caps display type, readable Courier Prime copy, and square-edged editorial rules.",
+      "Do use orange for the portfolio's personal and contact emphasis; use violet to locate game-related work.",
+      "Do preserve semantic content order, keyboard focus, reduced-motion support, and normal-flow mobile reflow.",
+      "Do treat Bad Haunts as a linked project with its own unchanged design system."
     ],
     "donts": [
-      "Don't replace the prompt-book material with a generic cinematic gaming hero.",
-      "Don't introduce rounded card grids or floating shadow surfaces into this flat page system.",
-      "Don't use handwritten notes for essential long-form copy or control labels.",
-      "Don't hide mechanics behind the cue interaction; highlighting connects information already visible.",
-      "Don't preserve desktop coordinates at the expense of responsive clarity or accessibility."
+      "Don't apply the portfolio's author-first hierarchy or orange contact band to `bad-haunts.html`.",
+      "Don't turn iOS experiments, the Vita3K attempt, or unsupplied future projects into finished project cards.",
+      "Don't replace the flat editorial layout with rounded, elevated card grids.",
+      "Don't make the game feature reproduce the dedicated game's cue controls or role-page composition.",
+      "Don't trade readable copy and usable links for exact desktop positioning."
     ]
   }
 }

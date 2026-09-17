@@ -31,14 +31,18 @@ for (const width of [320, 390, 700, 768, 1024, 1280, 1440, 1600]) {
 }
 await page.setViewportSize({ width: 390, height: 844 });
 await page.goto("http://127.0.0.1:4174/", { waitUntil: "networkidle" });
+assert.match(await page.locator("#experience").innerText(), /More than ten native iOS SaaS experiments/);
+assert.match(await page.locator("#experience").innerText(), /Vita3K/);
 await page.getByRole("button", { name: "Menu", exact: true }).click();
 assert.equal(await page.locator("#navigation").isVisible(), true);
 await page.keyboard.press("Escape");
 assert.equal(await page.locator("#navigation").isVisible(), false);
 await page.getByRole("button", { name: "Menu", exact: true }).click();
-await page.locator("#navigation").getByRole("link", { name: "Contact" }).click();
-assert.equal(new URL(page.url()).hash, "#contact");
+await page.locator("#navigation").getByRole("link", { name: "Experience" }).click();
+assert.equal(new URL(page.url()).hash, "#experience");
 assert.equal(await page.locator("#navigation").isVisible(), false);
+await page.getByRole("link", { name: "Explore Bad Haunts", exact: true }).last().click();
+assert.equal(new URL(page.url()).pathname, "/bad-haunts.html");
 await page.locator("summary").click();
 assert.equal(await page.locator("details").getAttribute("open"), "");
 await page.getByRole("button", { name: "Mirrors", exact: true }).click();
@@ -51,5 +55,5 @@ const noScript = await browser.newPage({ javaScriptEnabled: false, viewport: { w
 await noScript.goto("http://127.0.0.1:4174/");
 assert.equal(await noScript.locator("#navigation").isVisible(), true);
 assert.equal(await noScript.locator("#contact a").isVisible(), true);
-console.log("PASS: navigation, keyboard dismissal, contact anchor, disclosure, role pairing, asset loading and no-JavaScript navigation.");
+console.log("PASS: portfolio navigation, game-page navigation, keyboard dismissal, disclosure, role pairing, asset loading and no-JavaScript navigation.");
 await browser.close();

@@ -1,202 +1,173 @@
 ---
-name: Mons Games — Midnight Prompt Book
-description: Cream paper, black script stock, and opposing orange/violet voices.
+name: Bartu Yılmaz / Mons — Personal Portfolio
+description: A tactile paper-and-ink portfolio that puts the maker before the studio and game.
 colors:
   ink: "#0b0a0d"
   paper: "#ead8c0"
-  orange: "#cf4719"
+  orange: "#e97445"
   violet: "#a278e1"
-  follow-orange: "#d34718"
-  follow-violet: "#7939de"
-  follow-orange-small: "#df642f"
-  follow-violet-small: "#a478e8"
-  paper-rule: "#ae8263"
-  dark-rule: "#42384f"
 typography:
   display:
     fontFamily: "Six Caps, sans-serif"
-    fontSize: "calc(122 * var(--u))"
+    fontSize: "clamp(112px, 13.8vw, 210px)"
     fontWeight: 400
-    lineHeight: 0.9
-    letterSpacing: "0.005em"
+    lineHeight: 0.94
+    letterSpacing: "0.025em"
   headline:
     fontFamily: "Six Caps, sans-serif"
-    fontSize: "clamp(64px, 6.5vw, 96px)"
+    fontSize: "clamp(64px, 6vw, 92px)"
     fontWeight: 400
-    lineHeight: 1.02
-    letterSpacing: "0.035em"
+    lineHeight: 1.05
+    letterSpacing: "0.025em"
+  title:
+    fontFamily: "Barlow Condensed, sans-serif"
+    fontSize: "28px"
+    fontWeight: 500
+    lineHeight: 1.16
+    letterSpacing: "0.025em"
   body:
     fontFamily: "Courier Prime, monospace"
     fontSize: "16px"
     fontWeight: 400
-    lineHeight: 1.45
-  title:
-    fontFamily: "Courier Prime, monospace"
-    fontSize: "clamp(16px, 1.14vw, 20px)"
-    fontWeight: 700
-    lineHeight: 1.3
+    lineHeight: 1.6
   navigation:
     fontFamily: "Barlow Condensed, sans-serif"
-    fontSize: "calc(23 * var(--u))"
+    fontSize: "19px"
     fontWeight: 500
-    lineHeight: 1
-    letterSpacing: "0.14em"
-  tool-label:
-    fontFamily: "Share, sans-serif"
-    fontSize: "calc(20 * var(--u))"
-    fontWeight: 400
-    lineHeight: 1
-    letterSpacing: "0.025em"
-  annotation:
-    fontFamily: "Kalam, cursive"
-    fontSize: "calc(16 * var(--u))"
-    fontWeight: 400
-    lineHeight: 1.3
+    lineHeight: 1.2
+    letterSpacing: "0.12em"
+  action:
+    fontFamily: "Barlow Condensed, sans-serif"
+    fontSize: "21px"
+    fontWeight: 500
+    lineHeight: 1.25
+    letterSpacing: "0.035em"
 spacing:
-  control-gap: "12px"
-  text-gap: "16px"
-  block-gap: "20px"
-  narrow-gutter: "22px"
-  wide-gutter-min: "28px"
-  narrow-section: "48px"
+  gutter: "clamp(24px, 5.6vw, 96px)"
 components:
-  follow-instagram:
-    backgroundColor: "{colors.follow-orange}"
-    textColor: "#080708"
-    height: "calc(50 * var(--u))"
-    padding: "0 calc(22 * var(--u))"
-  follow-youtube:
-    backgroundColor: "{colors.follow-violet}"
-    textColor: "#080708"
-    height: "calc(50 * var(--u))"
-    padding: "0 calc(22 * var(--u))"
-  follow-instagram-small:
-    backgroundColor: "{colors.follow-orange-small}"
+  masthead:
+    backgroundColor: "{colors.ink}"
+    textColor: "{colors.paper}"
+    padding: "12px clamp(24px, 5.6vw, 96px)"
+  action-link:
+    typography: "{typography.action}"
+    padding: "7px 0"
+  game-panel:
+    backgroundColor: "{colors.ink}"
+    textColor: "{colors.paper}"
+  contact-band:
+    backgroundColor: "{colors.orange}"
     textColor: "{colors.ink}"
-    height: "52px"
-    padding: "0 18px"
-  follow-youtube-small:
-    backgroundColor: "{colors.follow-violet-small}"
-    textColor: "{colors.ink}"
-    height: "52px"
-    padding: "0 18px"
-  navigation:
-    typography: "{typography.navigation}"
-  cue-switch:
-    padding: "12px 0"
-  build-notes:
-    backgroundColor: "{colors.paper}"
-    textColor: "{colors.ink}"
-    padding: "12px 0"
+    padding: "58px clamp(24px, 5.6vw, 96px)"
 ---
 
-# Design System: Mons Games
+# Design System: Bartu Yılmaz / Mons
 
 ## Overview
 
-**Creative North Star: "Midnight Prompt Book"**
+**Creative North Star: "The Maker's Open Book"**
 
-Midnight Prompt Book pairs cream paper with black script stock: condensed display lettering, typewritten notes, ruled controls, and authored pencil marks. Orange Human cues and violet Haunt replies give opposing voices a shared visual grammar.
+The personal portfolio is an editorial introduction to Bartu Yılmaz / Mons. Warm paper and black stock give his name and mark a two-page opening; the dark practice spread, ruled work entries, and orange contact band move from author to process to projects. The material feels handled and authored, but the content stays plainspoken and legible.
 
-The material is flat and tactile, not a cinematic gaming backdrop. Preserve the recognizable Mons Games and Bad Haunts assets. Responsive clarity and accessibility take precedence over exact lettering and pixel placement; local textures and type carry the identity when the wide composition reflows.
+This document governs `index.html` with `personal.css`. It does not redesign `bad-haunts.html` or replace its `portfolio.css` rules. That dedicated game page keeps its Midnight Prompt Book system: cream and black facing pages, orange Human cues, violet Haunt replies, handwritten annotations, and its existing responsive and interaction behavior. Shared assets and some colors do not make the two pages interchangeable.
 
 **Key Characteristics:**
 
-- Opposing paper tones with orange and violet role accents.
-- Narrow display type, readable typewritten copy, handwritten annotations.
-- Flat page materials, rules, tape tabs, and semantic controls.
+- A person-first editorial hierarchy: Bartu, practice, Mons Games, Bad Haunts, then contact.
+- Flat cream and near-black stock with the existing Mons mark and emphatically narrow lettering.
+- Orange as the portfolio's personal/action accent; violet is reserved for game-related work.
 
 ## Colors
 
-Warm stock and near-black ink establish the reading surfaces; orange and violet distinguish the opposing voices.
+The portfolio uses warm paper against near-black ink. Its accent colors signal authorship and project context, not the opposed player roles of the game page.
 
 ### Primary
 
-- **Human Orange:** Human annotations, masthead dividers, and the orange follow action. The follow variants are distinct component fills, not replacements for the role accent.
+- **Maker Orange:** The warm personal accent marks the name, link feedback, selection, and full-width contact band. A deeper red-orange period and softer orange practice label are local variations in `personal.css`, not separate global palette tokens.
 
 ### Secondary
 
-- **Haunt Violet:** Haunt headings, numbered markers, dark-page accents, and the solid contact surface. The follow action has separate wide and small-screen fills.
+- **Project Violet:** The Bad Haunts feature and Unreal/practice details pick up violet. It should help visitors locate the game, not recolor the entire portfolio.
 
 ### Neutral
 
-- **Cream Paper / Script Ink:** Complementary light and dark reading surfaces, reversed as text.
-- **Paper Rule / Dark Rule:** Thin separators on their corresponding stock.
+- **Script Ink / Cream Paper:** These reverse as text and background across the opening, practice spread, project feature, and footer.
+- **Editorial Rules:** Fine ink and locally tuned dark dividers maintain structure; there is no shared rule-color primitive in the current implementation.
 
-**The Opposing Voices Rule.** Use orange for Human cues and violet for Haunt replies; neutral paper and ink carry essential reading.
+**The Author Before Roles Rule.** Orange identifies the maker and contact path on the portfolio; the Human-orange/Haunt-violet pairing belongs to `bad-haunts.html` alone.
 
 ## Typography
 
-Five families are supplied through six local WOFF2 files: Six Caps (400), Courier Prime (400 and 700), Kalam (400), Share (400), and Barlow Condensed (500). All use font-display swap; display and regular body faces are preloaded. The source fallbacks are sans-serif, monospace, and cursive.
+Four local WOFF2 faces are used by the portfolio: Six Caps, Courier Prime regular and bold, and Barlow Condensed. They use `font-display: swap`; Six Caps and regular Courier Prime are preloaded. The type system is deliberately discontinuous: very tall, narrow display lettering over compact typewritten copy.
 
-The ramp is deliberately discontinuous: emphatically narrow display lettering above compact, typewritten explanations. It is not a uniform modular scale.
+- **Display:** Six Caps names Bartu in the opening and renders the Mons alias and studio/game names. The hero uses the display token, then reflows to `clamp(116px, 27vw, 176px)` on narrow screens.
+- **Headline:** Six Caps carries section statements. The experience heading is independently larger (`clamp(84px, 8vw, 132px)`), rather than forcing every heading into a single scale.
+- **Title:** Barlow Condensed labels practice entries and project types in uppercase; it stays distinct from body copy.
+- **Body:** Courier Prime carries introductions, descriptions, and project copy. Standard reading text is 16px with generous 1.6 line height; some mobile practice copy becomes 15px. Copy measures are constrained by the actual section (`37ch`, `48ch`, `50ch`, `56ch`, or `62ch`) rather than a universal width.
+- **Navigation:** Barlow Condensed makes the masthead's uppercase, tracked links readable without competing with the display name.
 
-- **Display:** Six Caps for role headings and game lettering. Wide role headings use the display token; reflowed headings become 96px, then 72px at the narrow breakpoint. The extra-narrow single-column role heading is 82px.
-- **Headline:** Six Caps for section statements, with the headline token as the shared starting point and section-specific responsive sizing.
-- **Title:** Bold Courier Prime, uppercase, for numbered step titles and cue names.
-- **Body:** Courier Prime; longer reading copy uses 16–17px with 1.5–1.65 line height. Step copy is limited to 53ch, studio copy to 60ch, and development copy to 65ch.
-- **Navigation:** Barlow Condensed, uppercase and tracked. Reflowed navigation is 18px; small follow labels use 19px or 21px.
-- **Tool labels:** Share, uppercase, gives small role-section labels a condensed but readable voice.
-- **Annotations:** Kalam, uppercase with slight rotation, supplies the handwritten note layer.
-
-**The Three Voices Rule.** Condensed type announces, typewritten copy explains, and handwriting annotates. Keep these roles distinct.
+**The Name Leads Rule.** Use the largest display gesture for Bartu's name; studio and game titles remain subordinate to the author on the homepage.
 
 ## Layout
 
-The wide composition uses a two-page split, with a viewport-relative unit (1u = 100vw / 1672). Below it, paired columns continue the page grammar; lower editorial sections use generous gutters (max(6.65vw, 28px)) and text measures rather than card containers.
+The opening is a two-column paper/ink spread (`1.45fr 1fr`) with a minimum height of 660px. The practice spread uses a narrower intro beside a wider ruled list; the work area moves from a divided studio row to a two-column game feature. The contact band is a paired heading and message. Reused horizontal gutters come from the `gutter` token; section-specific vertical padding is intentional.
 
-At a maximum width of 1279px, the absolute-positioned opening becomes normal-flow content. The official game logo and premise lead; the two role pages remain paired, follow actions sit side by side, and decorative margin material disappears. At 700px, navigation becomes an enhanced menu, follow actions stack, and the match and lower sections become single-column with 22px gutters. The role pages remain paired until 359px, where they also stack.
+At 1000px and below, the opening tightens, the practice spread becomes one column, and project art and copy shrink. At 700px and below, the opening, studio row, game feature, and contact band all stack; the Mons mark/alias compress into a compact identity strip and the menu becomes an enhanced button. Navigation remains visible without JavaScript. Do not preserve wide page coordinates on mobile.
 
-Use the observed 12–28px local spacing rhythm; narrow editorial sections use 48px vertical padding. Wide sections vary with their content rather than sharing a fabricated universal spacing scale.
+The content order is semantic and stable: person, areas of practice, studio, one documented game, contact. The experience rows are experience statements, not a manufactured project gallery; add future work only when supplied.
 
 ## Elevation & Depth
 
-The rendered interface has no UI elevation-shadow system. Local cream and black texture assets, page seams, fine rules, pencil drawings, and tape create physical character without floating surfaces. The wide page plates carry their own authored material marks; reflowed layouts use the local stock textures.
+The portfolio has no UI shadow or floating-card elevation scale. Local cream and black stock textures, broad tonal reversal, thin rules, and the bordered game-art panel create depth without lifting surfaces. The work and experience sections rely on document flow, not nested cards.
 
-**The Flat Stock Rule.** Create separation with paper tone, rules, and tape, not elevated card shadows.
+**The Flat Stock Rule.** Separate stories with paper tone, dark stock, spacing, and rules; do not introduce generic raised cards or shadow stacks.
 
 ## Shapes
 
-Controls and page divisions are square-edged. Thin rules structure lists and disclosures; the follow actions have an ink border (2px). Tape tabs retain slight opposing rotations, and pencil marks remain irregular. Rounded geometry belongs to the supplied marks and inline SVG icon drawings, not a general container radius scale.
+Page divisions, link underlines, the game-art frame, and the Mons-mark block are square-edged. Fine one-pixel rules structure the work and experience lists. The game-art panel alone has a visible one-pixel violet-tinted frame; this is a project feature, not a general card radius or border token. Curves belong to supplied artwork and inline SVG icon paths, not layout containers.
 
 ## Components
 
-### Follow actions
+### Masthead navigation
 
-Two bordered, full-width social links carry orange and violet fills, inline SVG channel marks, and an arrow. Wide labels use Six Caps with a minimum of 24px; they retain their intentionally condensed/stroked lettering. Reflowed labels use Barlow Condensed on lighter fills. Hover increases brightness (1.18) over 0.2s. Focus uses the shared visible outline.
+The ink masthead carries the existing Mons mark and condensed wordmark. Four uppercase links have at least 44px-high targets and turn orange on hover. At 700px and below, the JavaScript-enhanced native Menu button toggles navigation; the unenhanced document still exposes the links. The shared focus treatment is a current-color 3px outline offset by 5px.
 
-### Navigation
+### Action links
 
-The black masthead pairs the supplied studio mark with uppercase, tracked links and orange dividers. Links have a minimum 44px hit area. At 700px and below, the enhanced native Menu button controls the navigation with aria-expanded; Escape closes it and returns focus. Without JavaScript, navigation stays available.
+Text-led, square-edged links use Barlow Condensed uppercase labels, an underline border, a minimum 48px height, and an inline arrow. The arrow moves 4px on hover or keyboard focus; the opening's downward arrow moves vertically. The game feature uses a lighter violet link color to identify its project context.
 
-### Cue / counter-cue
+### Experience rows
 
-A native button, styled as a dotted-underlined cue title, highlights its visible opposite-role response on hover, focus, or selection. Selection is exposed through aria-pressed and a polite status announcement. The linked state adds an underline and a thin rectangular mark, revealed over 0.34s with cubic-bezier(.16, 1, .3, 1). The content remains visible without interaction.
+The dark practice list uses fine dark rules, uppercase Barlow Condensed titles, and Courier Prime explanations. It is a ruled editorial list, not a set of achievement cards. On narrow screens each row becomes one column, keeping title before explanation.
 
-### Numbered steps
+### Studio and game features
 
-Native ordered lists become ruled production notes: square numbered blocks, bold typewritten titles, readable explanatory copy, and role-specific color reversal. Entries use separators rather than individual cards.
+The studio row pairs the supplied Mons mark with a typographic signature and plain descriptive copy. The Bad Haunts feature is one dark split panel: official game logo artwork on a bordered stock surface, followed by title, development context, a description, a link to the dedicated page, and social destinations. The feature points to the game system but does not import its Human/Haunt interface.
 
-### Build-note disclosure and text links
+### Contact and footer
 
-Native details/summary sits between paper rules. Its bold summary has a minimum height of 56px, with a plus SVG turning 45 degrees when open. Supporting links use underlines and inline arrows, with a minimum 44px hit area; hover thickens the underline.
+The warm orange contact band makes the email destination unmistakable. The dark footer returns to small type and practical links. Interactive destinations retain readable text and at least 44px targets where they are used as navigation.
 
-All keyboard focus uses a current-color outline (3px) offset by 5px. Reduced-motion preference disables transitions, animations, and smooth scrolling. Assets and fonts are local; decorative plates and annotations do not replace semantic text.
+All portfolio interactions retain visible keyboard focus. Reduced-motion preference disables animation and transition and turns smooth scrolling off.
+
+### Protected game-page exception
+
+`bad-haunts.html` remains governed by `portfolio.css`, not the portfolio tokens above. Its wide opening is an absolute-positioned two-page prompt book using the viewport unit `--u`; it reflows to normal document flow below 1280px, a narrow navigation/menu and stacked sections at 700px, and a single role column below 360px. The page retains its Six Caps/Courier Prime/Kalam/Share/Barlow voices, cream/black stock, orange Human and violet Haunt mapping, bordered follow actions, native cue buttons with `aria-pressed`, numbered match notes, native build-note disclosure, local artwork, visible focus, and reduced-motion behavior. Future portfolio edits must leave those game-specific rules intact unless the user separately requests a game-page change.
 
 ## Do's and Don'ts
 
 ### Do:
 
-- Do preserve the cream/black split and orange/violet role distinction.
-- Do use the supplied logos and locally served font and texture assets.
-- Do keep narrow layouts in normal document flow and retain readable body copy.
-- Do retain visible focus, native control semantics, and reduced-motion behavior.
-- Do keep desktop follow labels at least 24px; the dark lettering on saturated desktop fills depends on large-text treatment.
+- Do keep Bartu's name and the existing Mons mark as the opening's visual authority.
+- Do keep cream/ink stock, Six Caps display type, readable Courier Prime copy, and square-edged editorial rules.
+- Do use orange for the portfolio's personal and contact emphasis; use violet to locate game-related work.
+- Do preserve semantic content order, keyboard focus, reduced-motion support, and normal-flow mobile reflow.
+- Do treat Bad Haunts as a linked project with its own unchanged design system.
 
 ### Don't:
 
-- Don't replace the prompt-book material with a generic cinematic gaming hero.
-- Don't introduce rounded card grids or floating shadow surfaces into this flat page system.
-- Don't use handwritten notes for essential long-form copy or control labels.
-- Don't hide mechanics behind the cue interaction; highlighting connects information already visible.
-- Don't preserve desktop coordinates at the expense of responsive clarity or accessibility.
+- Don't apply the portfolio's author-first hierarchy or orange contact band to `bad-haunts.html`.
+- Don't turn iOS experiments, the Vita3K attempt, or unsupplied future projects into finished project cards.
+- Don't replace the flat editorial layout with rounded, elevated card grids.
+- Don't make the game feature reproduce the dedicated game's cue controls or role-page composition.
+- Don't trade readable copy and usable links for exact desktop positioning.
