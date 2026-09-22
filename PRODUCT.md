@@ -8,15 +8,15 @@ web
 
 ## Users
 
-The primary audience is people discovering Bartu Yılmaz, also known as Mons, and his work. Secondary audiences include prospective players, collaborators, press, creators, and people seeking studio or game support.
+The primary audience is people discovering Bartu Yılmaz and his work. Secondary audiences include prospective players, collaborators, press, creators, and people seeking studio or game support.
 
 ## Product Purpose
 
-This is Bartu Yılmaz / Mons's personal portfolio. The homepage introduces him first, then Mons Games as his independent game studio and Bad Haunts as a project. The existing detailed game presentation lives at bad-haunts.html.
+This is Bartu Yılmaz's personal portfolio. The homepage introduces him first, then Mons Games as his independent game studio and Bad Haunts as a project. The existing detailed game presentation lives at bad-haunts.html.
 
 ## Positioning
 
-Bartu Yılmaz / Mons is the person behind the work. Mons Games builds games around the stories people create together. Bad Haunts demonstrates that approach through asymmetric play where human investigators and player-controlled haunts perceive and shape the same match differently.
+Bartu Yılmaz is the person behind the work. Mons Games builds games around the stories people create together. Bad Haunts demonstrates that approach through asymmetric play where human investigators and player-controlled haunts perceive and shape the same match differently.
 
 ## Operating Context
 
@@ -36,7 +36,10 @@ Visitors arrive from social profiles, shared links, or search. They should under
 
 ## Brand Commitments
 
-- Lead with Bartu Yılmaz / Mons. Reuse the existing Mons Games mark and the condensed wordmark style from the masthead; retain the Mons Games studio name in its own section.
+- Lead with Bartu Yılmaz. Treat "Mons" as a low-salience online alias, confined to a small masthead brand treatment if used at all; do not repeat it in the hero or introductory copy. Retain the Mons Games studio name in its own section.
+- Give the personal portfolio a visual world distinct from the Bad Haunts game landing page. Avoid its repeated paper/black-stock textures and prompt-book theme on the homepage; the dedicated Bad Haunts page keeps its existing design.
+- The chosen portfolio direction is a classic, clean white-and-charcoal layout with restrained cobalt accents and a clear project index. Its quality bar is a carefully crafted conventional portfolio, without borrowing Bad Haunts' game-page materials.
+- Keep the browser-tab title short enough to show the full name in typical tabs; use "Bartu Yılmaz" rather than a long descriptor.
 - Preserve the Bad Haunts name, supplied logo, asymmetric horror-comedy premise, and its established social accounts.
 - Keep the voice direct, confident, and focused on interaction, authorship, and memorable player stories.
 - A redesign may replace the incumbent visual system but must not replace product facts, game mechanics, or the recognizable brand assets.

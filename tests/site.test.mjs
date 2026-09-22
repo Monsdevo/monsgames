@@ -24,14 +24,16 @@ test("build excludes retired content and private project files", async () => {
 });
 test("homepage preserves contact, brands and social destinations", async () => {
   const html = await readFile(new URL("../index.html", import.meta.url), "utf8");
-  for (const text of ["assets/bad-haunts-logo.png", "assets/mons-games-mark.png", "mailto:monsgemas@gmail.com", "https://www.instagram.com/badhaunts/", "https://www.youtube.com/@badhaunts"]) assert.ok(html.includes(text), text);
+  for (const text of ["href=\"bad-haunts.html\"", "assets/mons-games-mark.png", "mailto:monsgemas@gmail.com", "https://www.instagram.com/badhaunts/", "https://www.youtube.com/@badhaunts"]) assert.ok(html.includes(text), text);
   assert.doesNotMatch(html, /mustafi|expected after|Approved screenshots.*will live here/i);
 });
 test("personal portfolio states supplied experience without future-project placeholders", async () => {
   const html = await readFile(new URL("../index.html", import.meta.url), "utf8");
-  for (const fact of ["Bartu Yılmaz", "Mons", "More than ten native iOS SaaS experiments", "Unreal Engine", "Vita3K", "ongoing attempt", "vibe coding", "AI agents", "prompt engineering", "Mons Games", "Bad Haunts"]) assert.ok(html.includes(fact), fact);
+  for (const fact of ["Bartu Yılmaz", "10+ native iOS SaaS experiments", "Unreal Engine", "Vita3K", "ongoing attempt", "vibe coding", "AI agents", "prompt engineering", "Mons Games", "Bad Haunts"]) assert.ok(html.includes(fact), fact);
   assert.doesNotMatch(html, /coming soon|placeholder|project 0[2-9]|more projects soon/i);
-  assert.ok(html.indexOf('id="experience"') < html.indexOf('id="work"'));
+  assert.doesNotMatch(html, /known online as|one name online/i);
+  assert.match(html, /<title>Bartu Yılmaz<\/title>/);
+  assert.ok(html.indexOf('id="work"') < html.indexOf('id="experience"'));
 });
 test("dedicated Bad Haunts page preserves the original game presentation", async () => {
   const html = await readFile(new URL("../bad-haunts.html", import.meta.url), "utf8");

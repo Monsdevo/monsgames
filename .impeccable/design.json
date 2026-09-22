@@ -1,214 +1,108 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-17T11:11:56Z",
-  "title": "Design System: Bartu Yılmaz / Mons",
+  "generatedAt": "2026-09-22T12:30:21.591Z",
+  "title": "Design System: Bartu Yılmaz — Personal Portfolio",
   "extensions": {
     "colorMeta": {
-      "ink": {
-        "role": "neutral",
-        "displayName": "Script Ink",
-        "tonalRamp": [
-          "oklch(15% 0.0066 300.75)",
-          "oklch(26.43% 0.0066 300.75)",
-          "oklch(37.86% 0.0066 300.75)",
-          "oklch(49.29% 0.0066 300.75)",
-          "oklch(60.71% 0.0066 300.75)",
-          "oklch(72.14% 0.0066 300.75)",
-          "oklch(83.57% 0.0066 300.75)",
-          "oklch(95% 0.0066 300.75)"
-        ]
-      },
-      "paper": {
-        "role": "neutral",
-        "displayName": "Cream Paper",
-        "tonalRamp": [
-          "oklch(15% 0.0378 75.13)",
-          "oklch(26.43% 0.0378 75.13)",
-          "oklch(37.86% 0.0378 75.13)",
-          "oklch(49.29% 0.0378 75.13)",
-          "oklch(60.71% 0.0378 75.13)",
-          "oklch(72.14% 0.0378 75.13)",
-          "oklch(83.57% 0.0378 75.13)",
-          "oklch(95% 0.0378 75.13)"
-        ]
-      },
-      "orange": {
-        "role": "primary",
-        "displayName": "Maker Orange",
-        "tonalRamp": [
-          "oklch(15% 0.145 39.5)",
-          "oklch(26.43% 0.145 39.5)",
-          "oklch(37.86% 0.145 39.5)",
-          "oklch(49.29% 0.145 39.5)",
-          "oklch(60.71% 0.145 39.5)",
-          "oklch(72.14% 0.145 39.5)",
-          "oklch(83.57% 0.145 39.5)",
-          "oklch(95% 0.145 39.5)"
-        ]
-      },
-      "violet": {
-        "role": "secondary",
-        "displayName": "Project Violet",
-        "tonalRamp": [
-          "oklch(15% 0.1556 300.67)",
-          "oklch(26.43% 0.1556 300.67)",
-          "oklch(37.86% 0.1556 300.67)",
-          "oklch(49.29% 0.1556 300.67)",
-          "oklch(60.71% 0.1556 300.67)",
-          "oklch(72.14% 0.1556 300.67)",
-          "oklch(83.57% 0.1556 300.67)",
-          "oklch(95% 0.1556 300.67)"
-        ]
-      }
+      "canvas": { "role": "neutral", "displayName": "Open Canvas", "tonalRamp": ["oklch(15% 0.003 260)", "oklch(26% 0.003 260)", "oklch(38% 0.003 260)", "oklch(49% 0.003 260)", "oklch(61% 0.003 260)", "oklch(72% 0.003 260)", "oklch(84% 0.003 260)", "oklch(95% 0.003 260)"] },
+      "charcoal": { "role": "neutral", "displayName": "Reading Charcoal", "tonalRamp": ["oklch(15% 0.03 260)", "oklch(26% 0.03 260)", "oklch(38% 0.03 260)", "oklch(49% 0.03 260)", "oklch(61% 0.03 260)", "oklch(72% 0.03 260)", "oklch(84% 0.03 260)", "oklch(95% 0.03 260)"] },
+      "muted": { "role": "neutral", "displayName": "Quiet Slate", "tonalRamp": ["oklch(15% 0.035 260)", "oklch(26% 0.035 260)", "oklch(38% 0.035 260)", "oklch(49% 0.035 260)", "oklch(61% 0.035 260)", "oklch(72% 0.035 260)", "oklch(84% 0.035 260)", "oklch(95% 0.035 260)"] },
+      "cobalt": { "role": "primary", "displayName": "Action Cobalt", "tonalRamp": ["oklch(15% 0.19 262)", "oklch(26% 0.19 262)", "oklch(38% 0.19 262)", "oklch(49% 0.19 262)", "oklch(61% 0.19 262)", "oklch(72% 0.19 262)", "oklch(84% 0.19 262)", "oklch(95% 0.19 262)"] },
+      "rule": { "role": "neutral", "displayName": "Hairline Blue-Gray", "tonalRamp": ["oklch(15% 0.017 260)", "oklch(26% 0.017 260)", "oklch(38% 0.017 260)", "oklch(49% 0.017 260)", "oklch(61% 0.017 260)", "oklch(72% 0.017 260)", "oklch(84% 0.017 260)", "oklch(95% 0.017 260)"] },
+      "pale-blue": { "role": "neutral", "displayName": "Pale-Blue Wash", "tonalRamp": ["oklch(15% 0.026 260)", "oklch(26% 0.026 260)", "oklch(38% 0.026 260)", "oklch(49% 0.026 260)", "oklch(61% 0.026 260)", "oklch(72% 0.026 260)", "oklch(84% 0.026 260)", "oklch(95% 0.026 260)"] }
     },
     "typographyMeta": {
-      "display": {
-        "displayName": "Author Display",
-        "purpose": "Bartu's opening name and the Mons alias; project names stay subordinate."
-      },
-      "headline": {
-        "displayName": "Editorial Headline",
-        "purpose": "Large condensed section statements."
-      },
-      "title": {
-        "displayName": "Practice Title",
-        "purpose": "Uppercase practice headings and project labels."
-      },
-      "body": {
-        "displayName": "Typewritten Body",
-        "purpose": "Essential introduction, experience, project, and contact copy."
-      },
-      "navigation": {
-        "displayName": "Masthead Navigation",
-        "purpose": "Tracked uppercase portfolio navigation."
-      },
-      "action": {
-        "displayName": "Editorial Action",
-        "purpose": "Underlined portfolio and game links with inline arrows."
-      }
+      "display": { "displayName": "Author Display", "purpose": "Bartu's centered hero name." },
+      "headline": { "displayName": "Project Headline", "purpose": "Named entries in the numbered work index." },
+      "body": { "displayName": "Portfolio Body", "purpose": "Descriptions, explanatory copy, and practical links." },
+      "label": { "displayName": "Section Label", "purpose": "Small uppercase section signposts." }
     },
     "shadows": [],
     "motion": [
-      {
-        "name": "arrow-feedback",
-        "value": "transform .3s cubic-bezier(.16,1,.3,1)",
-        "purpose": "A 4px directional nudge on action and game-art arrows."
-      },
-      {
-        "name": "reduced-motion",
-        "value": "none",
-        "purpose": "Disable animation and transition and use automatic scrolling when reduced motion is requested."
-      }
+      { "name": "arrow-feedback", "value": "transform .25s cubic-bezier(.16,1,.3,1)", "purpose": "The 5px directional nudge on portfolio action and row arrows." },
+      { "name": "row-feedback", "value": "background-color .35s cubic-bezier(.16,1,.3,1)", "purpose": "Quiet work-row background response." },
+      { "name": "reduced-motion", "value": "none", "purpose": "Disable animation and transition and use automatic scrolling on reduced-motion preference." }
     ],
     "breakpoints": [
-      {
-        "name": "wide-min",
-        "value": "1700px"
-      },
-      {
-        "name": "compact-max",
-        "value": "1000px"
-      },
-      {
-        "name": "narrow-max",
-        "value": "700px"
-      }
+      { "name": "desktop-interpolation-min", "value": "1200px" },
+      { "name": "desktop-interpolation-max", "value": "1535px" },
+      { "name": "compact-max", "value": "1100px" },
+      { "name": "narrow-max", "value": "760px" }
     ]
   },
   "components": [
     {
       "name": "Masthead navigation",
       "kind": "nav",
-      "refersTo": "masthead",
-      "description": "Ink portfolio masthead with tracked, uppercase links and orange hover feedback.",
-      "html": "<nav class=\"ds-portfolio-nav\" aria-label=\"Main navigation\"><a href=\"#about\">About</a><a href=\"#experience\">Experience</a><a href=\"#work\">Work</a><a href=\"#contact\">Contact</a></nav>",
-      "css": ".ds-portfolio-nav{display:flex;align-items:center;gap:44px;padding:12px 24px;background:var(--ink,#0b0a0d);color:var(--paper,#ead8c0)}.ds-portfolio-nav a{display:inline-flex;align-items:center;min-height:44px;color:inherit;text-decoration:none;text-transform:uppercase;font:500 19px/1.2 \"Barlow Condensed\",sans-serif;letter-spacing:.12em}.ds-portfolio-nav a:hover{color:var(--orange,#e97445)}.ds-portfolio-nav a:focus-visible{outline:3px solid currentColor;outline-offset:5px}@media(max-width:700px){.ds-portfolio-nav{justify-content:space-between;gap:10px;flex-wrap:wrap}.ds-portfolio-nav a{font-size:16px;letter-spacing:.04em}}"
+      "description": "Small cobalt Mons mark and three inline section links.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Main navigation\"><a href=\"#about\">About</a><a href=\"#work\">Work</a><a href=\"#contact\">Contact</a></nav>",
+      "css": ".ds-nav{display:flex;align-items:center;gap:40px;color:var(--ink,#121a2b);font-family:'TASA Orbiter',Arial,sans-serif}.ds-nav a{display:inline-flex;align-items:center;min-height:44px;color:inherit;font-size:18px;font-weight:500;line-height:1;text-decoration:none;text-transform:uppercase}.ds-nav a:hover{color:var(--blue,#0856f8)}.ds-nav a:focus-visible{outline:3px solid var(--blue,#0856f8);outline-offset:4px}@media(max-width:760px){.ds-nav{gap:12px}.ds-nav a{font-size:14px}}"
     },
     {
-      "name": "Menu toggle",
+      "name": "Primary hero action",
       "kind": "button",
-      "description": "Native mobile navigation control; its expanded state is exposed semantically.",
-      "html": "<button class=\"ds-menu-toggle\" type=\"button\" aria-expanded=\"false\">Menu</button>",
-      "css": ".ds-menu-toggle{min-height:44px;min-width:76px;padding:8px 12px;border:1px solid #918478;border-radius:0;background:var(--ink,#0b0a0d);color:var(--paper,#ead8c0);font:14px/1.2 \"Courier Prime\",monospace;cursor:pointer}.ds-menu-toggle:hover,.ds-menu-toggle[aria-expanded=\"true\"]{border-color:var(--orange,#e97445);color:var(--orange,#e97445)}.ds-menu-toggle:focus-visible{outline:3px solid currentColor;outline-offset:5px}"
+      "refersTo": "button-primary",
+      "description": "The one filled cobalt call to action in the opening.",
+      "html": "<a class=\"ds-button-primary\" href=\"#work\">View work <svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M4 12h15m-6-6 6 6-6 6\"/></svg></a>",
+      "css": ".ds-button-primary{display:inline-flex;align-items:center;justify-content:center;gap:13px;min-height:54px;padding:0 31px;border-radius:5px;background:var(--blue,#0856f8);color:#fff;font:500 21px/1 'TASA Orbiter',Arial,sans-serif;text-decoration:none}.ds-button-primary:hover{background:#064bd9}.ds-button-primary:focus-visible{outline:3px solid var(--blue,#0856f8);outline-offset:4px}.ds-button-primary svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;transition:transform .25s cubic-bezier(.16,1,.3,1)}.ds-button-primary:hover svg,.ds-button-primary:focus-visible svg{transform:translateX(5px)}@media(prefers-reduced-motion:reduce){.ds-button-primary svg{transition:none}}"
     },
     {
-      "name": "Editorial action link",
+      "name": "Text hero action",
       "kind": "button",
-      "refersTo": "action-link",
-      "description": "Underlined text action with a gently nudged inline arrow.",
-      "html": "<a class=\"ds-action-link\" href=\"#work\">Explore my work <svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M3 12h17m-7-7 7 7-7 7\"/></svg></a>",
-      "css": ".ds-action-link{display:inline-flex;align-items:center;justify-content:space-between;gap:24px;min-height:48px;padding:7px 0;border-bottom:1px solid currentColor;color:var(--ink,#0b0a0d);text-decoration:none;text-transform:uppercase;font:500 21px/1.25 \"Barlow Condensed\",sans-serif;letter-spacing:.035em}.ds-action-link svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;transition:transform .3s cubic-bezier(.16,1,.3,1)}.ds-action-link:hover svg,.ds-action-link:focus-visible svg{transform:translateX(4px)}.ds-action-link:focus-visible{outline:3px solid currentColor;outline-offset:5px}@media(prefers-reduced-motion:reduce){.ds-action-link svg{transition:none}}"
+      "description": "Unfilled secondary action adjacent to the primary hero link.",
+      "html": "<a class=\"ds-button-text\" href=\"#contact\">Contact <svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M4 12h15m-6-6 6 6-6 6\"/></svg></a>",
+      "css": ".ds-button-text{display:inline-flex;align-items:center;justify-content:center;gap:13px;min-height:54px;color:var(--blue,#0856f8);font:500 21px/1 'TASA Orbiter',Arial,sans-serif;text-decoration:none}.ds-button-text:hover{text-decoration:underline}.ds-button-text:focus-visible{outline:3px solid var(--blue,#0856f8);outline-offset:4px}.ds-button-text svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;transition:transform .25s cubic-bezier(.16,1,.3,1)}.ds-button-text:hover svg,.ds-button-text:focus-visible svg{transform:translateX(5px)}@media(prefers-reduced-motion:reduce){.ds-button-text svg{transition:none}}"
     },
     {
-      "name": "Game action link",
-      "kind": "button",
-      "refersTo": "action-link",
-      "description": "The same editorial action language in Bad Haunts' lighter violet project context.",
-      "html": "<a class=\"ds-game-link\" href=\"bad-haunts.html\">Explore Bad Haunts <svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M3 12h17m-7-7 7 7-7 7\"/></svg></a>",
-      "css": ".ds-game-link{display:inline-flex;align-items:center;justify-content:space-between;gap:24px;min-height:48px;padding:7px 0;border-bottom:1px solid currentColor;color:#c5a3f2;background:var(--ink,#0b0a0d);text-decoration:none;text-transform:uppercase;font:500 21px/1.25 \"Barlow Condensed\",sans-serif;letter-spacing:.035em}.ds-game-link svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;transition:transform .3s cubic-bezier(.16,1,.3,1)}.ds-game-link:hover svg,.ds-game-link:focus-visible svg{transform:translateX(4px)}.ds-game-link:focus-visible{outline:3px solid currentColor;outline-offset:5px}@media(prefers-reduced-motion:reduce){.ds-game-link svg{transition:none}}"
-    },
-    {
-      "name": "Experience row",
+      "name": "Numbered project row",
       "kind": "custom",
-      "description": "Ruled practice entry with a condensed title and readable typewritten explanation.",
-      "html": "<article class=\"ds-experience-row\"><h3>Native iOS &amp; SaaS</h3><p>More than ten native iOS SaaS experiments, exploring product ideas through hands-on development.</p></article>",
-      "css": ".ds-experience-row{display:grid;grid-template-columns:minmax(160px,.7fr) minmax(0,1.3fr);gap:28px;max-width:800px;padding:25px 0 28px;border-top:1px solid #73637b;border-bottom:1px solid #73637b;background:var(--ink,#0b0a0d);color:var(--paper,#ead8c0)}.ds-experience-row h3{margin:0;color:#c4a0f2;text-transform:uppercase;font:500 28px/1.16 \"Barlow Condensed\",sans-serif;letter-spacing:.025em}.ds-experience-row p{margin:0;max-width:56ch;font:16px/1.6 \"Courier Prime\",monospace}@media(max-width:700px){.ds-experience-row{grid-template-columns:1fr;gap:8px;padding:21px 0 23px}.ds-experience-row h3{font-size:25px}.ds-experience-row p{font-size:15px}}"
+      "refersTo": "project-row",
+      "description": "Full-width ruled work-index link with number, factual descriptor, and arrow.",
+      "html": "<a class=\"ds-project-row\" href=\"bad-haunts.html\"><span class=\"ds-project-number\">01</span><span class=\"ds-project-info\"><strong>Bad Haunts</strong><span>Unreal Engine multiplayer · in development</span></span><svg viewBox=\"0 0 32 32\" aria-hidden=\"true\"><path d=\"M3 16h25m-9-9 9 9-9 9\"/></svg></a>",
+      "css": ".ds-project-row{display:grid;grid-template-columns:140px minmax(0,1fr) 42px;align-items:center;min-height:140px;border-top:1px solid var(--line,#dbe2ef);border-bottom:1px solid var(--line,#dbe2ef);color:var(--ink,#121a2b);font-family:'TASA Orbiter',Arial,sans-serif;text-decoration:none;transition:background-color .35s cubic-bezier(.16,1,.3,1)}.ds-project-number{color:var(--muted,#69748f);font-size:31px;font-variant-numeric:tabular-nums}.ds-project-info{display:flex;flex-direction:column;gap:2px}.ds-project-info strong{font-size:46px;line-height:1.05;letter-spacing:-.025em}.ds-project-info span{color:var(--muted,#69748f);font-size:23px}.ds-project-row svg{justify-self:end;width:32px;height:32px;fill:none;stroke:var(--blue,#0856f8);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;transition:transform .25s cubic-bezier(.16,1,.3,1)}.ds-project-row:hover,.ds-project-row:focus-visible{background:#f3f7ff}.ds-project-row:hover strong{color:var(--blue,#0856f8)}.ds-project-row:hover svg,.ds-project-row:focus-visible svg{transform:translateX(5px)}.ds-project-row:focus-visible{outline:3px solid var(--blue,#0856f8);outline-offset:4px}@media(max-width:760px){.ds-project-row{grid-template-columns:43px minmax(0,1fr) 25px;min-height:126px}.ds-project-number{font-size:22px}.ds-project-info strong{font-size:27px}.ds-project-info span{font-size:15px}.ds-project-row svg{width:23px;height:23px}}@media(prefers-reduced-motion:reduce){.ds-project-row,.ds-project-row svg{transition:none}}"
     },
     {
-      "name": "Bad Haunts feature copy",
+      "name": "Practice highlight",
       "kind": "card",
-      "refersTo": "game-panel",
-      "description": "Dark project feature with violet project context; the live page pairs it with the official logo art.",
-      "html": "<article class=\"ds-game-panel\"><h3>Bad Haunts</h3><p class=\"ds-game-type\">Unreal Engine multiplayer · In development</p><p>An asymmetric multiplayer horror-comedy for 2–6 players on PC.</p><a href=\"bad-haunts.html\">Explore Bad Haunts <svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M3 12h17m-7-7 7 7-7 7\"/></svg></a></article>",
-      "css": ".ds-game-panel{max-width:480px;padding:46px 40px;background:var(--ink,#0b0a0d);color:var(--paper,#ead8c0);font:16px/1.6 \"Courier Prime\",monospace}.ds-game-panel h3{margin:0 0 16px;text-transform:uppercase;font:400 76px/1.05 \"Six Caps\",sans-serif;letter-spacing:.03em}.ds-game-panel p{margin:0;max-width:50ch}.ds-game-panel .ds-game-type{margin-bottom:22px;color:var(--violet,#a278e1);text-transform:uppercase;font:500 16px/1.4 \"Barlow Condensed\",sans-serif;letter-spacing:.045em}.ds-game-panel a{display:inline-flex;align-items:center;gap:24px;min-height:48px;margin-top:24px;padding:7px 0;border-bottom:1px solid currentColor;color:#c5a3f2;text-decoration:none;text-transform:uppercase;font:500 21px/1.25 \"Barlow Condensed\",sans-serif;letter-spacing:.035em}.ds-game-panel a svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;transition:transform .3s cubic-bezier(.16,1,.3,1)}.ds-game-panel a:hover svg,.ds-game-panel a:focus-visible svg{transform:translateX(4px)}.ds-game-panel a:focus-visible{outline:3px solid currentColor;outline-offset:5px}@media(prefers-reduced-motion:reduce){.ds-game-panel a svg{transition:none}}"
+      "refersTo": "practice-highlight",
+      "description": "The single pale-blue inset within the otherwise open practice grid.",
+      "html": "<article class=\"ds-practice\"><h3>Vita3K iOS port attempt · ongoing</h3><p>Experimenting with a native iOS port of Vita3K.</p></article>",
+      "css": ".ds-practice{max-width:380px;min-height:170px;padding:14px 30px;border-radius:6px;background:var(--tint,#f0f5ff);font-family:'TASA Orbiter',Arial,sans-serif}.ds-practice h3{margin:0;color:var(--blue,#0856f8);font-size:29px;font-weight:700;line-height:1.12;letter-spacing:-.02em}.ds-practice p{margin:11px 0 0;color:var(--muted,#69748f);font-size:20px;line-height:1.35}"
     },
     {
       "name": "Contact email",
       "kind": "button",
-      "refersTo": "contact-band",
-      "description": "The portfolio's warm orange, direct contact destination.",
-      "html": "<div class=\"ds-contact-band\"><p>A project, a collaboration, or just a hello.</p><a href=\"mailto:monsgemas@gmail.com\">monsgemas@gmail.com <svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M4 20 20 4M4 4h16v16\"/></svg></a></div>",
-      "css": ".ds-contact-band{padding:32px;background:var(--orange,#e97445);color:var(--ink,#0b0a0d);font:16px/1.6 \"Courier Prime\",monospace}.ds-contact-band p{margin:0}.ds-contact-band a{display:inline-flex;align-items:center;gap:18px;min-height:48px;margin-top:18px;color:inherit;font-size:21px;font-weight:700;overflow-wrap:anywhere}.ds-contact-band a:hover{text-decoration-thickness:2px}.ds-contact-band a:focus-visible{outline:3px solid currentColor;outline-offset:5px}.ds-contact-band svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}"
+      "description": "Direct, prominent email destination on a pale-blue contact surface.",
+      "html": "<div class=\"ds-contact\"><p>For a project, a collaboration, or a hello, send me an email.</p><a href=\"mailto:monsgemas@gmail.com\">monsgemas@gmail.com <svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M4 12h15m-6-6 6 6-6 6\"/></svg></a></div>",
+      "css": ".ds-contact{padding:32px;background:var(--tint,#f0f5ff);font-family:'TASA Orbiter',Arial,sans-serif}.ds-contact p{margin:0;color:#475a7a;font-size:22px;line-height:1.45}.ds-contact a{display:inline-flex;align-items:center;gap:16px;min-height:54px;margin-top:24px;color:var(--blue,#0856f8);font-size:28px;font-weight:600;text-decoration:none;overflow-wrap:anywhere}.ds-contact a:hover{text-decoration:underline}.ds-contact a:focus-visible{outline:3px solid var(--blue,#0856f8);outline-offset:4px}.ds-contact svg{width:22px;height:22px;flex:none;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;transition:transform .25s cubic-bezier(.16,1,.3,1)}.ds-contact a:hover svg,.ds-contact a:focus-visible svg{transform:translateX(5px)}@media(prefers-reduced-motion:reduce){.ds-contact svg{transition:none}}"
     }
   ],
   "narrative": {
-    "northStar": "The Maker's Open Book",
-    "overview": "The personal portfolio is an editorial introduction to Bartu Yılmaz / Mons. Warm paper and black stock give his name and mark a two-page opening; the dark practice spread, ruled work entries, and orange contact band move from author to process to projects. The material feels handled and authored, but the content stays plainspoken and legible.\n\nThis document governs `index.html` with `personal.css`. It does not redesign `bad-haunts.html` or replace its `portfolio.css` rules. That dedicated game page keeps its Midnight Prompt Book system: cream and black facing pages, orange Human cues, violet Haunt replies, handwritten annotations, and its existing responsive and interaction behavior. Shared assets and some colors do not make the two pages interchangeable.",
+    "northStar": "The Clear Work Index",
+    "overview": "The homepage is a classic, clean portfolio that introduces Bartu Yılmaz before his studio and current game. A centered name, short introduction, two direct actions, and full-width numbered work rows let a visitor understand the author and choose a destination immediately. The interface is deliberately quiet around the work: a near-white canvas, charcoal sans-serif type, cobalt used sparingly for action, pale-blue contextual emphasis, and precise hairline rules.\n\nThis system governs `index.html` and `personal.css` only. `bad-haunts.html` is a separate game presentation governed by `portfolio.css`; its established Midnight Prompt Book identity must not be restyled by these portfolio tokens. The difference is intentional, not drift.",
     "keyCharacteristics": [
-      "A person-first editorial hierarchy: Bartu, practice, Mons Games, Bad Haunts, then contact.",
-      "Flat cream and near-black stock with the existing Mons mark and emphatically narrow lettering.",
-      "Orange as the portfolio's personal/action accent; violet is reserved for game-related work."
+      "Bartu's name is the largest gesture; Mons appears only through the small masthead mark, while Mons Games is named as studio work.",
+      "Two numbered, rule-separated project rows form the work index; practice statements are not project cards.",
+      "TASA Orbiter carries the entire portfolio, with cobalt actions and arrows against a light, flat canvas."
     ],
     "rules": [
-      {
-        "name": "The Author Before Roles Rule",
-        "body": "Orange identifies the maker and contact path on the portfolio; the Human-orange/Haunt-violet pairing belongs to `bad-haunts.html` alone.",
-        "section": "colors"
-      },
-      {
-        "name": "The Name Leads Rule",
-        "body": "Use the largest display gesture for Bartu's name; studio and game titles remain subordinate to the author on the homepage.",
-        "section": "typography"
-      },
-      {
-        "name": "The Flat Stock Rule",
-        "body": "Separate stories with paper tone, dark stock, spacing, and rules; do not introduce generic raised cards or shadow stacks.",
-        "section": "elevation"
-      }
+      { "name": "The One Accent Rule", "body": "Cobalt belongs to navigation feedback, actions, arrows, focus, and a small number of contextual cues; do not recolor entire portfolio sections as game-role panels.", "section": "colors" },
+      { "name": "The Name Leads Rule", "body": "Bartu's name remains the page's largest typographic statement; studio and game names are clearly subordinate in the homepage hierarchy.", "section": "typography" },
+      { "name": "The Flat Index Rule", "body": "Keep work in open, ruled rows and practice in a light grid; do not convert the homepage into a shadowed card gallery.", "section": "elevation" }
     ],
     "dos": [
-      "Do keep Bartu's name and the existing Mons mark as the opening's visual authority.",
-      "Do keep cream/ink stock, Six Caps display type, readable Courier Prime copy, and square-edged editorial rules.",
-      "Do use orange for the portfolio's personal and contact emphasis; use violet to locate game-related work.",
-      "Do preserve semantic content order, keyboard focus, reduced-motion support, and normal-flow mobile reflow.",
-      "Do treat Bad Haunts as a linked project with its own unchanged design system."
+      "Do lead with Bartu's name, then the two-entry work index, practice, studio detail, and contact path.",
+      "Do use the existing Mons mark at small masthead scale and keep the portfolio palette light, charcoal, and cobalt.",
+      "Do preserve factual qualifiers such as \"in development,\" \"experiments,\" and \"ongoing attempt.\"",
+      "Do keep project rows as accessible full-width links with visible focus and reduced-motion behavior.",
+      "Do preserve the dedicated Bad Haunts design as a separate visual system."
     ],
     "donts": [
-      "Don't apply the portfolio's author-first hierarchy or orange contact band to `bad-haunts.html`.",
-      "Don't turn iOS experiments, the Vita3K attempt, or unsupplied future projects into finished project cards.",
-      "Don't replace the flat editorial layout with rounded, elevated card grids.",
-      "Don't make the game feature reproduce the dedicated game's cue controls or role-page composition.",
-      "Don't trade readable copy and usable links for exact desktop positioning."
+      "Don't reuse Bad Haunts' paper grain, black stock, role colors, handwriting, or prompt-book composition on the homepage.",
+      "Don't turn iOS experiments, the Vita3K port attempt, or unsupplied projects into finished portfolio cards.",
+      "Don't replace the numbered index with speculative project imagery or an elevated card grid.",
+      "Don't present the homepage's hidden Menu control as a shipped collapsed-navigation pattern.",
+      "Don't apply the homepage's cobalt or TASA Orbiter rules to `bad-haunts.html`."
     ]
   }
 }

@@ -17,31 +17,19 @@ for (const width of [320, 390, 700, 768, 1024, 1280, 1440, 1600]) {
   }).map(element => `${element.tagName}.${element.className}`));
   const documentOverflow = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth);
   assert.equal(documentOverflow, false, `Document overflows at ${width}px`);
-  if (width >= 1280) {
-    const actions = await page.locator(".follow").evaluateAll(links => links.map(link => ({
-      fontSize: parseFloat(getComputedStyle(link).fontSize),
-      unclipped: link.querySelector("span").getBoundingClientRect().right < link.querySelector(".arrow").getBoundingClientRect().left
-    })));
-    for (const action of actions) {
-      assert.ok(action.fontSize >= 24, `Large action text at ${width}px`);
-      assert.ok(action.unclipped, `Action text has room at ${width}px`);
-    }
-  }
   console.log(JSON.stringify({ width, documentOverflow, overflowing }));
 }
 await page.setViewportSize({ width: 390, height: 844 });
 await page.goto("http://127.0.0.1:4174/", { waitUntil: "networkidle" });
-assert.match(await page.locator("#experience").innerText(), /More than ten native iOS SaaS experiments/);
+assert.equal(await page.title(), "Bartu Yılmaz");
+assert.match(await page.locator("#experience").innerText(), /10\+ native iOS SaaS experiments/);
 assert.match(await page.locator("#experience").innerText(), /Vita3K/);
-await page.getByRole("button", { name: "Menu", exact: true }).click();
 assert.equal(await page.locator("#navigation").isVisible(), true);
-await page.keyboard.press("Escape");
-assert.equal(await page.locator("#navigation").isVisible(), false);
-await page.getByRole("button", { name: "Menu", exact: true }).click();
-await page.locator("#navigation").getByRole("link", { name: "Experience" }).click();
-assert.equal(new URL(page.url()).hash, "#experience");
-assert.equal(await page.locator("#navigation").isVisible(), false);
-await page.getByRole("link", { name: "Explore Bad Haunts", exact: true }).last().click();
+await page.locator("#navigation").getByRole("link", { name: "Work" }).click();
+assert.equal(new URL(page.url()).hash, "#work");
+await page.getByRole("link", { name: "Learn more about Mons Games" }).click();
+assert.equal(new URL(page.url()).hash, "#mons-games");
+await page.getByRole("link", { name: "Explore Bad Haunts", exact: true }).first().click();
 assert.equal(new URL(page.url()).pathname, "/bad-haunts.html");
 await page.locator("summary").click();
 assert.equal(await page.locator("details").getAttribute("open"), "");
@@ -55,5 +43,5 @@ const noScript = await browser.newPage({ javaScriptEnabled: false, viewport: { w
 await noScript.goto("http://127.0.0.1:4174/");
 assert.equal(await noScript.locator("#navigation").isVisible(), true);
 assert.equal(await noScript.locator("#contact a").isVisible(), true);
-console.log("PASS: portfolio navigation, game-page navigation, keyboard dismissal, disclosure, role pairing, asset loading and no-JavaScript navigation.");
+console.log("PASS: portfolio navigation, game-page navigation, disclosure, role pairing, asset loading and no-JavaScript navigation.");
 await browser.close();

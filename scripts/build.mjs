@@ -17,5 +17,5 @@ for (const directory of ["plates", "fonts"]) {
 }
 await cp(resolve(root, "scripts", "worker.mjs"), resolve(dist, "server", "index.js"));
 const html = await readFile(resolve(dist, "client", "index.html"), "utf8");
-for (const asset of ["personal.css", "portfolio.js", "bad-haunts.html", "assets/bad-haunts-logo.png", "assets/mons-games-mark.png", "assets/mons-games-social.png"]) if (!html.includes(asset)) throw new Error("Built HTML is missing " + asset);
+for (const asset of ["personal.css", "portfolio.js", "bad-haunts.html", "assets/mons-games-mark.png", "assets/mons-games-social.png"]) if (!html.includes(asset)) throw new Error("Built HTML is missing " + asset);
 console.log("Mons Games production build is ready.");

@@ -5,20 +5,24 @@ primary_target: "index.html"
 related_targets: ["personal.css","portfolio.js","bad-haunts.html"]
 ---
 
-# Bartu Yılmaz / Mons homepage
+# Bartu Yılmaz homepage
 
-Mode: Experience. Refocus the existing homepage on the person, then studio and work. User request 2026-09-17 pins the current Mons mark and header lettering and asks to implement the personal hierarchy now, with other projects supplied later and no placeholders. Retain established cream/black stock and condensed typography; directly adapt this existing surface. The earlier game comp is reference for the preserved game page, not a contract for the personal homepage. English and established destinations remain confirmed.
+Mode: Experience. Scope: `index.html` and `personal.css`; preserve `bad-haunts.html` and its separate visual system. Audience: people discovering Bartu's work, potential collaborators, and Bad Haunts visitors. Job: identify the person, see current work and practice, then reach the project or contact. Only Bartu's supplied claims are proof. No speculative project placeholders.
+
+Approved comp: `.impeccable/mocks/03-work-index.png` (delegated choice, 2026-09-22, after the selection server expired). Its centered personal opening and numbered project index bind the implementation. Generated comp details that are not factual claims or functional decisions do not override verified copy, real links, or accessible behavior.
+
+Finish-review refinement: redundant eyebrow labels above the hero, Mons Games, and contact headings were omitted to keep the hierarchy concise. The approved comp's spacing and structure remain the reference.
 
 ## Direction contract
 
-THESIS: Bartu Yılmaz / Mons is the author; studio and game are his work.
+THESIS: Bartu Yılmaz leads; work reads as a concise index, not a Bad Haunts landing page or portfolio card gallery.
 
-OWN-WORLD: Existing cream paper, black stock, Six Caps lettering, original M mark, orange personal accent and violet game accent.
+OWN-WORLD: White canvas, charcoal sans type, restrained cobalt actions, pale-blue accents, hairline rules, precise open spacing; no paper or horror textures.
 
-STORY: Meet Bartu; understand his native iOS, Unreal and AI-assisted practice; then discover Mons Games and Bad Haunts; contact him.
+STORY: Meet Bartu, scan Bad Haunts and Mons Games, understand iOS/Unreal/AI practice, open the game or make contact.
 
-FIRST VIEWPORT: Black masthead; large name on cream left page; Mons mark and alias on black right page; personal introduction and work/contact links below the name. Name and alias lead over all project titles. An editorial dark practice spread follows before the studio/game work, with explicit user-supplied claims and no future-project placeholders.
+FIRST VIEWPORT: Tiny Mons mark at upper left, three-link nav at right; centered large Bartu Yılmaz and two actions; two full-width numbered work rows; practice begins below. Name owns the largest type.
 
-FORM: Content-led adaptation of established Midnight Prompt Book (original seed 08898c5a); no new identity tournament. Project arrows move on hover/focus; reduced motion removes movement.
+FORM: Classic portfolio standing exit; seed 96dd1bd6; composition 03, centered introduction plus numbered project index. One measured cobalt action and quiet row-arrow transitions.
 
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
