@@ -70,7 +70,7 @@ This system governs `index.html` and `personal.css` only. `bad-haunts.html` is a
 **Key Characteristics:**
 
 - Bartu's name is the largest gesture; Mons appears only through the small masthead mark, while Mons Games is named as studio work.
-- Two numbered, rule-separated project rows form the work index; practice statements are not project cards.
+- Three numbered, rule-separated project rows form the work index; practice statements are not project cards.
 - TASA Orbiter carries the entire portfolio, with cobalt actions and arrows against a light, flat canvas.
 
 ## Colors
@@ -113,7 +113,7 @@ The masthead places the supplied Mons mark at left and three inline navigation l
 
 At 1200–1535px, several vertical dimensions and index type sizes interpolate with viewport width. At 1100px, the hero, row, and practice type and spacing tighten. At 760px and below, the masthead, hero, work rows, and typography tighten further, while the practice grid stacks into one column. The shipped CSS retains inline navigation; it does not currently provide a collapsed homepage menu. Document any later responsive change from the implementation rather than assuming the game page's breakpoints apply.
 
-The semantic sequence is stable: person, work index, practice, Mons Games detail, contact, footer. The index contains only the supplied Bad Haunts and Mons Games entries; iOS experiments and the Vita3K attempt remain accurately framed as practice.
+The semantic sequence is stable: person, work index, practice, Mons Games detail, contact, footer. The index contains the supplied Bad Haunts, Mons Games and inFAMOUS 2 iOS port entries; iOS experiments and the Vita3K attempt remain accurately framed as practice.
 
 ## Elevation & Depth
 
@@ -151,11 +151,15 @@ The studio detail is a two-column, text-led explanation with a direct Bad Haunts
 
 The dedicated `bad-haunts.html` page remains a separate Midnight Prompt Book system in `portfolio.css`: cream and black stock textures, Six Caps/Courier Prime/Kalam/Share/Barlow voices, orange Human cues against violet Haunt responses, handwritten annotations, and its role-based facing pages. Its wide opening uses `--u`-scaled absolute composition; below 1280px it returns to document flow, with a mobile navigation treatment at 700px and single role column below 360px. Native cue buttons expose `aria-pressed`; numbered match notes, build-note disclosure, social follow actions, focus, and reduced-motion behavior remain game-specific. Do not import the portfolio's cobalt, TASA Orbiter, open index rows, or pale-blue wash into that page without a separate game-page request.
 
+### Protected inFAMOUS exception
+
+The dedicated `/infamous2-ios` showcase has its own cinematic graphic-novel world: coal and dirty white, electric blue and ember, Anton display lettering, real iPhone screenshots, sharp rules and a restrained electric-current signature. It preserves the shared Mons Games mark and TASA Orbiter reading typography. Its tokens, responsive layouts, components, semantics and reduced-motion behavior are scoped in [inFAMOUS 2 on iOS — DESIGN.md](infamous2-ios/DESIGN.md); do not apply that world's page composition or palette to the homepage or Bad Haunts.
+
 ## Do's and Don'ts
 
 ### Do:
 
-- Do lead with Bartu's name, then the two-entry work index, practice, studio detail, and contact path.
+- Do lead with Bartu's name, then the three-entry work index, practice, studio detail, and contact path.
 - Do use the existing Mons mark at small masthead scale and keep the portfolio palette light, charcoal, and cobalt.
 - Do preserve factual qualifiers such as "in development," "experiments," and "ongoing attempt."
 - Do keep project rows as accessible full-width links with visible focus and reduced-motion behavior.

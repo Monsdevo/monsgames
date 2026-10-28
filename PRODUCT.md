@@ -25,7 +25,8 @@ Visitors arrive from social profiles, shared links, or search. They should under
 ## Capabilities and Constraints
 
 - The site is an English-language, responsive static web experience with a small JavaScript enhancement layer.
-- Only Mons Games and Bad Haunts are currently supplied as named portfolio projects. The user will provide more projects later; do not add placeholders, coming-soon cards, fabricated project names or inferred projects from repository folders.
+- Supplied portfolio projects are Mons Games, Bad Haunts and the inFAMOUS 2 iOS port. The latter has a dedicated `/infamous2-ios` showcase and an approved matching project-index row. Do not infer additional projects from repository folders or add placeholders.
+- The inFAMOUS 2 iOS port is an unofficial, closed-source early prototype: real iPhone 15 Pro gameplay through ARM64 static recompilation and Metal, approximately 6 FPS in recent controlled tests. Physical controller input including DualSense has been tested; touch controls are planned. Full campaign, all controls and long sessions are not validated. GitHub is a public progress tracker; no source, game data, firmware or installable builds are published. Use the public README as factual authority. No videos on the showcase at this stage.
 - User-supplied experience: more than ten native iOS SaaS experiments; one Unreal Engine multiplayer game; an ongoing attempt to port Vita3K (a PlayStation Vita emulator) to iOS; advanced experience with vibe coding, AI agents and prompt engineering. Present experiments and the Vita3K attempt honestly, not as shipped products.
 - Preserve English until the user asks for a language change. Do not invent age, location, employment history, awards, availability or additional social accounts.
 - Production hosting is GitHub Pages at monsgames.net, published from Monsdevo/monsgames main. The Sites preview is separate.

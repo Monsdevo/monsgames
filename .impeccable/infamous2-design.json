@@ -1,0 +1,378 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-28T19:49:03.101Z",
+  "title": "Design System: inFAMOUS 2 on iOS — Mons Games",
+  "extensions": {
+    "colorMeta": {
+      "coal": {
+        "role": "neutral",
+        "displayName": "Coal",
+        "tonalRamp": [
+          "oklch(15% 0.006 220)",
+          "oklch(26% 0.006 220)",
+          "oklch(38% 0.006 220)",
+          "oklch(49% 0.006 220)",
+          "oklch(61% 0.006 220)",
+          "oklch(72% 0.006 220)",
+          "oklch(84% 0.006 220)",
+          "oklch(95% 0.006 220)"
+        ]
+      },
+      "deep": {
+        "role": "neutral",
+        "displayName": "Deep",
+        "tonalRamp": [
+          "oklch(15% 0.006 220)",
+          "oklch(26% 0.006 220)",
+          "oklch(38% 0.006 220)",
+          "oklch(49% 0.006 220)",
+          "oklch(61% 0.006 220)",
+          "oklch(72% 0.006 220)",
+          "oklch(84% 0.006 220)",
+          "oklch(95% 0.006 220)"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Dirty White",
+        "tonalRamp": [
+          "oklch(15% 0.009 110)",
+          "oklch(26% 0.009 110)",
+          "oklch(38% 0.009 110)",
+          "oklch(49% 0.009 110)",
+          "oklch(61% 0.009 110)",
+          "oklch(72% 0.009 110)",
+          "oklch(84% 0.009 110)",
+          "oklch(95% 0.009 110)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted Gray",
+        "tonalRamp": [
+          "oklch(15% 0.006 200)",
+          "oklch(26% 0.006 200)",
+          "oklch(38% 0.006 200)",
+          "oklch(49% 0.006 200)",
+          "oklch(61% 0.006 200)",
+          "oklch(72% 0.006 200)",
+          "oklch(84% 0.006 200)",
+          "oklch(95% 0.006 200)"
+        ]
+      },
+      "blue": {
+        "role": "primary",
+        "displayName": "Electric Blue",
+        "tonalRamp": [
+          "oklch(15% 0.13 230)",
+          "oklch(26% 0.13 230)",
+          "oklch(38% 0.13 230)",
+          "oklch(49% 0.13 230)",
+          "oklch(61% 0.13 230)",
+          "oklch(72% 0.13 230)",
+          "oklch(84% 0.13 230)",
+          "oklch(95% 0.13 230)"
+        ]
+      },
+      "action": {
+        "role": "primary",
+        "displayName": "Action Blue",
+        "tonalRamp": [
+          "oklch(15% 0.1 230)",
+          "oklch(26% 0.1 230)",
+          "oklch(38% 0.1 230)",
+          "oklch(49% 0.1 230)",
+          "oklch(61% 0.1 230)",
+          "oklch(72% 0.1 230)",
+          "oklch(84% 0.1 230)",
+          "oklch(95% 0.1 230)"
+        ]
+      },
+      "ember": {
+        "role": "secondary",
+        "displayName": "Ember",
+        "tonalRamp": [
+          "oklch(15% 0.14 45)",
+          "oklch(26% 0.14 45)",
+          "oklch(38% 0.14 45)",
+          "oklch(49% 0.14 45)",
+          "oklch(61% 0.14 45)",
+          "oklch(72% 0.14 45)",
+          "oklch(84% 0.14 45)",
+          "oklch(95% 0.14 45)"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Rule Gray",
+        "tonalRamp": [
+          "oklch(15% 0.008 210)",
+          "oklch(26% 0.008 210)",
+          "oklch(38% 0.008 210)",
+          "oklch(49% 0.008 210)",
+          "oklch(61% 0.008 210)",
+          "oklch(72% 0.008 210)",
+          "oklch(84% 0.008 210)",
+          "oklch(95% 0.008 210)"
+        ]
+      },
+      "action-ink": {
+        "role": "neutral",
+        "displayName": "Action Ink",
+        "tonalRamp": [
+          "oklch(15% 0.025 225)",
+          "oklch(26% 0.025 225)",
+          "oklch(38% 0.025 225)",
+          "oklch(49% 0.025 225)",
+          "oklch(61% 0.025 225)",
+          "oklch(72% 0.025 225)",
+          "oklch(84% 0.025 225)",
+          "oklch(95% 0.025 225)"
+        ]
+      },
+      "action-hover": {
+        "role": "primary",
+        "displayName": "Pale Action Blue",
+        "tonalRamp": [
+          "oklch(15% 0.06 230)",
+          "oklch(26% 0.06 230)",
+          "oklch(38% 0.06 230)",
+          "oklch(49% 0.06 230)",
+          "oklch(61% 0.06 230)",
+          "oklch(72% 0.06 230)",
+          "oklch(84% 0.06 230)",
+          "oklch(95% 0.06 230)"
+        ]
+      },
+      "performance-paper": {
+        "role": "neutral",
+        "displayName": "Performance Paper",
+        "tonalRamp": [
+          "oklch(15% 0.01 110)",
+          "oklch(26% 0.01 110)",
+          "oklch(38% 0.01 110)",
+          "oklch(49% 0.01 110)",
+          "oklch(61% 0.01 110)",
+          "oklch(72% 0.01 110)",
+          "oklch(84% 0.01 110)",
+          "oklch(95% 0.01 110)"
+        ]
+      },
+      "performance-ink": {
+        "role": "neutral",
+        "displayName": "Performance Ink",
+        "tonalRamp": [
+          "oklch(15% 0.01 205)",
+          "oklch(26% 0.01 205)",
+          "oklch(38% 0.01 205)",
+          "oklch(49% 0.01 205)",
+          "oklch(61% 0.01 205)",
+          "oklch(72% 0.01 205)",
+          "oklch(84% 0.01 205)",
+          "oklch(95% 0.01 205)"
+        ]
+      },
+      "performance-copy": {
+        "role": "neutral",
+        "displayName": "Performance Copy",
+        "tonalRamp": [
+          "oklch(15% 0.015 155)",
+          "oklch(26% 0.015 155)",
+          "oklch(38% 0.015 155)",
+          "oklch(49% 0.015 155)",
+          "oklch(61% 0.015 155)",
+          "oklch(72% 0.015 155)",
+          "oklch(84% 0.015 155)",
+          "oklch(95% 0.015 155)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Game Identity",
+        "purpose": "Anton game wordmark; responsive skew and larger blue numeral are page-specific."
+      },
+      "headline": {
+        "displayName": "Section Headline",
+        "purpose": "Condensed Anton section headings."
+      },
+      "statement": {
+        "displayName": "Hero Statement",
+        "purpose": "TASA statement beneath the game identity."
+      },
+      "title": {
+        "displayName": "Evidence Title",
+        "purpose": "TASA milestone and development-log headings."
+      },
+      "body": {
+        "displayName": "Reading Copy",
+        "purpose": "TASA project explanation, factual qualifiers and technical copy."
+      },
+      "label": {
+        "displayName": "Capture Category",
+        "purpose": "Small uppercase capture category, distinct from its descriptive title."
+      }
+    },
+    "shadows": [
+      {
+        "name": "lightbox-modal",
+        "value": "0 24px 80px #0009",
+        "purpose": "Native capture dialog only; open reading sections stay flat."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease",
+        "value": "cubic-bezier(.16,1,.3,1)",
+        "purpose": "Shared state-transition and current-draw easing."
+      },
+      {
+        "name": "current-entry",
+        "value": "1.8s .15s forwards",
+        "purpose": "One electric-current draw on initial entry."
+      },
+      {
+        "name": "action-fill",
+        "value": ".25s",
+        "purpose": "Primary action background and border transition."
+      },
+      {
+        "name": "navigation-trace",
+        "value": ".3s",
+        "purpose": "Navigation underline and icon movement."
+      },
+      {
+        "name": "action-trace",
+        "value": ".4s",
+        "purpose": "Thin current-like underline beneath primary action."
+      },
+      {
+        "name": "capture-hover",
+        "value": ".8s",
+        "purpose": "Small preview scale and brightness change."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "prefers-reduced-motion: reduce",
+        "purpose": "No animation or transition; auto scrolling; fully drawn current; no capture hover scaling. Other state changes are immediate."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "wide-min",
+        "value": "1700px"
+      },
+      {
+        "name": "compact-max",
+        "value": "1100px"
+      },
+      {
+        "name": "mobile-max",
+        "value": "700px"
+      },
+      {
+        "name": "narrow-max",
+        "value": "360px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary GitHub Action",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Square, high-contrast link used in the hero and closing panel.",
+      "html": "<a class=\"ds-primary\" href=\"https://github.com/Monsdevo/infamous2-ios\">Follow on GitHub <svg viewBox=\"0 0 24 24\" width=\"19\" height=\"19\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" aria-hidden=\"true\"><path d=\"M6 18 18 6M6 6h12v12\"/></svg></a>",
+      "css": ".ds-primary{position:relative;display:inline-flex;align-items:center;justify-content:space-between;gap:24px;min-height:54px;padding:14px 23px;background:var(--action,#78d5ff);color:#10222b;font:700 14px \"TASA Orbiter\",Arial,sans-serif;text-decoration:none;border:1px solid transparent;transition:background-color .25s cubic-bezier(.16,1,.3,1)}.ds-primary:hover{background:#b8eaff}.ds-primary svg{transition:transform .3s cubic-bezier(.16,1,.3,1)}.ds-primary:hover svg,.ds-primary:focus-visible svg{transform:translate(2px,-2px)}.ds-primary::after{content:\"\";position:absolute;bottom:-7px;left:0;width:100%;height:1px;background:var(--blue,#57caff);transform:scaleX(0);transform-origin:left;transition:transform .4s cubic-bezier(.16,1,.3,1)}.ds-primary:hover::after,.ds-primary:focus-visible::after{transform:scaleX(1)}.ds-primary:focus-visible{outline:3px solid var(--blue,#57caff);outline-offset:6px}@media(prefers-reduced-motion:reduce){.ds-primary,.ds-primary svg,.ds-primary::after{transition:none}}"
+    },
+    {
+      "name": "Text Action",
+      "kind": "button",
+      "refersTo": "text-link",
+      "description": "Quiet text action with a stroked directional arrow.",
+      "html": "<a class=\"ds-text\" href=\"#captures\">Explore the captures <svg viewBox=\"0 0 24 24\" width=\"19\" height=\"19\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" aria-hidden=\"true\"><path d=\"M6 18 18 6M6 6h12v12\"/></svg></a>",
+      "css": ".ds-text{display:inline-flex;align-items:center;gap:13px;min-height:44px;color:var(--paper,#ecece6);font:600 13px \"TASA Orbiter\",Arial,sans-serif;text-decoration:none}.ds-text:hover,.ds-text:focus-visible{color:var(--blue,#57caff)}.ds-text:focus-visible{outline:3px solid var(--blue,#57caff);outline-offset:6px}"
+    },
+    {
+      "name": "Project Navigation",
+      "kind": "nav",
+      "description": "Three visible project anchors with a drawn underline.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Project navigation\"><a href=\"#project\">The project</a><a href=\"#captures\">Captures</a><a href=\"#progress\">Development</a></nav>",
+      "css": ".ds-nav{display:flex;gap:34px;background:var(--coal,#101213);padding:12px 18px;font:500 13px \"TASA Orbiter\",Arial,sans-serif}.ds-nav a{position:relative;display:inline-flex;align-items:center;min-height:44px;color:#d0d3d1;text-decoration:none}.ds-nav a::after{content:\"\";position:absolute;bottom:4px;left:0;right:0;height:1px;background:var(--blue,#57caff);transform:scaleX(0);transform-origin:left;transition:transform .3s cubic-bezier(.16,1,.3,1)}.ds-nav a:hover::after,.ds-nav a:focus-visible::after{transform:scaleX(1)}.ds-nav a:focus-visible{outline:3px solid var(--blue,#57caff);outline-offset:6px}@media(prefers-reduced-motion:reduce){.ds-nav a::after{transition:none}}"
+    },
+    {
+      "name": "Prototype Status Strip",
+      "kind": "custom",
+      "description": "Written prototype state and contextual performance reading.",
+      "html": "<div class=\"ds-prototype\"><p><span aria-hidden=\"true\"></span>Early development prototype</p><p>Real gameplay reached. Performance around <strong>6 FPS.</strong></p></div>",
+      "css": ".ds-prototype{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:21px 24px;background:#151819;color:#c8cdca;border-bottom:1px solid var(--rule,#383d3e);font:400 12px/1.65 \"TASA Orbiter\",Arial,sans-serif}.ds-prototype p{margin:0}.ds-prototype p:first-child{display:flex;align-items:center;gap:10px;color:var(--ember,#ff9d73)}.ds-prototype span{width:6px;height:6px;border-radius:50%;background:var(--ember,#ff9d73);flex-shrink:0}.ds-prototype strong{font-weight:600;color:var(--paper,#ecece6)}@media(max-width:700px){.ds-prototype{display:block}.ds-prototype p+p{margin-top:8px}}"
+    },
+    {
+      "name": "Capture Caption",
+      "kind": "custom",
+      "description": "The reading portion of a real screenshot figure, without a substitute image.",
+      "html": "<div class=\"ds-caption\"><div><h3>The opening encounter</h3><span>In-engine sequence</span></div><p>02 / 04</p></div>",
+      "css": ".ds-caption{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:16px 0 0;color:var(--paper,#ecece6);font-family:\"TASA Orbiter\",Arial,sans-serif}.ds-caption h3{margin:0;font-size:18px;font-weight:500;line-height:1.35;letter-spacing:-.015em}.ds-caption span{display:block;margin-top:5px;font-size:10px;color:var(--blue,#57caff);letter-spacing:.12em;text-transform:uppercase}.ds-caption p{margin:0;font-size:11px;font-variant-numeric:tabular-nums;color:var(--muted,#adb2b2);white-space:nowrap}"
+    },
+    {
+      "name": "Active Milestone",
+      "kind": "custom",
+      "refersTo": "status-active",
+      "description": "Written progress state, ember dot and open ruled structure.",
+      "html": "<div class=\"ds-milestone\"><span class=\"ds-dot\" aria-hidden=\"true\"></span><span class=\"ds-state\">In progress</span><div><h3>Make every millisecond count.</h3><p>Profiling, renderer overhead, frame pacing and broader correctness tests remain active work.</p></div></div>",
+      "css": ".ds-milestone{position:relative;display:grid;grid-template-columns:160px 1fr;column-gap:55px;border-left:1px solid #48707b;padding:27px 0 29px 34px;color:var(--paper,#ecece6);font-family:\"TASA Orbiter\",Arial,sans-serif}.ds-dot{position:absolute;left:-5px;top:36px;width:9px;height:9px;border-radius:50%;border:2px solid var(--coal,#101213);background:var(--ember,#ff9d73)}.ds-state{font-size:12px;padding-top:3px;color:var(--ember,#ff9d73)}.ds-milestone h3{margin:0;font-size:22px;font-weight:500;line-height:1.4;letter-spacing:-.02em}.ds-milestone p{margin:9px 0 0;font-size:14px;line-height:1.65;color:var(--muted,#adb2b2);max-width:750px}@media(max-width:700px){.ds-milestone{grid-template-columns:1fr;gap:7px;padding-left:23px}}"
+    },
+    {
+      "name": "Performance Reading",
+      "kind": "custom",
+      "refersTo": "performance-panel",
+      "description": "Large measurement with the test context and prototype qualifier visible.",
+      "html": "<div class=\"ds-performance\"><div><span>~6</span><strong>FPS</strong></div><p>Recent stationary early-gameplay tests<br>iPhone 15 Pro · controlled thermal conditions</p><p class=\"ds-warning\">This is an early prototype, well below a comfortable gameplay frame rate.</p></div>",
+      "css": ".ds-performance{background:#e6e6df;color:#202627;padding:32px;border-top:5px solid var(--ember,#ff9d73);font-family:\"TASA Orbiter\",Arial,sans-serif}.ds-performance>div{display:flex;align-items:baseline;gap:16px;line-height:1}.ds-performance span{font:400 116px/1 Anton,sans-serif;letter-spacing:-.025em}.ds-performance strong{font-size:19px;font-weight:600}.ds-performance p{margin:17px 0 0;font-size:12px;line-height:1.7;color:#505954;font-variant-numeric:tabular-nums}.ds-performance .ds-warning{max-width:350px;margin-top:27px;font-size:15px;line-height:1.5;font-weight:600;color:#202627}"
+    },
+    {
+      "name": "Lightbox Icon Control",
+      "kind": "button",
+      "refersTo": "icon-button",
+      "description": "Square native-dialog control with a visible focus outline.",
+      "html": "<button class=\"ds-icon\" type=\"button\" aria-label=\"Close full-size capture\"><svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" aria-hidden=\"true\"><path d=\"m6 6 12 12M6 18 18 6\"/></svg></button>",
+      "css": ".ds-icon{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;width:44px;height:44px;border:1px solid #485154;background:transparent;color:var(--paper,#ecece6);cursor:pointer}.ds-icon:hover{background:var(--blue,#57caff);color:var(--deep,#0b0d0e);border-color:var(--blue,#57caff)}.ds-icon:focus-visible{outline:3px solid var(--blue,#57caff);outline-offset:6px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Charged Graphic Novel",
+    "overview": "Coal fields, oversized condensed lettering, electric-blue traces and real device captures give this project its own cinematic world. The opening behaves like a graphic-novel splash spread; quieter TASA Orbiter reading text carries the technical explanation and prototype limitations. Ember marks active development and the transition into the light performance panel.\n\nThis system governs `infamous2-ios/index.html`, `style.css` and `page.js` only. The shared Mons Games mark and TASA reading typography connect it to the existing site. The homepage and Bad Haunts retain their separate systems in [the root design document](../DESIGN.md). The showcase uses supplied screenshots, with no video or synthetic game artwork.",
+    "keyCharacteristics": [
+      "Authentic iPhone imagery leads, with a single electric-current signature and sharp rectangular controls.",
+      "Anton carries game identity and section headlines; TASA Orbiter carries statements, navigation and evidence.",
+      "Blue signals action and reached milestones; ember signals active work and prototype caution.",
+      "Open ruled layouts make limitations and development evidence as legible as the cinematic opening."
+    ],
+    "rules": [
+      {
+        "name": "The Evidence Rule",
+        "body": "Preserve the distinction between reached, active and future work in visible words as well as color.",
+        "section": "colors"
+      },
+      {
+        "name": "The Reading Voice Rule",
+        "body": "Keep Anton for identity, major headings and the large FPS reading; preserve TASA for explanations, labels and actions.",
+        "section": "typography"
+      }
+    ],
+    "dos": [
+      "Do preserve the supplied Mons Games mark and TASA reading typography while keeping this page's separate visual world.",
+      "Do use real device screenshots and preserve full-resolution originals behind the gallery previews.",
+      "Do keep prototype qualifiers, performance context and written development states close to the evidence.",
+      "Do retain semantic headings, visible keyboard focus, native dialog behavior and direct-image fallback.",
+      "Do keep the electric current still and interactions immediate when reduced motion is requested."
+    ],
+    "donts": [
+      "Don't import this page's coal, Anton, blue/ember composition into the homepage or Bad Haunts.",
+      "Don't add video or synthetic game imagery to this showcase at this stage.",
+      "Don't use screenshot HUD readings as sustained benchmark claims or imply that future milestones are complete.",
+      "Don't turn the public progress tracker into a source-code or downloadable-build promise.",
+      "Don't round the gallery into cards or add ambient shadows to the open reading layouts."
+    ]
+  }
+}

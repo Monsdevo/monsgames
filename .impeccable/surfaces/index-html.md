@@ -19,9 +19,9 @@ THESIS: Bartu Yılmaz leads; work reads as a concise index, not a Bad Haunts lan
 
 OWN-WORLD: White canvas, charcoal sans type, restrained cobalt actions, pale-blue accents, hairline rules, precise open spacing; no paper or horror textures.
 
-STORY: Meet Bartu, scan Bad Haunts and Mons Games, understand iOS/Unreal/AI practice, open the game or make contact.
+STORY: Meet Bartu, scan Bad Haunts, Mons Games and the inFAMOUS 2 iOS prototype, understand iOS/Unreal/AI practice, explore a project or make contact.
 
-FIRST VIEWPORT: Tiny Mons mark at upper left, three-link nav at right; centered large Bartu Yılmaz and two actions; two full-width numbered work rows; practice begins below. Name owns the largest type.
+FIRST VIEWPORT: Tiny Mons mark at upper left, three-link nav at right; centered large Bartu Yılmaz and two actions; three full-width numbered work rows. Name owns the largest type. The third row is the user-approved inFAMOUS 2 iOS addition, preserving the existing index design.
 
 FORM: Classic portfolio standing exit; seed 96dd1bd6; composition 03, centered introduction plus numbered project index. One measured cobalt action and quiet row-arrow transitions.
 

@@ -19,3 +19,5 @@ exclude:
   - mustafi-takvimi
   - assets/plates/human-page.webp.json
   - assets/plates/haunt-page.webp.json
+  - assets/infamous2-ios/*.json
+  - infamous2-ios/DESIGN.md

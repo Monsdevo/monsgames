@@ -1,19 +1,25 @@
 import { cp, mkdir, readFile, readdir, rm } from "node:fs/promises";
 import { dirname, relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import { renderInfamousPage } from "./render-infamous.mjs";
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
+await renderInfamousPage();
 const dist = resolve(root, "dist");
 if (relative(root, dist) !== "dist") throw new Error("Refusing to build outside the project dist directory.");
 await rm(dist, { recursive: true, force: true });
 await mkdir(resolve(dist, "client", "assets"), { recursive: true });
 await mkdir(resolve(dist, "server"), { recursive: true });
 for (const file of ["index.html", "bad-haunts.html", "personal.css", "portfolio.css", "portfolio.js", "CNAME", "app-ads.txt", "privacy.html", "privacy-policy.html"]) await cp(resolve(root, file), resolve(dist, "client", file));
+await mkdir(resolve(dist, "client", "infamous2-ios"), { recursive: true });
+for (const file of ["index.html", "style.css", "page.js"]) await cp(resolve(root, "infamous2-ios", file), resolve(dist, "client", "infamous2-ios", file));
+await mkdir(resolve(dist, "client", "assets", "infamous2-ios"), { recursive: true });
+for (const file of await readdir(resolve(root, "assets", "infamous2-ios"))) if (/\.(?:webp|png)$/i.test(file)) await cp(resolve(root, "assets", "infamous2-ios", file), resolve(dist, "client", "assets", "infamous2-ios", file));
 for (const file of ["bad-haunts-logo.png", "mons-games-mark.png", "mons-games-social.png"]) await cp(resolve(root, "assets", file), resolve(dist, "client", "assets", file));
 // Public allow-list keeps experiments, source, archives and design briefs private.
 for (const directory of ["plates", "fonts"]) {
   const source = resolve(root, "assets", directory);
   await mkdir(resolve(dist, "client", "assets", directory), { recursive: true });
-  for (const file of await readdir(source)) if (/\.(?:webp|png|woff2|txt)$/i.test(file)) await cp(resolve(source, file), resolve(dist, "client", "assets", directory, file));
+  for (const file of await readdir(source)) if (/\.(?:webp|png|woff2|txt)$/i.test(file) || file === "anton.ttf") await cp(resolve(source, file), resolve(dist, "client", "assets", directory, file));
 }
 await cp(resolve(root, "scripts", "worker.mjs"), resolve(dist, "server", "index.js"));
 const html = await readFile(resolve(dist, "client", "index.html"), "utf8");

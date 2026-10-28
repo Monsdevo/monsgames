@@ -19,6 +19,7 @@ export default {
     });
     if (!["GET", "HEAD"].includes(request.method)) return new Response("Method not allowed", { status: 405, headers: { Allow: "GET, HEAD" } });
     if (url.pathname === "/") url.pathname = "/index.html";
+    if (["/infamous2-ios", "/infamous2-ios/"].includes(url.pathname)) url.pathname = "/infamous2-ios/index.html";
     if (["/privacy", "/privacy-policy"].includes(url.pathname)) url.pathname += ".html";
     const response = await env.ASSETS.fetch(new Request(url, request));
     const headers = new Headers(response.headers);
