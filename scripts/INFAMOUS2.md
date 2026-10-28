@@ -10,6 +10,8 @@ For other copy or structural changes, edit `scripts/templates/infamous2-ios.html
 
 ## Screenshots
 
+The title uses the white inFAMOUS 2 game logo, sourced from `https://cdn2.steamgriddb.com/logo/36fa3cec7b81bbf942e29c02c24e6a9d.png`, resized to900×240 with transparency retained as `assets/infamous2-ios/infamous2-logo.png`. Game branding belongs to its respective owners. It is separate from the four development screenshots.
+
 For each capture, add three files in `assets/infamous2-ios`:
 
 - `name.png`: the original full-resolution capture; only requested by the lightbox or an original-image link.
