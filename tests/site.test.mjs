@@ -30,7 +30,7 @@ test("project build ships gallery evidence without source modules or videos", as
   const html = await readFile(new URL("../dist/client/infamous2-ios/index.html", import.meta.url), "utf8");
   for (const fact of ["iPhone 15 Pro", "ARM64", "SSAO", "closed source", "unofficial", "6 FPS"]) assert.ok(html.includes(fact), fact);
   assert.equal((html.match(/data-capture /g) || []).length, 4);
-  assert.doesNotMatch(html, /<video|<iframe|<!-- GALLERY -->|<!-- DEVELOPMENT LOG -->/i);
+  assert.doesNotMatch(html, /<video|<iframe|<!-- (?:STATUS|RUNTIME|METAL|PERFORMANCE)_CAPTURE -->|<!-- DEVELOPMENT LOG -->/i);
   for (const file of ["ios-opening-pier.png", "ios-opening-pier.webp", "ios-opening-pier-small.webp"]) await access(new URL("../dist/client/assets/infamous2-ios/" + file, import.meta.url));
 });
 test("build excludes retired content and private project files", async () => {

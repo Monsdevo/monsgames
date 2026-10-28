@@ -7,19 +7,19 @@ related_targets: ["infamous2-ios/style.css","infamous2-ios/page.js","scripts/inf
 
 # inFAMOUS 2 iOS project showcase
 
-Modes: Persuade and Experience. Route: /infamous2-ios. English. Existing static MonsGames project; real device screenshots only, no video, public build or invented capabilities. User delegates creative choices and requests implementation and push. Homepage receives an approved matching project row.
+Mode: Read. Route: /infamous2-ios. English. Resolved revision: the user rejected the marketing showcase and selected a complete illustrated technical dossier. Include every README detail and explanation, small/medium screenshots beside relevant prose, no slogans or photo labels, cold blue/red karma colors and gloomy New Marais streets. Preserve MonsGames and the homepage project link.
 
 ## Direction contract
 
-THESIS: A charged graphic-novel opening proves a PS3 game now runs on an iPhone; authentic device captures lead.
+THESIS: A complete technical account of the native port, readable as a maintained project document.
 
-OWN-WORLD: Coal, concrete, dirty white, electric blue and ember; condensed Anton lettering, sharp rules, cinematic image bleeds, quiet TASA reading text.
+OWN-WORLD: Soot, weathered concrete and muted green-gray; cool electric blue and red, worn game-name lettering, compact factual headings, ruled tables and a persistent contents rail.
 
-STORY: Recognize the game, understand native execution, inspect evidence, understand prototype limitations, follow GitHub.
+STORY: Understand execution, integration, verified capabilities, experiments, measurements, limitations and next work in full.
 
-FIRST VIEWPORT: Mons mark and compact navigation; oversized game name left, real encounter image across right, iPhone statement and GitHub action below; development warning at the foot.
+FIRST VIEWPORT: Compact game identity and native-port summary, device/status facts, contents and the start of technical prose; no full-screen poster.
 
-FORM: Graphic-novel splash spread, candidate 3, seed 2e25a2e8. Brief-pinned visual direction and delegated choice. Code-led execution using supplied screenshots, no synthetic artwork. Signature: a single electric current draws on entry and on deliberate action hover; reduced motion holds it still.
+FORM: Illustrated engineering dossier selected explicitly by user; revision seed 5892e85d. Direct implementation of pinned layout. Signature: restrained blue/red electrical geometry at the compact masthead; no decorative text or entrance sequence.
 
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
 

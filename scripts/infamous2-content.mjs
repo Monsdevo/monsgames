@@ -1,15 +1,16 @@
-// Add a capture here, then run npm run build and commit the generated index.html.
-// Supply the original PNG plus 1600×900 and 800×450 WebP previews in assets/infamous2-ios.
+// Add screenshots by section, then npm run build and commit the generated index.html.
+// Each file has original PNG + 1600×900 and 800×450 WebP previews in assets/infamous2-ios.
+// Titles serve accessible links and the full-size viewer; no visible photo labels.
 export const captures = [
-  { file: "ios-opening-pier", title: "The first steps. A different machine.", label: "Opening waterfront", alt: "Cole on the waterfront beneath an orange sky, rendered by the experimental iPhone build", featured: true },
-  { file: "ios-opening-encounter", title: "The opening encounter", label: "In-engine sequence", alt: "Cole suspended above the pier beside an enormous burning enemy in the iPhone build" },
-  { file: "ios-cinematic-effects", title: "Every spark, on device.", label: "Cinematic effects", alt: "Cole channels electricity into an enormous enemy during an in-engine cinematic on iPhone" },
-  { file: "ios-gameplay-performance-hud", title: "Inside the experimental build", label: "Gameplay & profiling", alt: "Cole in the first gameplay area with the iPhone performance, memory and thermal overlay visible", featured: true },
+  { file: 'ios-opening-pier', section: 'STATUS', title: 'Opening waterfront', alt: 'Cole on the opening waterfront beneath an orange sky' },
+  { file: 'ios-opening-encounter', section: 'RUNTIME', title: 'Opening encounter', alt: 'Cole and the Beast during the opening encounter' },
+  { file: 'ios-cinematic-effects', section: 'METAL', title: 'Cinematic rendering', alt: 'Electrical effects and the Beast during an in-engine cinematic' },
+  { file: 'ios-gameplay-performance-hud', section: 'PERFORMANCE', title: 'Gameplay with performance HUD', alt: 'Cole in the opening gameplay area with FPS, frame-time, CPU, GPU, memory and thermal readings visible' },
 ];
 
-// Newest first. Add an optional ISO date only when the milestone date is verified.
+// Newest first. An optional date must be verified YYYY-MM-DD. Keep titles factual.
 export const updates = [
-  { state: "Testing next", title: "Less work between frames.", body: "A change to reduce redundant legacy RSX state updates has been implemented, checked locally and installed on the phone. The on-device performance comparison is pending." },
-  { state: "Integrated · testing continues", title: "Lighting and SSAO move to Metal.", body: "Both Metal paths have been integrated and tested on iPhone. Short, separate comparisons showed improvements over their SPU reference paths; broader visual-equivalence and stability testing continues." },
-  { state: "Reached on device", title: "From boot to real gameplay.", body: "The standalone iOS app reaches the first controllable scene on iPhone 15 Pro, with local game data, audio output and physical controller input, including DualSense testing." },
+  { state: 'Comparison pending', title: 'RSX state-processing change', body: 'The first change to reduce redundant legacy RSX state updates is implemented, checked locally and installed on iPhone. Its on-device performance comparison is pending.' },
+  { state: 'Integrated and tested', title: 'Metal lighting and SSAO', body: 'Both paths are integrated and tested on the phone. Separate short comparisons showed gains against the SPU references; broader visual-equivalence and stability testing remains necessary.' },
+  { state: 'Confirmed', title: 'Standalone iOS application and first gameplay', body: 'The game boots and reaches the first controllable scene on iPhone 15 Pro, using local game data, audio output and physical controller input, including DualSense testing.' },
 ];

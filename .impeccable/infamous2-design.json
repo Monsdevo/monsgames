@@ -1,378 +1,193 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-28T19:49:03.101Z",
-  "title": "Design System: inFAMOUS 2 on iOS — Mons Games",
+  "generatedAt": "2026-10-28T20:15:24.489Z",
+  "title": "Design System: inFAMOUS 2 on iOS — Technical Dossier",
   "extensions": {
     "colorMeta": {
-      "coal": {
+      "ground": {
         "role": "neutral",
-        "displayName": "Coal",
-        "tonalRamp": [
-          "oklch(15% 0.006 220)",
-          "oklch(26% 0.006 220)",
-          "oklch(38% 0.006 220)",
-          "oklch(49% 0.006 220)",
-          "oklch(61% 0.006 220)",
-          "oklch(72% 0.006 220)",
-          "oklch(84% 0.006 220)",
-          "oklch(95% 0.006 220)"
-        ]
+        "displayName": "Street Ground"
       },
-      "deep": {
+      "surface": {
         "role": "neutral",
-        "displayName": "Deep",
-        "tonalRamp": [
-          "oklch(15% 0.006 220)",
-          "oklch(26% 0.006 220)",
-          "oklch(38% 0.006 220)",
-          "oklch(49% 0.006 220)",
-          "oklch(61% 0.006 220)",
-          "oklch(72% 0.006 220)",
-          "oklch(84% 0.006 220)",
-          "oklch(95% 0.006 220)"
-        ]
+        "displayName": "Street Surface"
       },
-      "paper": {
+      "ink": {
         "role": "neutral",
-        "displayName": "Dirty White",
-        "tonalRamp": [
-          "oklch(15% 0.009 110)",
-          "oklch(26% 0.009 110)",
-          "oklch(38% 0.009 110)",
-          "oklch(49% 0.009 110)",
-          "oklch(61% 0.009 110)",
-          "oklch(72% 0.009 110)",
-          "oklch(84% 0.009 110)",
-          "oklch(95% 0.009 110)"
-        ]
+        "displayName": "Weathered Ink"
       },
       "muted": {
         "role": "neutral",
-        "displayName": "Muted Gray",
-        "tonalRamp": [
-          "oklch(15% 0.006 200)",
-          "oklch(26% 0.006 200)",
-          "oklch(38% 0.006 200)",
-          "oklch(49% 0.006 200)",
-          "oklch(61% 0.006 200)",
-          "oklch(72% 0.006 200)",
-          "oklch(84% 0.006 200)",
-          "oklch(95% 0.006 200)"
-        ]
+        "displayName": "Muted Reading Gray"
       },
-      "blue": {
-        "role": "primary",
-        "displayName": "Electric Blue",
-        "tonalRamp": [
-          "oklch(15% 0.13 230)",
-          "oklch(26% 0.13 230)",
-          "oklch(38% 0.13 230)",
-          "oklch(49% 0.13 230)",
-          "oklch(61% 0.13 230)",
-          "oklch(72% 0.13 230)",
-          "oklch(84% 0.13 230)",
-          "oklch(95% 0.13 230)"
-        ]
-      },
-      "action": {
-        "role": "primary",
-        "displayName": "Action Blue",
-        "tonalRamp": [
-          "oklch(15% 0.1 230)",
-          "oklch(26% 0.1 230)",
-          "oklch(38% 0.1 230)",
-          "oklch(49% 0.1 230)",
-          "oklch(61% 0.1 230)",
-          "oklch(72% 0.1 230)",
-          "oklch(84% 0.1 230)",
-          "oklch(95% 0.1 230)"
-        ]
-      },
-      "ember": {
-        "role": "secondary",
-        "displayName": "Ember",
-        "tonalRamp": [
-          "oklch(15% 0.14 45)",
-          "oklch(26% 0.14 45)",
-          "oklch(38% 0.14 45)",
-          "oklch(49% 0.14 45)",
-          "oklch(61% 0.14 45)",
-          "oklch(72% 0.14 45)",
-          "oklch(84% 0.14 45)",
-          "oklch(95% 0.14 45)"
-        ]
+      "quiet": {
+        "role": "neutral",
+        "displayName": "Quiet Gray (declared)"
       },
       "rule": {
         "role": "neutral",
-        "displayName": "Rule Gray",
-        "tonalRamp": [
-          "oklch(15% 0.008 210)",
-          "oklch(26% 0.008 210)",
-          "oklch(38% 0.008 210)",
-          "oklch(49% 0.008 210)",
-          "oklch(61% 0.008 210)",
-          "oklch(72% 0.008 210)",
-          "oklch(84% 0.008 210)",
-          "oklch(95% 0.008 210)"
-        ]
+        "displayName": "Structural Rule"
       },
-      "action-ink": {
-        "role": "neutral",
-        "displayName": "Action Ink",
-        "tonalRamp": [
-          "oklch(15% 0.025 225)",
-          "oklch(26% 0.025 225)",
-          "oklch(38% 0.025 225)",
-          "oklch(49% 0.025 225)",
-          "oklch(61% 0.025 225)",
-          "oklch(72% 0.025 225)",
-          "oklch(84% 0.025 225)",
-          "oklch(95% 0.025 225)"
-        ]
-      },
-      "action-hover": {
+      "karma-blue": {
         "role": "primary",
-        "displayName": "Pale Action Blue",
-        "tonalRamp": [
-          "oklch(15% 0.06 230)",
-          "oklch(26% 0.06 230)",
-          "oklch(38% 0.06 230)",
-          "oklch(49% 0.06 230)",
-          "oklch(61% 0.06 230)",
-          "oklch(72% 0.06 230)",
-          "oklch(84% 0.06 230)",
-          "oklch(95% 0.06 230)"
-        ]
+        "displayName": "Sampled Karma Blue",
+        "provenance": "Representative median of the blue electricity region in .impeccable/infamous2/revision/karma-reference.jpg; not an official canonical HEX standard.",
+        "reference": "https://getwallpapers.com/wallpaper/full/9/8/7/772703-cool-infamous-wallpaper-1920x1080.jpg"
       },
-      "performance-paper": {
-        "role": "neutral",
-        "displayName": "Performance Paper",
-        "tonalRamp": [
-          "oklch(15% 0.01 110)",
-          "oklch(26% 0.01 110)",
-          "oklch(38% 0.01 110)",
-          "oklch(49% 0.01 110)",
-          "oklch(61% 0.01 110)",
-          "oklch(72% 0.01 110)",
-          "oklch(84% 0.01 110)",
-          "oklch(95% 0.01 110)"
-        ]
+      "karma-red": {
+        "role": "secondary",
+        "displayName": "Sampled Karma Red",
+        "provenance": "Representative median of the red electricity region in the same reference artwork; not an official canonical HEX standard."
       },
-      "performance-ink": {
-        "role": "neutral",
-        "displayName": "Performance Ink",
-        "tonalRamp": [
-          "oklch(15% 0.01 205)",
-          "oklch(26% 0.01 205)",
-          "oklch(38% 0.01 205)",
-          "oklch(49% 0.01 205)",
-          "oklch(61% 0.01 205)",
-          "oklch(72% 0.01 205)",
-          "oklch(84% 0.01 205)",
-          "oklch(95% 0.01 205)"
-        ]
+      "link": {
+        "role": "primary",
+        "displayName": "Reading Blue"
       },
-      "performance-copy": {
-        "role": "neutral",
-        "displayName": "Performance Copy",
-        "tonalRamp": [
-          "oklch(15% 0.015 155)",
-          "oklch(26% 0.015 155)",
-          "oklch(38% 0.015 155)",
-          "oklch(49% 0.015 155)",
-          "oklch(61% 0.015 155)",
-          "oklch(72% 0.015 155)",
-          "oklch(84% 0.015 155)",
-          "oklch(95% 0.015 155)"
-        ]
+      "red-text": {
+        "role": "secondary",
+        "displayName": "Lighter Red (declared)"
+      },
+      "link-hover": {
+        "role": "primary",
+        "displayName": "Reading Blue Hover"
       }
     },
     "typographyMeta": {
       "display": {
-        "displayName": "Game Identity",
-        "purpose": "Anton game wordmark; responsive skew and larger blue numeral are page-specific."
+        "displayName": "Compact Game Identity",
+        "purpose": "Anton is reserved for the masthead game word."
       },
       "headline": {
-        "displayName": "Section Headline",
-        "purpose": "Condensed Anton section headings."
-      },
-      "statement": {
-        "displayName": "Hero Statement",
-        "purpose": "TASA statement beneath the game identity."
+        "displayName": "Technical Section Heading",
+        "purpose": "TASA section hierarchy."
       },
       "title": {
-        "displayName": "Evidence Title",
-        "purpose": "TASA milestone and development-log headings."
+        "displayName": "Technical Subheading",
+        "purpose": "TASA explanatory subtopics."
       },
       "body": {
-        "displayName": "Reading Copy",
-        "purpose": "TASA project explanation, factual qualifiers and technical copy."
+        "displayName": "Document Body",
+        "purpose": "Long-form reading, capped at 76ch."
       },
       "label": {
-        "displayName": "Capture Category",
-        "purpose": "Small uppercase capture category, distinct from its descriptive title."
+        "displayName": "Evidence and Navigation Label",
+        "purpose": "Compact facts, contents and contextual metadata."
       }
     },
     "shadows": [
       {
-        "name": "lightbox-modal",
+        "name": "image-dialog",
         "value": "0 24px 80px #0009",
-        "purpose": "Native capture dialog only; open reading sections stay flat."
+        "purpose": "Only the full-resolution modal receives elevation."
       }
     ],
     "motion": [
       {
-        "name": "ease",
+        "name": "state-ease",
         "value": "cubic-bezier(.16,1,.3,1)",
-        "purpose": "Shared state-transition and current-draw easing."
+        "purpose": "Disclosure chevron and screenshot outline feedback."
       },
       {
-        "name": "current-entry",
-        "value": "1.8s .15s forwards",
-        "purpose": "One electric-current draw on initial entry."
-      },
-      {
-        "name": "action-fill",
-        "value": ".25s",
-        "purpose": "Primary action background and border transition."
-      },
-      {
-        "name": "navigation-trace",
-        "value": ".3s",
-        "purpose": "Navigation underline and icon movement."
-      },
-      {
-        "name": "action-trace",
-        "value": ".4s",
-        "purpose": "Thin current-like underline beneath primary action."
-      },
-      {
-        "name": "capture-hover",
-        "value": ".8s",
-        "purpose": "Small preview scale and brightness change."
+        "name": "state-duration",
+        "value": ".2s",
+        "purpose": "Compact state transitions; removed under reduced motion."
       },
       {
         "name": "reduced-motion",
-        "value": "prefers-reduced-motion: reduce",
-        "purpose": "No animation or transition; auto scrolling; fully drawn current; no capture hover scaling. Other state changes are immediate."
+        "value": "scroll-behavior: auto; animation: none; transition: none",
+        "purpose": "Respect prefers-reduced-motion. The electricity is static in all modes."
       }
     ],
     "breakpoints": [
       {
-        "name": "wide-min",
-        "value": "1700px"
+        "name": "footer-gutter",
+        "value": "1320px"
       },
       {
-        "name": "compact-max",
+        "name": "compact-desktop",
         "value": "1100px"
       },
       {
-        "name": "mobile-max",
-        "value": "700px"
+        "name": "contents-disclosure",
+        "value": "960px"
       },
       {
-        "name": "narrow-max",
+        "name": "stacked-document",
+        "value": "720px"
+      },
+      {
+        "name": "narrow",
         "value": "360px"
       }
     ]
   },
   "components": [
     {
-      "name": "Primary GitHub Action",
-      "kind": "button",
-      "refersTo": "button-primary",
-      "description": "Square, high-contrast link used in the hero and closing panel.",
-      "html": "<a class=\"ds-primary\" href=\"https://github.com/Monsdevo/infamous2-ios\">Follow on GitHub <svg viewBox=\"0 0 24 24\" width=\"19\" height=\"19\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" aria-hidden=\"true\"><path d=\"M6 18 18 6M6 6h12v12\"/></svg></a>",
-      "css": ".ds-primary{position:relative;display:inline-flex;align-items:center;justify-content:space-between;gap:24px;min-height:54px;padding:14px 23px;background:var(--action,#78d5ff);color:#10222b;font:700 14px \"TASA Orbiter\",Arial,sans-serif;text-decoration:none;border:1px solid transparent;transition:background-color .25s cubic-bezier(.16,1,.3,1)}.ds-primary:hover{background:#b8eaff}.ds-primary svg{transition:transform .3s cubic-bezier(.16,1,.3,1)}.ds-primary:hover svg,.ds-primary:focus-visible svg{transform:translate(2px,-2px)}.ds-primary::after{content:\"\";position:absolute;bottom:-7px;left:0;width:100%;height:1px;background:var(--blue,#57caff);transform:scaleX(0);transform-origin:left;transition:transform .4s cubic-bezier(.16,1,.3,1)}.ds-primary:hover::after,.ds-primary:focus-visible::after{transform:scaleX(1)}.ds-primary:focus-visible{outline:3px solid var(--blue,#57caff);outline-offset:6px}@media(prefers-reduced-motion:reduce){.ds-primary,.ds-primary svg,.ds-primary::after{transition:none}}"
-    },
-    {
-      "name": "Text Action",
-      "kind": "button",
-      "refersTo": "text-link",
-      "description": "Quiet text action with a stroked directional arrow.",
-      "html": "<a class=\"ds-text\" href=\"#captures\">Explore the captures <svg viewBox=\"0 0 24 24\" width=\"19\" height=\"19\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" aria-hidden=\"true\"><path d=\"M6 18 18 6M6 6h12v12\"/></svg></a>",
-      "css": ".ds-text{display:inline-flex;align-items:center;gap:13px;min-height:44px;color:var(--paper,#ecece6);font:600 13px \"TASA Orbiter\",Arial,sans-serif;text-decoration:none}.ds-text:hover,.ds-text:focus-visible{color:var(--blue,#57caff)}.ds-text:focus-visible{outline:3px solid var(--blue,#57caff);outline-offset:6px}"
-    },
-    {
-      "name": "Project Navigation",
+      "name": "Contents Disclosure",
       "kind": "nav",
-      "description": "Three visible project anchors with a drawn underline.",
-      "html": "<nav class=\"ds-nav\" aria-label=\"Project navigation\"><a href=\"#project\">The project</a><a href=\"#captures\">Captures</a><a href=\"#progress\">Development</a></nav>",
-      "css": ".ds-nav{display:flex;gap:34px;background:var(--coal,#101213);padding:12px 18px;font:500 13px \"TASA Orbiter\",Arial,sans-serif}.ds-nav a{position:relative;display:inline-flex;align-items:center;min-height:44px;color:#d0d3d1;text-decoration:none}.ds-nav a::after{content:\"\";position:absolute;bottom:4px;left:0;right:0;height:1px;background:var(--blue,#57caff);transform:scaleX(0);transform-origin:left;transition:transform .3s cubic-bezier(.16,1,.3,1)}.ds-nav a:hover::after,.ds-nav a:focus-visible::after{transform:scaleX(1)}.ds-nav a:focus-visible{outline:3px solid var(--blue,#57caff);outline-offset:6px}@media(prefers-reduced-motion:reduce){.ds-nav a::after{transition:none}}"
+      "refersTo": "contents-link",
+      "description": "Native section navigation with a written current location.",
+      "html": "<details class=\"ds-contents\" open><summary>On this page</summary><nav aria-label=\"Document sections\"><a href=\"#project\">Project overview</a><a href=\"#status\" aria-current=\"location\">Current status</a><a href=\"#runtime\">Runtime &amp; iOS integration</a></nav></details>",
+      "css": ".ds-contents{width:190px;color:var(--ink,#e0e1d9);font-family:\"TASA Orbiter\",Arial,sans-serif}.ds-contents summary{min-height:44px;display:flex;align-items:center;font-size:13px;font-weight:600;cursor:pointer}.ds-contents nav{padding-top:9px}.ds-contents a{display:flex;align-items:center;min-height:43px;padding:7px 0 7px 12px;border-left:1px solid var(--rule,#3b4540);color:#aeb9b0;font-size:12px;line-height:1.6;text-decoration:none}.ds-contents a:hover,.ds-contents a:focus-visible,.ds-contents a[aria-current=\"location\"]{color:var(--link,#8acfff);border-left-color:var(--karma-blue,#5790c1);background:#5790c108}.ds-contents :focus-visible{outline:3px solid var(--link,#8acfff);outline-offset:5px}"
     },
     {
-      "name": "Prototype Status Strip",
+      "name": "Ruled Evidence Table",
       "kind": "custom",
-      "description": "Written prototype state and contextual performance reading.",
-      "html": "<div class=\"ds-prototype\"><p><span aria-hidden=\"true\"></span>Early development prototype</p><p>Real gameplay reached. Performance around <strong>6 FPS.</strong></p></div>",
-      "css": ".ds-prototype{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:21px 24px;background:#151819;color:#c8cdca;border-bottom:1px solid var(--rule,#383d3e);font:400 12px/1.65 \"TASA Orbiter\",Arial,sans-serif}.ds-prototype p{margin:0}.ds-prototype p:first-child{display:flex;align-items:center;gap:10px;color:var(--ember,#ff9d73)}.ds-prototype span{width:6px;height:6px;border-radius:50%;background:var(--ember,#ff9d73);flex-shrink:0}.ds-prototype strong{font-weight:600;color:var(--paper,#ecece6)}@media(max-width:700px){.ds-prototype{display:block}.ds-prototype p+p{margin-top:8px}}"
+      "refersTo": "table-heading",
+      "description": "Compact semantic evidence table with explicit comparison context.",
+      "html": "<table class=\"ds-table\"><caption>Separate controlled comparisons</caption><thead><tr><th scope=\"col\">Change</th><th scope=\"col\">Observed result</th></tr></thead><tbody><tr><th scope=\"row\">Metal lighting</th><td>About 25% higher FPS against SPU lighting reference</td></tr></tbody></table>",
+      "css": ".ds-table{width:100%;border-collapse:collapse;color:var(--ink,#e0e1d9);font:14px/1.7 \"TASA Orbiter\",Arial,sans-serif}.ds-table caption{text-align:left;color:var(--muted,#afb6af);font-size:12px;padding-bottom:12px}.ds-table th,.ds-table td{padding:13px 16px;text-align:left;vertical-align:top;border-bottom:1px solid var(--rule,#3b4540)}.ds-table thead th{background:#222b26;color:#d8e2d9;font-size:12px;font-weight:600}.ds-table tbody th{font-weight:500;color:#dce1d8}.ds-table td{color:#bec8be}"
     },
     {
-      "name": "Capture Caption",
+      "name": "Validation Heading",
       "kind": "custom",
-      "description": "The reading portion of a real screenshot figure, without a substitute image.",
-      "html": "<div class=\"ds-caption\"><div><h3>The opening encounter</h3><span>In-engine sequence</span></div><p>02 / 04</p></div>",
-      "css": ".ds-caption{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:16px 0 0;color:var(--paper,#ecece6);font-family:\"TASA Orbiter\",Arial,sans-serif}.ds-caption h3{margin:0;font-size:18px;font-weight:500;line-height:1.35;letter-spacing:-.015em}.ds-caption span{display:block;margin-top:5px;font-size:10px;color:var(--blue,#57caff);letter-spacing:.12em;text-transform:uppercase}.ds-caption p{margin:0;font-size:11px;font-variant-numeric:tabular-nums;color:var(--muted,#adb2b2);white-space:nowrap}"
+      "description": "A small red electrical cue accompanies a factual limitations heading.",
+      "html": "<div class=\"ds-limit\"><h3>Validation boundaries</h3><p>The first controllable scene has been reached; the full campaign has not been validated.</p></div>",
+      "css": ".ds-limit{color:var(--ink,#e0e1d9);font-family:\"TASA Orbiter\",Arial,sans-serif}.ds-limit h3{display:flex;align-items:center;gap:12px;font-size:18px;font-weight:600;line-height:1.4;margin:0 0 12px;letter-spacing:-.015em}.ds-limit h3:before{content:\"\";display:block;width:18px;height:1px;background:var(--karma-red,#c4353c)}.ds-limit p{max-width:76ch;margin:0;font-size:16px;line-height:1.8}"
     },
     {
-      "name": "Active Milestone",
-      "kind": "custom",
-      "refersTo": "status-active",
-      "description": "Written progress state, ember dot and open ruled structure.",
-      "html": "<div class=\"ds-milestone\"><span class=\"ds-dot\" aria-hidden=\"true\"></span><span class=\"ds-state\">In progress</span><div><h3>Make every millisecond count.</h3><p>Profiling, renderer overhead, frame pacing and broader correctness tests remain active work.</p></div></div>",
-      "css": ".ds-milestone{position:relative;display:grid;grid-template-columns:160px 1fr;column-gap:55px;border-left:1px solid #48707b;padding:27px 0 29px 34px;color:var(--paper,#ecece6);font-family:\"TASA Orbiter\",Arial,sans-serif}.ds-dot{position:absolute;left:-5px;top:36px;width:9px;height:9px;border-radius:50%;border:2px solid var(--coal,#101213);background:var(--ember,#ff9d73)}.ds-state{font-size:12px;padding-top:3px;color:var(--ember,#ff9d73)}.ds-milestone h3{margin:0;font-size:22px;font-weight:500;line-height:1.4;letter-spacing:-.02em}.ds-milestone p{margin:9px 0 0;font-size:14px;line-height:1.65;color:var(--muted,#adb2b2);max-width:750px}@media(max-width:700px){.ds-milestone{grid-template-columns:1fr;gap:7px;padding-left:23px}}"
-    },
-    {
-      "name": "Performance Reading",
-      "kind": "custom",
-      "refersTo": "performance-panel",
-      "description": "Large measurement with the test context and prototype qualifier visible.",
-      "html": "<div class=\"ds-performance\"><div><span>~6</span><strong>FPS</strong></div><p>Recent stationary early-gameplay tests<br>iPhone 15 Pro · controlled thermal conditions</p><p class=\"ds-warning\">This is an early prototype, well below a comfortable gameplay frame rate.</p></div>",
-      "css": ".ds-performance{background:#e6e6df;color:#202627;padding:32px;border-top:5px solid var(--ember,#ff9d73);font-family:\"TASA Orbiter\",Arial,sans-serif}.ds-performance>div{display:flex;align-items:baseline;gap:16px;line-height:1}.ds-performance span{font:400 116px/1 Anton,sans-serif;letter-spacing:-.025em}.ds-performance strong{font-size:19px;font-weight:600}.ds-performance p{margin:17px 0 0;font-size:12px;line-height:1.7;color:#505954;font-variant-numeric:tabular-nums}.ds-performance .ds-warning{max-width:350px;margin-top:27px;font-size:15px;line-height:1.5;font-weight:600;color:#202627}"
-    },
-    {
-      "name": "Lightbox Icon Control",
+      "name": "Image Viewer Control",
       "kind": "button",
       "refersTo": "icon-button",
-      "description": "Square native-dialog control with a visible focus outline.",
-      "html": "<button class=\"ds-icon\" type=\"button\" aria-label=\"Close full-size capture\"><svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" aria-hidden=\"true\"><path d=\"m6 6 12 12M6 18 18 6\"/></svg></button>",
-      "css": ".ds-icon{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;width:44px;height:44px;border:1px solid #485154;background:transparent;color:var(--paper,#ecece6);cursor:pointer}.ds-icon:hover{background:var(--blue,#57caff);color:var(--deep,#0b0d0e);border-color:var(--blue,#57caff)}.ds-icon:focus-visible{outline:3px solid var(--blue,#57caff);outline-offset:6px}"
+      "description": "Square close control with visible keyboard focus.",
+      "html": "<button class=\"ds-icon\" type=\"button\" aria-label=\"Close full-size capture\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"m6 6 12 12M6 18 18 6\"/></svg></button>",
+      "css": ".ds-icon{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid #526157;background:transparent;color:var(--ink,#e0e1d9);cursor:pointer}.ds-icon svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round}.ds-icon:hover{background:var(--link,#8acfff);color:var(--ground,#101413);border-color:var(--link,#8acfff)}.ds-icon:focus-visible{outline:3px solid var(--link,#8acfff);outline-offset:5px}"
     }
   ],
   "narrative": {
-    "northStar": "The Charged Graphic Novel",
-    "overview": "Coal fields, oversized condensed lettering, electric-blue traces and real device captures give this project its own cinematic world. The opening behaves like a graphic-novel splash spread; quieter TASA Orbiter reading text carries the technical explanation and prototype limitations. Ember marks active development and the transition into the light performance panel.\n\nThis system governs `infamous2-ios/index.html`, `style.css` and `page.js` only. The shared Mons Games mark and TASA reading typography connect it to the existing site. The homepage and Bad Haunts retain their separate systems in [the root design document](../DESIGN.md). The showcase uses supplied screenshots, with no video or synthetic game artwork.",
+    "northStar": "The Illustrated Technical File",
+    "overview": "A compact, complete project document carries the native-port explanation, verified capabilities, experiments, measurements and limitations. Soot and muted green-gray evoke gloomy New Marais streets; restrained blue/red electrical lines keep the game's identity present around calm reading text. The user selected this illustrated technical dossier after rejecting the cinematic marketing presentation.\n\nThis system governs `/infamous2-ios`, its stylesheet and enhancement script, and the corresponding content/template sources. The shared Mons Games mark and TASA Orbiter reading face connect it to the site. The homepage and Bad Haunts keep their separate systems in [the root design document](../DESIGN.md). The Read-mode surface contract lives in [the surface brief](../.impeccable/surfaces/infamous2-ios-index-html.md).",
     "keyCharacteristics": [
-      "Authentic iPhone imagery leads, with a single electric-current signature and sharp rectangular controls.",
-      "Anton carries game identity and section headlines; TASA Orbiter carries statements, navigation and evidence.",
-      "Blue signals action and reached milestones; ember signals active work and prototype caution.",
-      "Open ruled layouts make limitations and development evidence as legible as the cinematic opening."
+      "Compact game identity, factual headings, readable prose and ruled evidence tables establish a technical document.",
+      "Small and medium original repository screenshots sit beside the relevant explanation and open at full size.",
+      "A persistent contents rail supports long-form reading; narrow screens use a native disclosure.",
+      "Blue/red electrical geometry and a faint grayscale screenshot provide atmosphere without competing with the text."
     ],
     "rules": [
       {
-        "name": "The Evidence Rule",
-        "body": "Preserve the distinction between reached, active and future work in visible words as well as color.",
+        "name": "The Written Evidence Rule",
+        "body": "Explain verified, pending and unvalidated work in words; electrical colors never substitute for technical status.",
         "section": "colors"
       },
       {
         "name": "The Reading Voice Rule",
-        "body": "Keep Anton for identity, major headings and the large FPS reading; preserve TASA for explanations, labels and actions.",
+        "body": "Reserve Anton for the game identity; keep explanatory hierarchy in compact TASA text.",
         "section": "typography"
       }
     ],
     "dos": [
-      "Do preserve the supplied Mons Games mark and TASA reading typography while keeping this page's separate visual world.",
-      "Do use real device screenshots and preserve full-resolution originals behind the gallery previews.",
-      "Do keep prototype qualifiers, performance context and written development states close to the evidence.",
-      "Do retain semantic headings, visible keyboard focus, native dialog behavior and direct-image fallback.",
-      "Do keep the electric current still and interactions immediate when reduced motion is requested."
+      "Do maintain a complete illustrated technical document with factual headings, readable explanations and explicit validation boundaries.",
+      "Do keep screenshots small or medium, beside relevant desktop prose and directly after it on narrow screens, with full-size originals available.",
+      "Do retain the blue/red electrical signature and gloomy green-gray street atmosphere with restrained static treatment.",
+      "Do use native disclosure and dialog semantics, descriptive image alternatives, visible focus and reduced-motion behavior.",
+      "Do keep this system scoped to inFAMOUS; preserve the homepage and Bad Haunts worlds."
     ],
     "donts": [
-      "Don't import this page's coal, Anton, blue/ember composition into the homepage or Bad Haunts.",
-      "Don't add video or synthetic game imagery to this showcase at this stage.",
-      "Don't use screenshot HUD readings as sustained benchmark claims or imply that future milestones are complete.",
-      "Don't turn the public progress tracker into a source-code or downloadable-build promise.",
-      "Don't round the gallery into cards or add ambient shadows to the open reading layouts."
+      "Don't restore marketing slogans, a cinematic poster hero, oversized image sections or giant performance typography.",
+      "Don't add visible photo captions, corner labels, repeated provenance tags, synthetic game imagery, external reference artwork or video.",
+      "Don't present sampled karma colors as official canonical HEX standards or use color alone to communicate validation state.",
+      "Don't present short experimental comparisons or screenshot HUD readings as sustained whole-game performance claims.",
+      "Don't add source/build download promises or imply unvalidated controls, campaign coverage or long-session stability are complete."
     ]
   }
 }

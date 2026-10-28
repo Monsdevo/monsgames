@@ -1,4 +1,23 @@
 // Progressive enhancement: without JavaScript every capture opens its original.
+const contents = document.querySelector('.contents');
+if (contents) {
+  const compact = matchMedia('(max-width: 960px)');
+  const setContentsLayout = () => { contents.open = !compact.matches; };
+  setContentsLayout();
+  compact.addEventListener('change', setContentsLayout);
+
+  const links = [...contents.querySelectorAll('a[href^="#"]')];
+  const markCurrent = id => links.forEach(link => {
+    if (link.hash === `#${id}`) link.setAttribute('aria-current', 'location');
+    else link.removeAttribute('aria-current');
+  });
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(entries => {
+      for (const entry of entries) if (entry.isIntersecting) markCurrent(entry.target.id);
+    }, { rootMargin: '-10% 0px -65% 0px', threshold: 0 });
+    document.querySelectorAll('.document-section').forEach(section => observer.observe(section));
+  }
+}
 const dialog = document.querySelector('.lightbox');
 const captureLinks = [...document.querySelectorAll('[data-capture]')];
 
@@ -16,10 +35,9 @@ if (dialog && typeof dialog.showModal === 'function' && captureLinks.length) {
   const showCapture = index => {
     selected = (index + captureLinks.length) % captureLinks.length;
     const link = captureLinks[selected];
-    const figure = link.closest('figure');
     const source = link.querySelector('img');
     const currentRequest = ++request;
-    title.textContent = figure.querySelector('h3').textContent;
+    title.textContent = link.dataset.title;
     count.textContent = `${selected + 1} / ${captureLinks.length}`;
     original.href = link.href;
     image.alt = source.alt;

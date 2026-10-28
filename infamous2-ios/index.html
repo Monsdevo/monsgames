@@ -3,23 +3,23 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#101213">
-  <title>inFAMOUS 2 on iOS — Mons Games</title>
-  <meta name="description" content="An unofficial native inFAMOUS 2 iOS port by Monsdevo. Real gameplay on iPhone 15 Pro through ARM64 static recompilation and Apple Metal. Early prototype, around 6 FPS.">
-  <link rel="canonical" href="https://monsgames.net/infamous2-ios">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="inFAMOUS 2 — Rewired for iPhone">
-  <meta property="og:description" content="A PS3 exclusive, running natively on iPhone. Explore real device captures and the development of this unofficial early prototype.">
-  <meta property="og:url" content="https://monsgames.net/infamous2-ios">
-  <meta property="og:image" content="https://monsgames.net/assets/infamous2-ios/ios-opening-encounter.webp">
+  <meta name="theme-color" content="#141817">
+  <title>inFAMOUS 2 iOS Port — Technical Overview | Mons Games</title>
+  <meta name="description" content="Technical documentation of the unofficial inFAMOUS 2 iOS port: ARM64 static recompilation, iOS runtime integration, Metal lighting and SSAO, profiling, current performance and development status.">
+  <link rel="canonical" href="https://monsgames.net/infamous2-ios/">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="inFAMOUS 2 — Native iOS Port">
+  <meta property="og:description" content="A detailed account of the iPhone 15 Pro prototype: native execution, Metal rendering, measured experiments, limitations and next steps.">
+  <meta property="og:url" content="https://monsgames.net/infamous2-ios/">
+  <meta property="og:image" content="https://monsgames.net/assets/infamous2-ios/ios-opening-pier.webp">
   <meta property="og:image:width" content="1600">
   <meta property="og:image:height" content="900">
-  <meta property="og:image:alt" content="Cole in the opening encounter, captured from the experimental iPhone build">
+  <meta property="og:image:alt" content="The opening waterfront scene in the experimental iOS port">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="inFAMOUS 2 — Rewired for iPhone">
-  <meta name="twitter:description" content="An unofficial native iOS port. Real iPhone captures. Early development, around 6 FPS.">
-  <meta name="twitter:image" content="https://monsgames.net/assets/infamous2-ios/ios-opening-encounter.webp">
-  <meta name="twitter:image:alt" content="The opening encounter, rendered on an iPhone 15 Pro">
+  <meta name="twitter:title" content="inFAMOUS 2 — Native iOS Port">
+  <meta name="twitter:description" content="ARM64 static recompilation, Metal rendering and the development of an unofficial early iOS prototype. Recent controlled gameplay tests: around 6 FPS.">
+  <meta name="twitter:image" content="https://monsgames.net/assets/infamous2-ios/ios-opening-pier.webp">
+  <meta name="twitter:image:alt" content="The opening waterfront scene in the experimental iOS port">
   <link rel="icon" href="/assets/mons-games-mark.png">
   <link rel="preload" href="/assets/fonts/anton.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="preload" href="/assets/fonts/tasa-orbiter-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -27,91 +27,111 @@
   <script src="/infamous2-ios/page.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
+  <a class="skip-link" href="#main">Skip to technical overview</a>
   <header class="site-header" id="top">
-    <a class="brand" href="/" aria-label="Mons Games — back to Bartu Yılmaz's portfolio"><span class="brand-mark" aria-hidden="true"></span><span>MONS<span class="brand-games">GAMES</span></span></a>
-    <nav aria-label="Project navigation"><a href="#project">The project</a><a href="#captures">Captures</a><a href="#progress">Development</a></nav>
-    <a class="header-github" href="https://github.com/Monsdevo/infamous2-ios">GitHub <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg></a>
+    <a class="brand" href="/" aria-label="Mons Games — portfolio home"><span class="brand-mark" aria-hidden="true"></span><span>MONS<span class="brand-games">GAMES</span></span></a>
+    <nav aria-label="Main navigation"><a href="/">Portfolio</a><a href="https://github.com/Monsdevo/infamous2-ios">GitHub repository <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg></a></nav>
   </header>
 
   <main id="main">
-    <section class="hero" aria-labelledby="hero-title">
-      <picture class="hero-art"><source media="(max-width: 600px)" srcset="/assets/infamous2-ios/ios-opening-encounter-small.webp"><img src="/assets/infamous2-ios/ios-opening-encounter.webp" width="1600" height="900" fetchpriority="high" alt="Cole and a towering, burning enemy in the opening encounter, captured from the iPhone build"></picture>
-      <div class="hero-shade" aria-hidden="true"></div>
-      <div class="hero-content">
-        <h1 id="hero-title" class="game-title"><span class="game-word"><span class="game-in">in</span>FAMOUS</span><span class="game-two">2</span><span class="game-ios">iOS</span></h1>
-        <p class="hero-line">A PS3 exclusive.<br><em>Rewired for iPhone.</em></p>
-        <p class="hero-description">An unofficial native iOS port. Real gameplay on iPhone 15 Pro, through ARM64 static recompilation and Apple Metal. An early prototype, still finding its power.</p>
-        <div class="hero-actions"><a class="button button--blue" href="https://github.com/Monsdevo/infamous2-ios">Follow on GitHub <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg></a><a class="text-link" href="#captures">Explore the captures <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v16m-6-6 6 6 6-6"/></svg></a></div>
+    <div class="document-header">
+      <div class="document-header-inner">
+        <div class="project-identity">
+          <h1 class="game-title"><span><span class="game-in">in</span>FAMOUS <span class="game-two">2</span></span><span class="edition-title">Native iOS port</span></h1>
+          <p class="document-summary">An independent porting project adapting the original game's code and existing PS3 static-recompilation work to a standalone iPhone application.</p>
+          <p class="project-status">Early development prototype · <strong>iPhone 15 Pro</strong> · Recent gameplay tests around <strong>6 FPS</strong></p>
+        </div>
+        <dl class="project-facts"><div><dt>CPU target</dt><dd>ARM64 · ahead-of-time compilation</dd></div><div><dt>Graphics</dt><dd>Apple Metal</dd></div><div><dt>Implementation</dt><dd>Closed source</dd></div><div><dt>Public repository</dt><dd>Development showcase & progress tracker</dd></div></dl>
       </div>
-      <div class="hero-caption"><span class="capture-dot" aria-hidden="true"></span>Actual iPhone build<span class="hero-caption-detail">Opening encounter / Metal renderer</span></div>
-      <svg class="current-line" viewBox="0 0 1440 40" preserveAspectRatio="none" aria-hidden="true"><path class="current-base" d="M0 28h403l14-9 12 13 20-28 14 31 12-14 15 7h950"/><path class="current-trace" d="M0 28h403l14-9 12 13 20-28 14 31 12-14 15 7h950"/></svg>
-    </section>
-    <div class="prototype-strip"><p><span class="status-dot" aria-hidden="true"></span>Early development prototype</p><p>Real gameplay reached.<span> Performance around <strong>6 FPS.</strong></span></p><a href="#performance">Read the current limitations <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v16m-6-6 6 6 6-6"/></svg></a></div>
+      <svg class="karma-rule" viewBox="0 0 1440 20" preserveAspectRatio="none" aria-hidden="true"><path class="karma-rule-blue" d="M0 12h657l11-6 9 10 12-13 10 9h21"/><path class="karma-rule-red" d="M720 12h17l10-6 9 10 12-13 10 9h662"/></svg>
+    </div>
 
-    <section class="project-section section-wrap" id="project" aria-labelledby="project-title">
-      <div class="project-opening"><h2 id="project-title">Same game.<br><span>A different kind<br>of power.</span></h2><div class="project-intro"><p class="large-copy">A PlayStation 3 game, finding its way onto a device it was never built for.</p><p>This project adapts inFAMOUS 2 into a standalone native iOS application. It builds on existing PS3 static-recompilation and macOS work, bringing the runtime, graphics, input and local game data to iPhone.</p><p>The game runs on the phone itself. This is not emulation, cloud gaming or Remote Play. A Mac is used for development and installation; gameplay runs independently on the device.</p></div></div>
-      <div class="architecture" aria-label="How the native port works"><div><span class="architecture-source">Original architecture</span><strong>PS3 code</strong><p>Game logic, built for a very different machine.</p></div><span class="architecture-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></span><div><span class="architecture-source">Static recompilation</span><strong>Native ARM64</strong><p>CPU code translated ahead of time. No CPU JIT required.</p></div><span class="architecture-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></span><div><span class="architecture-source">On-device execution</span><strong>iPhone + Metal</strong><p>Native iOS runtime, rendering and selected compute workloads.</p></div></div>
-    </section>
+    <div class="document-layout">
+      <aside class="contents-rail" aria-label="Document contents">
+        <details class="contents"><summary>On this page <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary><nav aria-label="On this page">
+          <a href="#project">Project overview</a><a href="#status">Current status</a><a href="#runtime">Runtime & iOS integration</a><a href="#metal">Metal lighting & SSAO</a><a href="#profiling">Profiling & experiments</a><a href="#renderer">Renderer optimization</a><a href="#performance">Performance & limitations</a><a href="#next">Next steps</a><a href="#development">Development log</a><a href="#repository">Repository & attribution</a>
+        </nav></details>
+      </aside>
 
-    <section class="gallery-section section-wrap" id="captures" aria-labelledby="captures-title">
-      <div class="section-heading"><h2 id="captures-title">The proof is<br><span>on the phone.</span></h2><p>Real captures from the experimental iPhone build.<br> Open any frame to inspect the full-resolution original.</p></div>
-      <div class="capture-grid"><figure class="capture capture--wide">
-          <a class="capture-link" href="/assets/infamous2-ios/ios-opening-pier.png" data-capture aria-label="Open full-size: The first steps. A different machine.">
-            <img src="/assets/infamous2-ios/ios-opening-pier.webp" srcset="/assets/infamous2-ios/ios-opening-pier-small.webp 800w, /assets/infamous2-ios/ios-opening-pier.webp 1600w" sizes="(max-width: 700px) calc(100vw - 40px), (max-width: 1440px) calc(100vw - 112px), 1328px" width="1600" height="900" loading="lazy" decoding="async" alt="Cole on the waterfront beneath an orange sky, rendered by the experimental iPhone build">
-            <span class="capture-open" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></svg></span>
-          </a>
-          <figcaption><div><h3>The first steps. A different machine.</h3><span class="capture-label">Opening waterfront</span></div><span class="capture-index" aria-hidden="true">01 / 04</span></figcaption>
-        </figure>
-<figure class="capture">
-          <a class="capture-link" href="/assets/infamous2-ios/ios-opening-encounter.png" data-capture aria-label="Open full-size: The opening encounter">
-            <img src="/assets/infamous2-ios/ios-opening-encounter.webp" srcset="/assets/infamous2-ios/ios-opening-encounter-small.webp 800w, /assets/infamous2-ios/ios-opening-encounter.webp 1600w" sizes="(max-width: 700px) calc(100vw - 40px), (max-width: 1440px) calc(50vw - 68px), 652px" width="1600" height="900" loading="lazy" decoding="async" alt="Cole suspended above the pier beside an enormous burning enemy in the iPhone build">
-            <span class="capture-open" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></svg></span>
-          </a>
-          <figcaption><div><h3>The opening encounter</h3><span class="capture-label">In-engine sequence</span></div><span class="capture-index" aria-hidden="true">02 / 04</span></figcaption>
-        </figure>
-<figure class="capture">
-          <a class="capture-link" href="/assets/infamous2-ios/ios-cinematic-effects.png" data-capture aria-label="Open full-size: Every spark, on device.">
-            <img src="/assets/infamous2-ios/ios-cinematic-effects.webp" srcset="/assets/infamous2-ios/ios-cinematic-effects-small.webp 800w, /assets/infamous2-ios/ios-cinematic-effects.webp 1600w" sizes="(max-width: 700px) calc(100vw - 40px), (max-width: 1440px) calc(50vw - 68px), 652px" width="1600" height="900" loading="lazy" decoding="async" alt="Cole channels electricity into an enormous enemy during an in-engine cinematic on iPhone">
-            <span class="capture-open" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></svg></span>
-          </a>
-          <figcaption><div><h3>Every spark, on device.</h3><span class="capture-label">Cinematic effects</span></div><span class="capture-index" aria-hidden="true">03 / 04</span></figcaption>
-        </figure>
-<figure class="capture capture--wide">
-          <a class="capture-link" href="/assets/infamous2-ios/ios-gameplay-performance-hud.png" data-capture aria-label="Open full-size: Inside the experimental build">
-            <img src="/assets/infamous2-ios/ios-gameplay-performance-hud.webp" srcset="/assets/infamous2-ios/ios-gameplay-performance-hud-small.webp 800w, /assets/infamous2-ios/ios-gameplay-performance-hud.webp 1600w" sizes="(max-width: 700px) calc(100vw - 40px), (max-width: 1440px) calc(100vw - 112px), 1328px" width="1600" height="900" loading="lazy" decoding="async" alt="Cole in the first gameplay area with the iPhone performance, memory and thermal overlay visible">
-            <span class="capture-open" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></svg></span>
-          </a>
-          <figcaption><div><h3>Inside the experimental build</h3><span class="capture-label">Gameplay &amp; profiling</span></div><span class="capture-index" aria-hidden="true">04 / 04</span></figcaption>
-        </figure></div>
-      <p class="gallery-note">These are development captures, including in-engine cinematics and early gameplay. A still image does not represent frame rate, stability or full-game compatibility. The HUD is a momentary reading, not a sustained benchmark.</p>
-    </section>
+      <article class="technical-document" aria-label="inFAMOUS 2 iOS technical overview">
+        <section id="project" class="document-section" aria-labelledby="project-title">
+          <h2 id="project-title">Project overview</h2>
+          <p>The goal is to preserve inFAMOUS 2's game logic and presentation while adapting its runtime, rendering, input and performance to iPhone hardware. The starting point is the original game's code and existing PS3 static-recompilation work, including the macOS recompilation project.</p>
+          <p>The game executes <strong>on the iPhone itself</strong>. It is not an emulator, a cloud-gaming service or a Remote Play client. A Mac is used for development and installation, but gameplay does not depend on streaming, remote rendering or a connected computer. Game data is stored and used locally on the phone.</p>
+          <p>The CPU code is statically recompiled for <strong>ARM64</strong>: translation happens before the native application runs, rather than through CPU JIT compilation during gameplay. <strong>Apple Metal</strong> handles rendering and selected compute workloads. Porting also requires adapting the surrounding platform services; compiling the CPU code alone does not provide an iOS runtime, graphics surface, input system or device lifecycle integration.</p>
+          <p>This page describes the prototype's verified progress and current limitations. The public <a href="https://github.com/Monsdevo/infamous2-ios#the-project">project README</a> is the source for its development status.</p>
+        </section>
 
-    <section class="progress-section section-wrap" id="progress" aria-labelledby="progress-title">
-      <div class="progress-heading"><h2 id="progress-title">Past the first frame.<br><span>Far from finished.</span></h2><p>A working first scene is a milestone.<br>Making it run well is the next challenge.</p></div>
-      <ol class="milestones">
-        <li><span class="milestone-marker" aria-hidden="true"></span><span class="milestone-status">Reached</span><div><h3>A standalone iOS app</h3><p>UIKit and Objective-C++ connect the existing C/C++ core to the iPhone lifecycle, a Metal surface and device-local game data.</p></div></li>
-        <li><span class="milestone-marker" aria-hidden="true"></span><span class="milestone-status">Reached</span><div><h3>Boot. Cinematics. Real gameplay.</h3><p>Menus, opening sequences and the first controllable scene render on a real iPhone 15 Pro.</p></div></li>
-        <li><span class="milestone-marker" aria-hidden="true"></span><span class="milestone-status">Tested</span><div><h3>Sound and physical input</h3><p>Audio output and physical controller input are working, with DualSense testing. Every controller action has not yet been validated.</p></div></li>
-        <li class="milestone--active"><span class="milestone-marker" aria-hidden="true"></span><span class="milestone-status">In progress</span><div><h3>Make every millisecond count.</h3><p>Metal lighting and SSAO are integrated. Profiling, renderer overhead, frame pacing and broader correctness tests remain active work.</p></div></li>
-        <li class="milestone--future"><span class="milestone-marker" aria-hidden="true"></span><span class="milestone-status">Ahead</span><div><h3>Beyond the opening area</h3><p>Touch controls, wider-aspect camera adjustments, save/load validation, expanded gameplay testing and longer-session stability.</p></div></li>
-      </ol>
-    </section>
+        <section id="status" class="document-section" aria-labelledby="status-title">
+          <h2 id="status-title">Current status</h2>
+          <div class="technical-pair"><div class="prose"><p>The project has progressed beyond an empty Metal view. The actual game boots and reaches <strong>controllable gameplay on a real iPhone 15 Pro</strong>. Menus, opening sequences, cinematics and the first playable scene render through Metal.</p><p>Audio output and physical controller input are working, including DualSense testing. This is an early prototype: reaching the first playable scene does not validate the full campaign, every controller action or long gameplay sessions. Touch controls are planned and are not implemented yet.</p></div><div class="technical-media"><figure class="capture"><a class="capture-link" href="/assets/infamous2-ios/ios-opening-pier.png" data-capture data-title="Opening waterfront" aria-label="Open full-resolution screenshot: Opening waterfront"><img src="/assets/infamous2-ios/ios-opening-pier-small.webp" srcset="/assets/infamous2-ios/ios-opening-pier-small.webp 800w, /assets/infamous2-ios/ios-opening-pier.webp 1600w" sizes="(max-width: 720px) calc(100vw - 64px), 340px" width="1600" height="900" loading="lazy" decoding="async" alt="Cole on the opening waterfront beneath an orange sky"></a></figure></div></div>
+          <div class="table-wrap"><table class="status-table"><caption>Confirmed capabilities and validation boundaries</caption><thead><tr><th scope="col">Area</th><th scope="col">Current implementation</th></tr></thead><tbody>
+            <tr><th scope="row">Application</th><td>Native iOS shell using UIKit, Objective-C++ and the existing C/C++ core.</td></tr>
+            <tr><th scope="row">Rendering</th><td>Metal rendering for menus, opening sequences, cinematics and the first playable scene.</td></tr>
+            <tr><th scope="row">Game data</th><td>Stored and accessed locally on the phone.</td></tr>
+            <tr><th scope="row">Audio and input</th><td>Audio output and physical controller input, including DualSense testing; broader control coverage remains unvalidated.</td></tr>
+            <tr><th scope="row">In-game settings</th><td>Selectable performance indicators, thermal and memory information, and CSV logging.</td></tr>
+            <tr><th scope="row">Runtime comparisons</th><td>Separate reference and experimental runtime paths for correctness checks and performance comparisons.</td></tr>
+          </tbody></table></div>
+        </section>
 
-    <section class="performance-section" id="performance" aria-labelledby="performance-title"><div class="section-wrap performance-layout">
-      <div class="performance-statement"><h2 id="performance-title">It runs.<br><span>Now comes<br>the hard part.</span></h2><div class="fps-reading"><span>~6</span><strong>FPS</strong></div><p class="fps-context">Recent stationary early-gameplay tests<br>iPhone 15 Pro · controlled thermal conditions</p><p class="performance-warning">This is an early prototype, well below a comfortable gameplay frame rate.</p></div>
-      <div class="technical-copy"><h3>Progress measured in frame time.</h3><p>Rendering a PS3 game on iPhone means more than getting pixels on screen. CPU work, GPU submission and synchronization all compete for the same frame.</p><div class="technical-item"><h4>Lighting & SSAO</h4><p>The Metal paths are integrated and tested on the phone. Separate short comparisons found roughly 25% higher FPS for Metal lighting versus its SPU reference, and 27% for Metal SSAO with Metal lighting already enabled. These results are not additive or full-game guarantees.</p></div><div class="technical-item"><h4>The serial renderer</h4><p>Current work targets redundant RSX state processing, vertex preparation and copying, texture-change detection and CPU/GPU scheduling. The latest RSX change still needs an on-device comparison.</p></div><div class="technical-item"><h4>Faster locally is not always faster in-game.</h4><p>ARM64 and Metal experiments for geometry, skinning and culling have not demonstrated a repeatable gameplay FPS gain. Small GPU jobs can cost more to submit and synchronize than they save.</p></div><a class="text-link" href="https://github.com/Monsdevo/infamous2-ios#performance-today">Read the technical status <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg></a></div>
-    </div></section>
+        <section id="runtime" class="document-section" aria-labelledby="runtime-title">
+          <h2 id="runtime-title">Runtime and iOS integration</h2>
+          <div class="technical-pair"><div class="prose"><p>The existing macOS recompilation project provided the starting point. Work on iOS has included a dedicated iOS target, an on-screen Metal surface, iOS-specific dependencies and lifecycle handling. UIKit and Objective-C++ connect the application shell to the existing C/C++ core.</p><p>Controller and audio integration, together with a device-local game-data pipeline, make the application independent of the development computer during gameplay. The macOS target remains useful as a comparison platform when checking the iOS adaptation.</p></div><div class="technical-media"><figure class="capture"><a class="capture-link" href="/assets/infamous2-ios/ios-opening-encounter.png" data-capture data-title="Opening encounter" aria-label="Open full-resolution screenshot: Opening encounter"><img src="/assets/infamous2-ios/ios-opening-encounter-small.webp" srcset="/assets/infamous2-ios/ios-opening-encounter-small.webp 800w, /assets/infamous2-ios/ios-opening-encounter.webp 1600w" sizes="(max-width: 720px) calc(100vw - 64px), 340px" width="1600" height="900" loading="lazy" decoding="async" alt="Cole and the Beast during the opening encounter"></a></figure></div></div>
+          <h3>Memory mapping and host-thread stacks</h3>
+          <p>Crash diagnosis also required adapting memory mapping and host-thread stack handling. These runtime changes helped the project move from boot experiments to real on-device gameplay. They are part of the platform adaptation, alongside the application target and rendering surface; they do not establish that every later game sequence is correct or stable.</p>
+          <h3>Reference and experimental paths</h3>
+          <p>The project keeps separate reference and experimental runtime paths. These make it possible to compare behavior and performance while testing changes. Correctness checks against original paths matter because a locally faster implementation is only useful if it preserves the expected output.</p>
+        </section>
 
-    <section class="log-section section-wrap" aria-labelledby="log-title"><div class="section-heading"><h2 id="log-title">Inside the build.</h2><p>Development notes, grounded in the project's public log.</p></div><div class="development-log"><article class="log-entry"><p class="log-state">Testing next</p><div><h3>Less work between frames.</h3><p>A change to reduce redundant legacy RSX state updates has been implemented, checked locally and installed on the phone. The on-device performance comparison is pending.</p></div></article>
-<article class="log-entry"><p class="log-state">Integrated · testing continues</p><div><h3>Lighting and SSAO move to Metal.</h3><p>Both Metal paths have been integrated and tested on iPhone. Short, separate comparisons showed improvements over their SPU reference paths; broader visual-equivalence and stability testing continues.</p></div></article>
-<article class="log-entry"><p class="log-state">Reached on device</p><div><h3>From boot to real gameplay.</h3><p>The standalone iOS app reaches the first controllable scene on iPhone 15 Pro, with local game data, audio output and physical controller input, including DualSense testing.</p></div></article></div><a class="text-link" href="https://github.com/Monsdevo/infamous2-ios#whats-next">See what is next on GitHub <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg></a></section>
+        <section id="metal" class="document-section" aria-labelledby="metal-title">
+          <h2 id="metal-title">Metal lighting and SSAO</h2>
+          <div class="technical-pair"><div class="prose"><p>Lighting and screen-space ambient occlusion (SSAO) were identified as producers of results that the rendering path was waiting for. Their Metal paths have been integrated and tested on the phone.</p><p>SSAO is the screen-space occlusion pass used to estimate ambient shading around visible geometry. In this port, the question is not just how quickly a pass completes in isolation, but whether its results arrive soon enough to improve the frame that depends on them.</p></div><div class="technical-media"><figure class="capture"><a class="capture-link" href="/assets/infamous2-ios/ios-cinematic-effects.png" data-capture data-title="Cinematic rendering" aria-label="Open full-resolution screenshot: Cinematic rendering"><img src="/assets/infamous2-ios/ios-cinematic-effects-small.webp" srcset="/assets/infamous2-ios/ios-cinematic-effects-small.webp 800w, /assets/infamous2-ios/ios-cinematic-effects.webp 1600w" sizes="(max-width: 720px) calc(100vw - 64px), 340px" width="1600" height="900" loading="lazy" decoding="async" alt="Electrical effects and the Beast during an in-engine cinematic"></a></figure></div></div>
+          <div class="table-wrap"><table class="comparison-table"><caption>Separate controlled comparisons of an early gameplay scene</caption><thead><tr><th scope="col">Change</th><th scope="col">Comparison baseline</th><th scope="col">Observed result</th></tr></thead><tbody>
+            <tr><th scope="row">Metal lighting</th><td>SPU lighting reference</td><td>About <strong>25% higher FPS</strong></td></tr>
+            <tr><th scope="row">Metal SSAO</th><td>SPU SSAO reference, with Metal lighting already enabled</td><td>About <strong>27% higher FPS</strong></td></tr>
+          </tbody></table></div>
+          <p class="technical-note">These are individual, short comparisons. The percentages are not additive and are not guarantees for the entire game. Broader visual-equivalence and stability testing is still needed.</p>
+        </section>
 
-    <section class="follow-section" aria-labelledby="follow-title"><div class="follow-art" aria-hidden="true"></div><div class="section-wrap follow-content"><h2 id="follow-title">The next chapter<br><span>is still being written.</span></h2><p>Follow the experiments. See the breakthroughs.<br>Star the project and follow its progress on GitHub.</p><a class="button button--blue" href="https://github.com/Monsdevo/infamous2-ios">Star & follow on GitHub <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L3 9.6l6.2-.9Z"/></svg></a><p class="closed-source-note">The implementation is closed source at this stage. GitHub is a public development showcase and progress tracker. No source code, game data, firmware or installable builds are published.</p><a class="feedback-link" href="https://github.com/Monsdevo/infamous2-ios/issues">Questions or feedback? Open a GitHub issue.</a></div></section>
+        <section id="profiling" class="document-section" aria-labelledby="profiling-title">
+          <h2 id="profiling-title">Profiling and optimization experiments</h2>
+          <p>The project records actual presentation timestamps, CPU samples, GPU command-buffer timings and synchronization events. Optimization decisions are checked against <strong>frame time as well as local function costs</strong>. This distinguishes a faster isolated operation from an improvement that reaches a displayed gameplay frame.</p>
+          <dl class="measurement-list"><div><dt>Presentation timestamps</dt><dd>Record when frames are actually presented, so measurements can be checked against visible frame delivery.</dd></div><div><dt>CPU samples</dt><dd>Help identify where CPU execution time is being spent.</dd></div><div><dt>GPU command-buffer timings</dt><dd>Record GPU execution timing for submitted work.</dd></div><div><dt>Synchronization events</dt><dd>Help trace waiting and dependencies between stages of the runtime and renderer.</dd></div></dl>
+          <h3>Geometry, skinning and culling</h3>
+          <p>ARM64 and Metal experiments have been developed for Edge geometry, skinning and culling, with output checks against the original paths. Skinning updates geometry for animation; culling identifies work that can be excluded from rendering. Some local work became faster, but <strong>a repeatable gameplay FPS improvement has not been demonstrated for these experiments</strong>.</p>
+          <p>Small GPU jobs can lose their benefit to submission and synchronization costs. Moving an operation to the GPU therefore does not automatically make the overall frame faster. Expensive candidates fall back to the CPU when those costs outweigh the benefit.</p>
+        </section>
+
+        <section id="renderer" class="document-section" aria-labelledby="renderer-title">
+          <h2 id="renderer-title">Current renderer optimization</h2>
+          <p>The current focus is the <strong>serial renderer path</strong>. Work is targeting redundant RSX state processing, vertex preparation and copying, texture-change detection, and CPU/GPU scheduling.</p>
+          <ul class="technical-list"><li><strong>RSX state processing:</strong> reduce repeated legacy state work that does not need to be performed again.</li><li><strong>Vertex preparation and copying:</strong> reduce unnecessary preparation, data conversion and movement before rendering.</li><li><strong>Texture-change detection:</strong> examine the work involved in identifying texture changes.</li><li><strong>CPU/GPU scheduling:</strong> investigate submission order, waiting and synchronization costs across the frame.</li></ul>
+          <p>A first change to reduce redundant legacy RSX state updates has been implemented, checked locally and installed on the phone. <strong>Its on-device performance comparison is pending.</strong> No gameplay speedup is claimed for that change before the comparison is completed.</p>
+        </section>
+
+        <section id="performance" class="document-section" aria-labelledby="performance-title">
+          <h2 id="performance-title">Performance and current limitations</h2>
+          <div class="technical-pair"><div class="prose"><p>Recent stationary early-gameplay tests on iPhone 15 Pro were around <strong>6 FPS under controlled thermal conditions</strong>. Lighter scenes can run faster, but gameplay performance remains well below a comfortable target.</p><p>Performance varies with the scene, device temperature and runtime settings. There is no sustained 30 FPS claim. The current device evidence also does not establish broad iPhone compatibility, and there is no public release date.</p><p>The performance HUD in the screenshot is a snapshot of a particular scene and thermal condition. It is not an A/B benchmark or a sustained-performance measurement; its instantaneous reading does not replace the controlled-test result above.</p></div><div class="technical-media"><figure class="capture"><a class="capture-link" href="/assets/infamous2-ios/ios-gameplay-performance-hud.png" data-capture data-title="Gameplay with performance HUD" aria-label="Open full-resolution screenshot: Gameplay with performance HUD"><img src="/assets/infamous2-ios/ios-gameplay-performance-hud-small.webp" srcset="/assets/infamous2-ios/ios-gameplay-performance-hud-small.webp 800w, /assets/infamous2-ios/ios-gameplay-performance-hud.webp 1600w" sizes="(max-width: 720px) calc(100vw - 64px), 340px" width="1600" height="900" loading="lazy" decoding="async" alt="Cole in the opening gameplay area with FPS, frame-time, CPU, GPU, memory and thermal readings visible"></a></figure></div></div>
+          <div class="limitations"><h3>Validation boundaries</h3><ul class="technical-list"><li>The first controllable scene has been reached; the full campaign has not been validated.</li><li>Physical controller input and DualSense have been tested, but not every controller action is confirmed.</li><li>Long gameplay sessions and longer-term stability remain unvalidated.</li><li>Touch controls are planned and are not implemented.</li><li>Visual equivalence, save/load behavior and gameplay beyond the opening area need broader testing.</li></ul></div>
+        </section>
+
+        <section id="next" class="document-section" aria-labelledby="next-title">
+          <h2 id="next-title">Next steps</h2>
+          <ol class="next-steps"><li><h3>Validate the latest RSX change</h3><p>Benchmark the command-processing change on the device and compare its effect on gameplay performance.</p></li><li><h3>Reduce serial renderer overhead</h3><p>Continue reducing unnecessary vertex/data conversions and repeated work in the renderer path.</p></li><li><h3>Improve frame delivery and stability</h3><p>Work on frame pacing, thermal behavior and stability over longer sessions.</p></li><li><h3>Expand input support</h3><p>Add touch controls and broaden physical controller testing.</p></li><li><h3>Adapt the camera to iPhone aspect ratios</h3><p>Adjust camera/projection for wider displays without stretching the image.</p></li><li><h3>Test beyond the opening area</h3><p>Expand save/load, visual-correctness and gameplay testing beyond the currently verified scene.</p></li></ol>
+        </section>
+
+        <section id="development" class="document-section" aria-labelledby="development-title"><h2 id="development-title">Development log</h2><p>Current development records from the public project README. Further verified milestones can be added as work progresses.</p><div class="development-log"><article class="log-entry"><div class="log-entry-title"><h3>RSX state-processing change</h3><p class="log-state">Comparison pending</p></div><p>The first change to reduce redundant legacy RSX state updates is implemented, checked locally and installed on iPhone. Its on-device performance comparison is pending.</p></article>
+<article class="log-entry"><div class="log-entry-title"><h3>Metal lighting and SSAO</h3><p class="log-state">Integrated and tested</p></div><p>Both paths are integrated and tested on the phone. Separate short comparisons showed gains against the SPU references; broader visual-equivalence and stability testing remains necessary.</p></article>
+<article class="log-entry"><div class="log-entry-title"><h3>Standalone iOS application and first gameplay</h3><p class="log-state">Confirmed</p></div><p>The game boots and reaches the first controllable scene on iPhone 15 Pro, using local game data, audio output and physical controller input, including DualSense testing.</p></article></div></section>
+
+        <section id="repository" class="document-section" aria-labelledby="repository-title"><h2 id="repository-title">Repository and attribution</h2><p>The implementation is <strong>closed source at this stage</strong>. GitHub is used as a public development showcase and progress tracker. No source code, game data, firmware or installable builds are published in the repository.</p><p>Milestones and development progress will be documented there. You can <a href="https://github.com/Monsdevo/infamous2-ios">star the repository and follow updates</a>; questions and feedback are welcome through <a href="https://github.com/Monsdevo/infamous2-ios/issues">GitHub Issues</a>.</p><p>This iOS adaptation builds on existing PS3 static-recompilation and macOS porting work. Thanks to the developers and contributors whose foundational work made it possible.</p><p>inFAMOUS 2 is a Sucker Punch Productions / Sony Computer Entertainment title. This is an <strong>unofficial project</strong>, not affiliated with or endorsed by its creators. Game names, imagery and trademarks belong to their respective owners.</p></section>
+      </article>
+    </div>
   </main>
 
-  <footer class="site-footer section-wrap"><div class="footer-top"><a class="brand" href="/" aria-label="Mons Games — home"><span class="brand-mark" aria-hidden="true"></span><span>MONS<span class="brand-games">GAMES</span></span></a><p>An independent porting project by <a href="https://github.com/Monsdevo">Monsdevo</a>.</p><a class="back-top" href="#top">Back to top <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20V4m-6 6 6-6 6 6"/></svg></a></div><div class="footer-legal"><p>inFAMOUS 2 is a Sucker Punch Productions / Sony Computer Entertainment title. This unofficial project is not affiliated with or endorsed by Sony or Sucker Punch Productions. All game names, imagery and trademarks belong to their respective owners.</p><p>Built on existing PS3 static-recompilation and macOS porting work. With thanks to the developers and contributors whose foundational work made this iOS adaptation possible.</p><a href="/privacy.html">Privacy</a></div></footer>
+  <footer class="site-footer"><p>A project by <a href="https://github.com/Monsdevo">Monsdevo</a> · <a href="/">Mons Games</a></p><nav aria-label="Footer navigation"><a href="/privacy.html">Privacy</a><a href="#top">Back to top <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20V4m-6 6 6-6 6 6"/></svg></a></nav></footer>
 
-  <dialog class="lightbox" aria-labelledby="lightbox-title"><div class="lightbox-toolbar"><p id="lightbox-title">Full-resolution capture</p><button class="lightbox-close icon-button" type="button" aria-label="Close full-size capture"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg></button></div><div class="lightbox-image-wrap"><img class="lightbox-image" alt="" width="2556" height="1179"><p class="lightbox-status" role="status" aria-live="polite"></p></div><div class="lightbox-bottom"><button class="lightbox-previous icon-button" type="button" aria-label="Previous capture"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12H4m6-6-6 6 6 6"/></svg></button><p class="lightbox-count" aria-live="polite"></p><a class="lightbox-original" href="/assets/infamous2-ios/ios-opening-pier.png" target="_blank" rel="noopener">Open original <span aria-hidden="true">↗</span></a><button class="lightbox-next icon-button" type="button" aria-label="Next capture"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></button></div></dialog>
+  <dialog class="lightbox" aria-labelledby="lightbox-title"><div class="lightbox-toolbar"><p id="lightbox-title">Full-resolution screenshot</p><button class="lightbox-close icon-button" type="button" aria-label="Close full-size capture"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg></button></div><div class="lightbox-image-wrap"><img class="lightbox-image" alt="" width="2556" height="1179"><p class="lightbox-status" role="status" aria-live="polite"></p></div><div class="lightbox-bottom"><button class="lightbox-previous icon-button" type="button" aria-label="Previous capture"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12H4m6-6-6 6 6-6"/></svg></button><p class="lightbox-count" aria-live="polite"></p><a class="lightbox-original" href="/assets/infamous2-ios/ios-opening-pier.png" target="_blank" rel="noopener">Open original <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg></a><button class="lightbox-next icon-button" type="button" aria-label="Next capture"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></button></div></dialog>
 </body>
 </html>

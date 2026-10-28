@@ -20,6 +20,8 @@ try {
     assert.equal(await page.locator('h1').count(), 1);
     assert.equal(await page.locator('video, iframe, audio').count(), 0);
     assert.equal(await page.locator('[data-capture]').count(), 4);
+    assert.equal(await page.locator('.comparison-table').evaluate(table => table.scrollWidth <= table.parentElement.clientWidth + 1), true, `Comparison table clips at ${width}px`);
+    if (width > 720) assert.equal(await page.locator('.capture img').evaluateAll(images => images.every(image => image.getBoundingClientRect().width <= 340)), true, `Oversized screenshot at ${width}px`);
     assert.equal(await page.locator('.game-title').evaluate(element => {
       const box = element.getBoundingClientRect();
       return box.left >= 0 && box.right <= innerWidth;
@@ -30,10 +32,13 @@ try {
   }
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto(`${base}/infamous2-ios/`, { waitUntil: 'networkidle' });
-  assert.match(await page.title(), /inFAMOUS 2 on iOS/);
-  assert.match(await page.locator('#performance').innerText(), /~6/);
-  assert.match(await page.locator('.closed-source-note').innerText(), /closed source/);
-  assert.equal(await page.locator('link[rel="canonical"]').getAttribute('href'), 'https://monsgames.net/infamous2-ios');
+  assert.match(await page.title(), /inFAMOUS 2 iOS Port/);
+  assert.match(await page.locator('#performance').innerText(), /6 FPS/);
+  assert.match(await page.locator('#repository').innerText(), /closed source/);
+  assert.equal(await page.locator('link[rel="canonical"]').getAttribute('href'), 'https://monsgames.net/infamous2-ios/');
+  assert.equal(await page.locator('.contents').getAttribute('open'), null);
+  await page.locator('.contents summary').click();
+  assert.equal(await page.locator('.contents').getAttribute('open'), '');
   const capture = page.locator('[data-capture]').first();
   await capture.focus();
   await page.keyboard.press('Enter');
@@ -52,8 +57,9 @@ try {
   assert.equal(await page.locator('dialog').evaluate(element => element.open), false);
   assert.equal(await capture.evaluate(element => element === document.activeElement), true);
   assert.equal(await page.locator('body').evaluate(element => element.classList.contains('lightbox-open')), false);
-  assert.equal(await page.locator('.current-trace').evaluate(element => getComputedStyle(element).animationName), 'none');
-  await page.getByRole('link', { name: 'The project', exact: true }).click();
+  assert.equal(await page.locator('.capture figcaption, .capture-label, .capture-index, .hero-caption').count(), 0);
+  assert.equal(await page.locator('.capture img').first().evaluate(element => getComputedStyle(element).animationName), 'none');
+  await page.getByRole('link', { name: 'Project overview', exact: true }).click();
   assert.equal(new URL(page.url()).hash, '#project');
   await page.goto(base, { waitUntil: 'networkidle' });
   await page.getByRole('link', { name: 'Explore the inFAMOUS 2 iOS port' }).click();

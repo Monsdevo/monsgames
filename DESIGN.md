@@ -153,7 +153,7 @@ The dedicated `bad-haunts.html` page remains a separate Midnight Prompt Book sys
 
 ### Protected inFAMOUS exception
 
-The dedicated `/infamous2-ios` showcase has its own cinematic graphic-novel world: coal and dirty white, electric blue and ember, Anton display lettering, real iPhone screenshots, sharp rules and a restrained electric-current signature. It preserves the shared Mons Games mark and TASA Orbiter reading typography. Its tokens, responsive layouts, components, semantics and reduced-motion behavior are scoped in [inFAMOUS 2 on iOS — DESIGN.md](infamous2-ios/DESIGN.md); do not apply that world's page composition or palette to the homepage or Bad Haunts.
+The dedicated `/infamous2-ios` page is an illustrated technical dossier: gloomy New Marais green-gray street tones, blue/red karma electricity, compact Anton game identity, TASA reading hierarchy, ruled evidence tables, a contents rail and small/medium repository screenshots beside the relevant text. It preserves the shared Mons Games mark and explains the complete native-port account with explicit validation boundaries. Its tokens, responsive layouts, components, semantics and reduced-motion behavior are scoped in [inFAMOUS 2 on iOS — DESIGN.md](infamous2-ios/DESIGN.md); keep this document system separate from the homepage and Bad Haunts.
 
 ## Do's and Don'ts
 

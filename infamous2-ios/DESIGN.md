@@ -1,219 +1,202 @@
 ---
-name: inFAMOUS 2 on iOS — Mons Games
-description: A cinematic graphic-novel showcase grounded in real iPhone captures and an honest prototype status.
+name: inFAMOUS 2 on iOS — Technical Dossier
+description: A complete illustrated technical account with New Marais street tones and blue/red electrical accents.
 colors:
-  coal: "#101213"
-  deep: "#0b0d0e"
-  paper: "#ecece6"
-  muted: "#adb2b2"
-  blue: "#57caff"
-  action: "#78d5ff"
-  ember: "#ff9d73"
-  rule: "#383d3e"
-  action-ink: "#10222b"
-  action-hover: "#b8eaff"
-  performance-paper: "#e6e6df"
-  performance-ink: "#202627"
-  performance-copy: "#4c5550"
+  ground: "#101413"
+  surface: "#191e1c"
+  ink: "#e0e1d9"
+  muted: "#afb6af"
+  quiet: "#909c94"
+  rule: "#3b4540"
+  karma-blue: "#5790c1"
+  karma-red: "#c4353c"
+  link: "#8acfff"
+  red-text: "#f68b8f"
+  link-hover: "#c8e9ff"
 typography:
   display:
     fontFamily: "Anton, Arial Narrow, sans-serif"
-    fontSize: "clamp(78px, 8.2vw, 124px)"
+    fontSize: "66px"
     fontWeight: 400
-    lineHeight: 1.12
+    lineHeight: 1.07
     letterSpacing: "-.025em"
   headline:
-    fontFamily: "Anton, Arial Narrow, sans-serif"
-    fontSize: "clamp(42px, 4.6vw, 66px)"
-    fontWeight: 400
-    lineHeight: 1.12
-    letterSpacing: "-.015em"
-  statement:
     fontFamily: "TASA Orbiter, Arial, sans-serif"
-    fontSize: "clamp(30px, 3vw, 44px)"
+    fontSize: "28px"
     fontWeight: 600
-    lineHeight: 1.17
+    lineHeight: 1.25
     letterSpacing: "-.025em"
   title:
     fontFamily: "TASA Orbiter, Arial, sans-serif"
-    fontSize: "22px"
-    fontWeight: 500
+    fontSize: "18px"
+    fontWeight: 600
     lineHeight: 1.4
-    letterSpacing: "-.02em"
+    letterSpacing: "-.015em"
   body:
     fontFamily: "TASA Orbiter, Arial, sans-serif"
     fontSize: "16px"
     fontWeight: 400
-    lineHeight: 1.65
+    lineHeight: 1.8
   label:
     fontFamily: "TASA Orbiter, Arial, sans-serif"
-    fontSize: "10px"
-    letterSpacing: ".12em"
+    fontSize: "12px"
+    lineHeight: 1.6
 rounded:
   square: "0px"
-  dot: "50%"
 spacing:
-  gutter: "clamp(24px, 4.2vw, 64px)"
-  gutter-mobile: "22px"
+  gutter: "clamp(24px, 3.6vw, 48px)"
+  gutter-mobile: "24px"
   gutter-narrow: "20px"
-  capture-column-gap: "24px"
-  capture-row-gap: "36px"
+  document-gap: "58px"
+  section-gap: "43px"
+  illustration-gap: "30px"
 components:
-  button-primary:
-    backgroundColor: "{colors.action}"
-    textColor: "{colors.action-ink}"
-    rounded: "{rounded.square}"
-    padding: "14px 23px"
-  button-primary-hover:
-    backgroundColor: "{colors.action-hover}"
   text-link:
-    textColor: "{colors.paper}"
-    height: "44px"
+    textColor: "{colors.link}"
   text-link-hover:
-    textColor: "{colors.blue}"
-  status-reached:
-    textColor: "{colors.blue}"
-  status-active:
-    textColor: "{colors.ember}"
-  status-future:
-    textColor: "{colors.muted}"
-  performance-panel:
-    backgroundColor: "{colors.performance-paper}"
-    textColor: "{colors.performance-ink}"
+    textColor: "{colors.link-hover}"
+  contents-link:
+    textColor: "#aeb9b0"
+    height: "43px"
+    padding: "7px 0 7px 12px"
+  contents-link-current:
+    textColor: "{colors.link}"
+    backgroundColor: "#5790c108"
+  table-heading:
+    backgroundColor: "#222b26"
+    textColor: "#d8e2d9"
+    padding: "13px 16px"
   icon-button:
-    textColor: "{colors.paper}"
+    textColor: "{colors.ink}"
     rounded: "{rounded.square}"
     width: "44px"
     height: "44px"
   icon-button-hover:
-    backgroundColor: "{colors.blue}"
-    textColor: "{colors.deep}"
+    backgroundColor: "{colors.link}"
+    textColor: "{colors.ground}"
 ---
 
-# Design System: inFAMOUS 2 on iOS — Mons Games
+# Design System: inFAMOUS 2 on iOS — Technical Dossier
 
 ## Overview
 
-**Creative North Star: "The Charged Graphic Novel"**
+**Creative North Star: "The Illustrated Technical File"**
 
-Coal fields, oversized condensed lettering, electric-blue traces and real device captures give this project its own cinematic world. The opening behaves like a graphic-novel splash spread; quieter TASA Orbiter reading text carries the technical explanation and prototype limitations. Ember marks active development and the transition into the light performance panel.
+A compact, complete project document carries the native-port explanation, verified capabilities, experiments, measurements and limitations. Soot and muted green-gray evoke gloomy New Marais streets; restrained blue/red electrical lines keep the game's identity present around calm reading text. The user selected this illustrated technical dossier after rejecting the cinematic marketing presentation.
 
-This system governs `infamous2-ios/index.html`, `style.css` and `page.js` only. The shared Mons Games mark and TASA reading typography connect it to the existing site. The homepage and Bad Haunts retain their separate systems in [the root design document](../DESIGN.md). The showcase uses supplied screenshots, with no video or synthetic game artwork.
+This system governs `/infamous2-ios`, its stylesheet and enhancement script, and the corresponding content/template sources. The shared Mons Games mark and TASA Orbiter reading face connect it to the site. The homepage and Bad Haunts keep their separate systems in [the root design document](../DESIGN.md). The Read-mode surface contract lives in [the surface brief](../.impeccable/surfaces/infamous2-ios-index-html.md).
 
 **Key Characteristics:**
 
-- Authentic iPhone imagery leads, with a single electric-current signature and sharp rectangular controls.
-- Anton carries game identity and section headlines; TASA Orbiter carries statements, navigation and evidence.
-- Blue signals action and reached milestones; ember signals active work and prototype caution.
-- Open ruled layouts make limitations and development evidence as legible as the cinematic opening.
+- Compact game identity, factual headings, readable prose and ruled evidence tables establish a technical document.
+- Small and medium original repository screenshots sit beside the relevant explanation and open at full size.
+- A persistent contents rail supports long-form reading; narrow screens use a native disclosure.
+- Blue/red electrical geometry and a faint grayscale screenshot provide atmosphere without competing with the text.
 
 ## Colors
 
-The palette combines coal and dirty white with electric blue and warm ember; the frontmatter records the shipped values.
+The frontmatter records the shipped CSS colors: green-black street tones, weathered pale text and restrained karma accents.
 
 ### Primary
 
-- **Electric Blue:** The blue token colors the game numeral, emphasized statement, current, capture labels, reached states, links and dark-surface keyboard focus.
-- **Action Blue:** A lighter fill keeps dark action text legible; the hover fill becomes paler still.
+- **Karma Blue:** The cool electrical line, numeral edge, list markers and selected contents border use the sampled blue. Links and visible focus use the lighter link color for clear reading against the dark canvas.
+- **Reading Blue:** Underlined prose links, next-step numbers and viewer control hover states use the lighter link tone. Hover lightens text links further.
 
 ### Secondary
 
-- **Ember:** Prototype status, the active milestone, the newest development state and the performance panel's top rule use this warm cue.
+- **Karma Red:** The second electrical line, opposite numeral edge and short limitations-heading rule use the sampled red. Written copy carries all technical state and validation meaning. The red-text custom property is declared but not assigned to a visible component.
 
 ### Neutral
 
-- **Coal and Deep:** Coal is the reading canvas and deep is the cinematic image field. A translucent coal layer over a grain raster gives the page restrained material texture.
-- **Dirty White and Muted Gray:** Paper carries main text; muted gray carries supporting explanations and future states. Fine gray rules structure the open layouts.
-- **Performance Paper and Ink:** A warm light panel uses dark headings and subdued dark copy to make the measured performance and its caveats a distinct reading moment.
+- **Street Ground and Surface:** Green-black ground carries the document and existing coal grain; green-gray masthead and table fields provide tonal separation.
+- **Weathered Ink:** Pale main text and muted supporting copy preserve hierarchy. Quiet is a declared secondary token; current components mostly use contextual gray values.
+- **Structural Rule:** Fine green-gray rules separate sections, fact rows, tables, log entries and footer.
 
-**The Evidence Rule.** Preserve the distinction between reached, active and future work in visible words as well as color.
+The karma tokens are representative median samples from the blue/red electricity regions of [reference artwork](https://getwallpapers.com/wallpaper/full/9/8/7/772703-cool-infamous-wallpaper-1920x1080.jpg), retained locally at `.impeccable/infamous2/revision/karma-reference.jpg`. They are sampled design tones, not official canonical HEX standards. The blue/good and red/evil association is supported by [PlayStation's official inFAMOUS 2 announcement](https://blog.playstation.com/archive/2011/05/17/infamous-2-pal-release-date-confirmed-8th-10th-june/). The external artwork is reference only and does not ship on the page.
+
+**The Written Evidence Rule.** Explain verified, pending and unvalidated work in words; electrical colors never substitute for technical status.
 
 ## Typography
 
-**Display Font:** Local Anton with Arial Narrow and sans-serif fallbacks. **Body Font:** Local TASA Orbiter with Arial and sans-serif fallbacks. Both use `font-display: swap` and are preloaded; TASA supports weights 400–700.
+**Display Font:** Local Anton with Arial Narrow and sans-serif fallbacks. **Body Font:** Local TASA Orbiter with Arial and sans-serif fallbacks. Both fonts are preloaded and use `font-display: swap`; TASA supports weights 400–700.
 
-**Character:** Anton's narrow, forceful capitals deliver the graphic-novel voice. TASA keeps technical paragraphs, status labels and controls calm and readable.
+Anton supplies the compact game identity with a slight upward skew. TASA carries the edition title, headings, reading copy, tables, navigation and viewer controls.
 
-### Hierarchy
+- **Display:** Desktop identity follows the display token. The initial “in” is smaller (.77em); the numeral stays at the word's scale with opposing blue/red shadows. At 720px and below the identity is 58px; at 360px and below it is 52px.
+- **Edition:** The TASA “Native iOS port” line is 21px, weight 500, reducing to 20px on mobile.
+- **Headline:** Section headings follow the headline token, reducing to 25px/1.3 at 720px and below.
+- **Title:** Technical subheadings follow the title token, reducing to 17px on mobile. Next-step and log headings are smaller contextual variants.
+- **Body:** Reading copy follows the body token, with paragraphs and lists capped at 76ch. Mobile uses 15px/1.85. The masthead summary uses 15px/1.75, reducing to 14px/1.8 on mobile.
+- **Label:** Contents links and fact rows use compact text. Tables use 14px/1.7 on desktop and 12px/1.7 on mobile. Table captions identify evidence; screenshots have no visible captions. Viewer counts use tabular figures.
 
-- **Display:** The game word follows the display token with a slight upward skew. Its blue numeral is larger (1.65em), rotated, and separated from the smaller TASA iOS suffix. Mobile reduces the display to `clamp(64px, 12.4vw, 86px)` and the numeral to 1.55em; at 360px and below the base becomes 61px.
-- **Headline:** Anton section headings follow the headline token, with muted spans providing a second voice. Specific performance, log and closing headings adjust within the same condensed hierarchy.
-- **Statement:** The hero's TASA statement follows the statement token; the project introduction uses 23px/1.45 with a 460px maximum width. Mobile uses 32px for the hero statement and 21px for the introduction.
-- **Title:** TASA milestone and log titles use the title token. Capture titles are lighter in scale (18px/1.35, weight 500), and technical subheads use 26px/1.25, weight 600.
-- **Body:** Standard reading copy follows the body token; contextual paragraphs range from 12–17px. Long log copy is limited to 770px and milestone copy to 750px. The hero description is limited to 410px.
-- **Label:** Small uppercase capture labels follow the label token. Navigation uses 13px, weight 500; status words use 12px. Capture indices and measurement context use tabular numerals.
-
-**The Reading Voice Rule.** Keep Anton for identity, major headings and the large FPS reading; preserve TASA for explanations, labels and actions.
+**The Reading Voice Rule.** Reserve Anton for the game identity; keep explanatory hierarchy in compact TASA text.
 
 ## Layout
 
-Content wraps at a maximum width of 1440px with the shared fluid gutter. The header is 88px high with the mark left, project anchors toward the right and a GitHub action at the end. The desktop hero has a 700px minimum and a height capped at 780px; its image starts behind the right-hand portion while coal gradients protect left-aligned copy. The caption sits toward the lower right and the current line sits at the foot.
+The site header places the small Mons Games identity left and portfolio/repository links right. A compact document masthead pairs identity, summary and prototype context with a 316px fact column. A grayscale repository screenshot sits faintly behind its right side (13% opacity); a thin two-color electrical rule marks the lower edge.
 
-Project explanation and performance each use two columns. The architecture strip is three stages joined by narrow arrow columns. The four-capture grid has two columns, with the first and fourth captures spanning the full width; previews use a 16:9 crop while original images remain available. Milestones use status and copy columns beside a vertical line. Log entries use state and copy columns divided by horizontal rules. Desktop section spacing is generally 90–115px, with gallery and reading gaps adapted to content rather than a card grid.
+The main container is capped at 1320px including fluid gutters. Desktop uses a 190px sticky contents rail, a 58px gap and a flexible article capped at 976px. The rail sits 28px below the viewport top. Sections use top rules, 28px top padding and 43px separation; the first starts immediately. Illustrated sections pair prose with a smaller media column separated by 30px. Screenshots are capped at 340px wide with 16:9 previews and full-resolution originals. Minimum supported viewport width is 320px.
 
-- **At 1700px and wider:** The hero image begins farther right, the content gains top spacing, and hero height is 780px.
-- **At 1100px and below:** Navigation gaps, hero proportions, architecture columns, performance gap and log columns tighten; the caption's secondary detail disappears.
-- **At 700px and below:** The gutter becomes 22px. A 74px masthead gains a second, 45px navigation row; navigation remains visible rather than collapsing behind a menu. The hero image moves above the reading content, the hero becomes content-height, and actions stack. Project, gallery, architecture, milestones, performance, log and legal content become single-column layouts. Architecture arrows turn downward. Main section spacing contracts to approximately 54–70px. Lightbox margins shrink and icon controls remain 44px high.
-- **At 360px and below:** The gutter becomes 20px and display and headline sizes reduce further. The document's minimum supported width is 320px.
+- **At 1320px and below:** Footer gains the content gutter.
+- **At 1100px and below:** Rail becomes 166px, document gap 35px and masthead fact column 275px; illustration/measurement spacing tightens.
+- **At 960px and below:** Contents returns to document flow above the article. The expanded native disclosure uses two navigation columns. JavaScript closes it by default at this size and opens it above this breakpoint. Illustrations can still sit beside prose.
+- **At 720px and below:** Gutter is 24px; masthead, illustrations, measurements and log entries stack. The grayscale masthead image spans the field at 7% opacity. The redundant Portfolio text link hides while the linked Mons Games identity remains. Contents becomes a full-width, single-column disclosure. Screenshots sit under associated text, capped at 420px and available width. Section gaps reduce to 34px. Comparison tables use fixed 26% / 42% / 32% columns with wrapping text; the wrapper retains overflow handling for content resilience.
+- **At 360px and below:** Gutter becomes 20px; identity and fact columns tighten further.
 
-The stable semantic sequence is header, one main landmark containing named sections, footer, and a native image dialog. One h1 names the game, h2 elements introduce sections, h3 elements name captures and milestones, and h4 elements organize technical details. The skip link targets main content; navigation has a project label, decorative marks and SVGs are hidden from assistive technology, and real capture images carry descriptive alternative text.
+The reading sequence is project, status, runtime integration, Metal work, profiling, renderer work, performance/limitations, next steps, development log and repository/attribution. The HTML has one h1, section h2s and meaningful h3s. A skip link targets main; landmarks, table captions and scoped headers expose structure.
 
 ## Elevation & Depth
 
-Depth comes primarily from screenshot bleeds, dark gradients, restrained coal grain and tonal contrast. Reading sections remain open and flat; rules define structure. The closing image is dimmed behind text. The native lightbox alone receives a substantial modal shadow (`0 24px 80px #0009`) and near-black backdrop, separating image inspection from the page.
+The reading surface is flat. Existing coal grain, the faint grayscale masthead image, dark tonal fields and fine rules provide atmosphere and separation. Only the native full-size image dialog uses a modal shadow (`0 24px 80px #0009`) and nearly opaque green-black backdrop (`#060a08f5`).
 
-The electric current draws once on entry (1.8s after a .15s delay). Action and navigation feedback use the shared `cubic-bezier(.16,1,.3,1)` easing; underline traces take .3–.4s, action fills .25s, and capture zoom/brightness .8s. These are deliberate state changes, with no autoplay video. With reduced motion, smooth scrolling is disabled, transitions and animations are removed, the current is fully drawn, and capture hover no longer scales the image. Other state changes remain immediate.
+The electrical line is static. Disclosure-chevron and screenshot-outline feedback lasts .2s with `cubic-bezier(.16,1,.3,1)`. Anchor navigation scrolls smoothly; reduced motion disables smooth scrolling and removes transitions and animations.
 
 ## Shapes
 
-Controls, screenshot frames, the performance panel and the modal use square corners. Fine straight rules and stroke arrows reinforce the graphic-novel geometry. Small circular dots are reserved for capture provenance and milestone state; future milestones use an outlined dot. The game-title skew and rotated numeral provide the expressive geometry without distorting reading copy.
+Square screenshot frames, dialog controls, ruled tables and straight section edges keep the document precise. A small skew belongs only to the game word. Thin angular blue/red electricity supplies the masthead signature. The document has no ornamental corner labels, photo metadata badges or rounded image cards.
 
 ## Components
 
-### Mons Games masthead and navigation
+### Masthead identity and facts
 
-The supplied mark is a paper-colored mask, paired with compact stacked MONS/GAMES lettering. Brand and navigation links offer at least 44px target height. Project links reveal a blue underline on hover or keyboard focus; the GitHub arrow is blue. The mobile second row retains all three project anchors.
+The supplied Mons mark is a small pale mask paired with stacked MONS/GAMES lettering. Header links retain at least 44px target height. Project facts use a definition list with ruled label/value rows. Prototype wording, device and measured performance sit directly under the summary.
 
-### Primary and text actions
+### Contents disclosure
 
-The square primary anchor uses the action fill, dark action ink, bold 14px TASA, a 54px minimum height and the frontmatter padding. Hover lightens the fill; hover or keyboard focus nudges its arrow and draws a thin blue line below. Mobile uses a 52px minimum height and 13px type. Text actions pair a quiet label with a stroked arrow, becoming blue on hover or focus. Global visible focus is a 3px blue outline offset by 6px; within the light performance panel its outline becomes dark blue (`#07658e`).
+Native `details`/`summary` contains section links. The enhanced desktop rail opens by default; compact layouts close by default. Visitors can toggle it in either layout. Links use a thin left rule, then light-blue text, karma-blue border and faint wash for hover, focus and `aria-current="location"`. IntersectionObserver marks the current section when supported. Without JavaScript the native disclosure and anchors remain usable.
 
-### Prototype status strip
+### Prose, tables and lists
 
-An ember dot and explicit early-prototype wording sit beside a plainly stated performance reading and limitations anchor. Desktop lays these across the page; mobile stacks them. This is status communication rather than a decorative badge.
+Open paragraphs, compact headings and strong text carry the explanation. Ruled tables have subdued green header fields, visible captions and semantic row/column headers. Measurement definition rows split labels/descriptions on desktop and stack on mobile. Bullets use blue markers; numbered next steps remain in document flow. The limitations heading has a short red rule. Log entries pair factual heading/state text with a description, then stack on mobile.
 
-### Capture figures and inspection
+### Inline captures and inspection
 
-Each figure is an original-image link containing a responsive WebP preview, a square open icon and a caption with title, blue category and tabular index. Hover slightly enlarges and brightens the preview; hover or focus changes the open icon to blue with dark ink. Real originals retain their full image rather than the preview crop.
+Four repository screenshots illustrate status, runtime integration, Metal rendering and performance. Preview figures contain original-image links with descriptive alternative text and accessible names. They have no visible photo captions, indices, tags, corners or hover icons. A thin frame changes to karma blue on hover; the image does not zoom or brighten. Names and counts appear in the inspection dialog to support navigation.
 
-When supported, JavaScript opens a labeled native dialog with previous, next, close and original-image controls. Left/right keys navigate, Escape uses native dismissal, outside clicks close it, and closing restores focus to the opener. Image alternative text follows the selected capture. Loading and failure messages use a polite status region, and the current count is announced politely. Without JavaScript or dialog support, each capture remains a direct original-image link. There are no forms, inputs or filter chips in this page system.
+JavaScript enhances direct-image links into a labeled native dialog. Previous/next buttons and left/right keys cycle images; close, Escape and outside-click dismissal return focus to the opener. Modified clicks keep native link behavior. A polite status region reports loading/failure; “Open original” remains available. Originals use `object-fit: contain`. Without JavaScript or dialog support, links open the original PNG directly.
 
-### Development milestones and log
+### Focus and viewer controls
 
-The ordered milestone list pairs a colored dot with a written state and descriptive title. Reached/tested entries are blue, the active entry ember and future work muted with an outlined marker. Open log entries repeat this restrained state/copy relationship; the latest state is ember. Fine rules carry separation without filled cards.
+Global keyboard focus uses a 3px light-blue outline offset by 5px; screenshot links use a 4px offset. Viewer buttons are square 44px controls with thin green-gray borders; hover fills them light blue with ground-colored icons. Below 720px their width becomes 40px while height remains 44px. The dialog contracts without removing the original-image action.
 
-### Performance panel
+### Footer
 
-A five-pixel ember top rule introduces the warm light panel. A large Anton FPS reading and its device/test context sit beside technical copy and ruled subtopics. The dark ink, dark blue focus ring and explicit prototype warning keep this section readable and factual.
-
-### Follow panel and footer
-
-The closing screenshot is subdued behind the headline and GitHub action. Closed-source and publishing limitations remain readable body copy below the action. The footer repeats the shared mark, authorship, back-to-top link, general foundational-work acknowledgment, Sony/Sucker Punch attribution and Privacy destination.
+A ruled compact footer supplies author/home, privacy and back-to-top links and wraps on narrow screens. No forms, filter chips or download controls are part of this system.
 
 ## Do's and Don'ts
 
 ### Do:
 
-- Do preserve the supplied Mons Games mark and TASA reading typography while keeping this page's separate visual world.
-- Do use real device screenshots and preserve full-resolution originals behind the gallery previews.
-- Do keep prototype qualifiers, performance context and written development states close to the evidence.
-- Do retain semantic headings, visible keyboard focus, native dialog behavior and direct-image fallback.
-- Do keep the electric current still and interactions immediate when reduced motion is requested.
+- Do maintain a complete illustrated technical document with factual headings, readable explanations and explicit validation boundaries.
+- Do keep screenshots small or medium, beside relevant desktop prose and directly after it on narrow screens, with full-size originals available.
+- Do retain the blue/red electrical signature and gloomy green-gray street atmosphere with restrained static treatment.
+- Do use native disclosure and dialog semantics, descriptive image alternatives, visible focus and reduced-motion behavior.
+- Do keep this system scoped to inFAMOUS; preserve the homepage and Bad Haunts worlds.
 
 ### Don't:
 
-- Don't import this page's coal, Anton, blue/ember composition into the homepage or Bad Haunts.
-- Don't add video or synthetic game imagery to this showcase at this stage.
-- Don't use screenshot HUD readings as sustained benchmark claims or imply that future milestones are complete.
-- Don't turn the public progress tracker into a source-code or downloadable-build promise.
-- Don't round the gallery into cards or add ambient shadows to the open reading layouts.
+- Don't restore marketing slogans, a cinematic poster hero, oversized image sections or giant performance typography.
+- Don't add visible photo captions, corner labels, repeated provenance tags, synthetic game imagery, external reference artwork or video.
+- Don't present sampled karma colors as official canonical HEX standards or use color alone to communicate validation state.
+- Don't present short experimental comparisons or screenshot HUD readings as sustained whole-game performance claims.
+- Don't add source/build download promises or imply unvalidated controls, campaign coverage or long-session stability are complete.
