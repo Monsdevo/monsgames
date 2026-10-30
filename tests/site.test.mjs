@@ -18,21 +18,6 @@ test("root maps to index, unknown routes remain 404", async () => {
   assert.equal((await worker.fetch(new Request("https://monsgames.net/unknown"), env)).status, 404);
   assert.deepEqual(seen, ["/index.html", "/unknown"]);
 });
-test("native iOS project routes resolve to the generated page", async () => {
-  const seen = [];
-  const env = { ASSETS: { fetch(request) { seen.push(new URL(request.url).pathname); return new Response("project"); } } };
-  for (const route of ["/infamous2-ios", "/infamous2-ios/", "/infamous2-ios/index.html"]) {
-    assert.equal((await worker.fetch(new Request("https://monsgames.net" + route), env)).status, 200);
-  }
-  assert.deepEqual(seen, Array(3).fill("/infamous2-ios/index.html"));
-});
-test("project build ships gallery evidence without source modules or videos", async () => {
-  const html = await readFile(new URL("../dist/client/infamous2-ios/index.html", import.meta.url), "utf8");
-  for (const fact of ["iPhone 15 Pro", "ARM64", "SSAO", "closed source", "unofficial", "6 FPS"]) assert.ok(html.includes(fact), fact);
-  assert.equal((html.match(/data-capture /g) || []).length, 4);
-  assert.doesNotMatch(html, /<video|<iframe|<!-- (?:STATUS|RUNTIME|METAL|PERFORMANCE)_CAPTURE -->|<!-- DEVELOPMENT LOG -->/i);
-  for (const file of ["ios-opening-pier.png", "ios-opening-pier.webp", "ios-opening-pier-small.webp"]) await access(new URL("../dist/client/assets/infamous2-ios/" + file, import.meta.url));
-});
 test("build excludes retired content and private project files", async () => {
   const files = await readdir(new URL("../dist/client/", import.meta.url), { recursive: true });
   assert.equal(files.some(file => /mustafi|\.impeccable|\.git|PRODUCT|\.mjs|\.json/i.test(file)), false);
@@ -40,6 +25,7 @@ test("build excludes retired content and private project files", async () => {
 test("homepage preserves contact, brands and social destinations", async () => {
   const html = await readFile(new URL("../index.html", import.meta.url), "utf8");
   for (const text of ["href=\"bad-haunts.html\"", "assets/mons-games-mark.png", "mailto:monsgemas@gmail.com", "https://www.instagram.com/badhaunts/", "https://www.youtube.com/@badhaunts"]) assert.ok(html.includes(text), text);
+  assert.ok(html.includes('href="https://monsdevo.github.io/"'));
   assert.doesNotMatch(html, /mustafi|expected after|Approved screenshots.*will live here/i);
 });
 test("personal portfolio states supplied experience without future-project placeholders", async () => {
