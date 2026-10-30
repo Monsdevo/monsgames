@@ -25,7 +25,7 @@ test("build excludes retired content and private project files", async () => {
 test("homepage preserves contact, brands and social destinations", async () => {
   const html = await readFile(new URL("../index.html", import.meta.url), "utf8");
   for (const text of ["href=\"bad-haunts.html\"", "assets/mons-games-mark.png", "mailto:monsgemas@gmail.com", "https://www.instagram.com/badhaunts/", "https://www.youtube.com/@badhaunts"]) assert.ok(html.includes(text), text);
-  assert.ok(html.includes('href="https://monsdevo.github.io/"'));
+  assert.ok(html.includes('href="https://monsdevo.github.io/infamous2-ios"'));
   assert.doesNotMatch(html, /mustafi|expected after|Approved screenshots.*will live here/i);
 });
 test("personal portfolio states supplied experience without future-project placeholders", async () => {
