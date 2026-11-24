@@ -19,7 +19,7 @@ export default {
     });
     if (!["GET", "HEAD"].includes(request.method)) return new Response("Method not allowed", { status: 405, headers: { Allow: "GET, HEAD" } });
     if (url.pathname === "/") url.pathname = "/index.html";
-    if (["/privacy", "/privacy-policy"].includes(url.pathname)) url.pathname += ".html";
+    if (["/privacy", "/privacy-policy", "/arkive-privacypolicy"].includes(url.pathname)) url.pathname += ".html";
     const response = await env.ASSETS.fetch(new Request(url, request));
     const headers = new Headers(response.headers);
     headers.set("X-Content-Type-Options", "nosniff");
