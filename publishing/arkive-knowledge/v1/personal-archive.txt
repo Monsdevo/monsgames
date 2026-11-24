@@ -1,0 +1,18 @@
+ARKIVE Knowledge · Personal Information
+Personal Archive Starter Guide
+
+KEEP A PROJECT RECORD
+Give each project a clear title. Add a date, its current status, the last completed task, and the next action. Record important decisions in short dated entries. For example, a project entry might say “2026-11-25. The prototype opens on the test device. Next, verify installation on a fresh device.” This is an example of how to write an entry.
+
+RECORD YOUR PREFERENCES
+Write preferences as complete, specific sentences. Include context when a preference applies only to a certain task. A plain Markdown or TXT file works well for notes that you want to search by topic.
+
+USE THIS OUTLINE IN YOUR OWN FILE
+Preferred name
+Current projects
+Project timeline
+Topics I am learning
+Preferences
+Things to revisit
+
+To get started, create a Markdown or TXT file with these headings and fill in whichever sections are useful to you. Import that file into the Personal Information category. Include a date when an entry may become outdated.

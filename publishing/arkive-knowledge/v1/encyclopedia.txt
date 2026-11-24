@@ -1,0 +1,16 @@
+ARKIVE Knowledge · Encyclopedia
+A Short Reference to Earth, Time, and Measurement
+
+EARTH AND THE SKY
+Earth rotates around its axis about once a day. As a location rotates toward the Sun it enters daylight, and it enters night as it turns away. The seasons follow from Earth's tilted axis. During summer in a hemisphere the Sun is generally higher in the sky and daylight lasts longer. The two hemispheres have opposite seasons.
+
+The Moon shines by reflecting sunlight. Its phases result from how much of the illuminated side we can see as it orbits Earth. A lunar eclipse occurs when the Moon passes through Earth's shadow. A solar eclipse occurs when the Moon passes between the Sun and the observer and covers part or all of the Sun.
+
+GEOGRAPHY
+Latitude measures how far north or south a location lies from the equator. Longitude measures its position east or west of the prime meridian. A map projection converts a curved surface to a plane. Every projection distorts some combination of area, shape, distance, or direction. Choose the projection according to what you want to compare.
+
+MEASUREMENT
+The International System of Units uses the metre for length, the kilogram for mass, and the second for time. Speed is distance divided by time. A kilometre per hour equals one thousand metres divided by 3,600 seconds. Mass describes how much matter an object contains in everyday usage. Weight is the gravitational force acting on it.
+
+TIME AND CALENDARS
+A civil time zone is a legal convention, so its boundaries often follow political borders. UTC is a common reference for comparing times. The Gregorian calendar uses leap years to keep the calendar aligned with the seasons. A year divisible by four is usually a leap year. Century years must also be divisible by 400.

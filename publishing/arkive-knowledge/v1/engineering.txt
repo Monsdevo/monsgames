@@ -1,0 +1,14 @@
+ARKIVE Knowledge · Engineering
+Electricity, Motion, and Materials
+
+ELECTRIC CIRCUITS
+Electric current measures the rate at which charge flows. Voltage is a difference in electric potential. For an ohmic component under steady conditions, voltage equals current times resistance. Electrical power is voltage times current. Two resistors in series carry the same current. Two components connected in parallel share the same voltage across their terminals.
+
+MOTORS AND GENERATORS
+A motor produces motion by using magnetic fields to exert forces on current-carrying conductors or magnetic components. The rotational effect of a force is torque. A generator uses motion to change the magnetic flux through a circuit, creating a voltage. Real machines lose some energy as heat, sound, or friction.
+
+FORCE AND STRUCTURES
+Stress is force divided by cross-sectional area under uniform loading. Strain measures relative change in length. A structural member in tension is pulled, while one in compression is pushed. Long, slender members under compression can buckle at loads far below the material's crushing strength. A design needs to account for forces, geometry, material properties, and connections.
+
+HEAT AND CONTROL
+Conduction transfers heat through a material, convection transfers it through fluid motion, and radiation transfers it through electromagnetic waves. A feedback controller measures an output and adjusts an input to reduce the difference between the measured value and the target. A thermostat is an example.
