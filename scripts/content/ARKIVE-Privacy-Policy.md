@@ -31,37 +31,3 @@ The reset action in Settings → Privacy clears chats, installed models, and pre
 ## Support and privacy requests
 
 If you email us, we receive your email address, message, and any attachments you choose to include. We use this information to respond and resolve your request. For privacy questions or requests about information you have shared with us, email bartylmaz@gmail.com. You can delete app content directly from your device using the controls described above.
-
-# ARKIVE Gizlilik Politikası
-
-**Yürürlük tarihi** · 2026-11-24
-**Yayıncı** · Bartu Yılmaz
-**Gizlilik iletişimi** · bartylmaz@gmail.com
-
-Bu politika ARKIVE iPhone uygulaması için geçerlidir. ARKIVE, yapay zekâ modellerini iPhone’unuzda çalıştırır. Hesap açmanız gerekmez. Uygulamada reklam, analitik veya takip bulunmaz.
-
-## Cihazınızda kalan bilgiler
-
-ARKIVE sorularınızı, yanıtları, eklediğiniz fotoğrafları ve içe aktardığınız belgeleri iPhone’unuzda işler. Bu içerikleri yayıncıya veya uzaktaki bir yapay zekâ servisine göndermez. Sohbet geçmişi, kayıtlı sohbetlere eklenen fotoğraflar, içe aktarılan belgeler ve bunların arama dizinleri ile uygulama tercihleri cihazda saklanır. Sesli okuma cihazda çalışır ve mikrofonu kullanmaz.
-
-Kişisel Bilgiler bölümüne isteğe bağlı olarak hitap adı, doğum tarihi ve not ekleyebilirsiniz. Bu bilgiler cihazınızda saklanır. ARKIVE, yerel yanıtları kişiselleştirmek için hitap adınızı ve soruyla ilgili notlarınızı kullanabilir.
-
-ARKIVE’da fotoğraf çekmeyi seçtiğinizde iOS kamera izni ister. Bu izni iOS Ayarları’ndan kapatabilirsiniz. Fotoğraf arşivini açtığınızda uygulama, sistem seçicisinde seçtiğiniz görseli alır. İçe aktarılacak belgeleri de sistemin dosya seçicisinden siz seçersiniz.
-
-Model Laboratuvarı’nı kullanırsanız test soruları, yanıtları ve performans ölçümleri cihazda saklanabilir. Test sonuçlarını dışa aktarmayı seçebilirsiniz. Dışa aktarılan dosyalar seçtiğiniz konum veya hizmet tarafından yönetilir.
-
-## İndirmeler, bağlantılar ve satın alma
-
-Model veya bilgi paketi indirmeyi seçtiğinizde ARKIVE, dosyayı barındıran hizmete bağlanır. Model dosyaları Hugging Face üzerinden indirilir. Bilgi paketlerinin sağlayıcıları uygulama içindeki katalogda belirtilir. Bu hizmetler IP adresiniz ve istenen dosya gibi bağlantı bilgilerini alabilir. ARKIVE, indirme isteklerine sohbetlerinizi, fotoğraflarınızı, profilinizi veya içe aktardığınız belgeleri eklemez. Açmayı seçtiğiniz harici siteler, ziyaretinizi kendi gizlilik politikalarına göre işler.
-
-App Store satın alımlarını Apple işler. ARKIVE ödeme kartı bilgilerinizi almaz.
-
-## Yerel verileri yönetme ve silme
-
-Yerel veriler, onları sildiğinizde veya uygulamayı verileriyle birlikte cihazınızdan kaldırdığınızda silinir. Sohbetleri Sohbetler bölümünden, model dosyalarını Yerel Modeller’den, belgeleri de Bilgi Kütüphanesi’nden silebilirsiniz. Kişisel Bilgiler’de profil alanlarını düzenleyebilir veya boşaltabilir, Model Laboratuvarı’nda kayıtlı test sonuçlarını silebilirsiniz.
-
-Ayarlar → Gizlilik’teki sıfırlama işlemi sohbetleri, kurulu modelleri ve tercihleri temizler. Bilgi Kütüphanesi belgelerini ve Model Laboratuvarı kayıtlarını kendi ekranlarından silebilirsiniz. ARKIVE dışında kaydettiğiniz kopyaları kaydettiğiniz konumdan silebilirsiniz.
-
-## Destek ve gizlilik talepleri
-
-Bize e-posta gönderdiğinizde e-posta adresinizi, mesajınızı ve eklemeyi seçtiğiniz dosyaları alırız. Bu bilgileri size yanıt vermek ve talebinizi çözmek için kullanırız. Gizlilikle ilgili sorularınız veya bizimle paylaştığınız bilgilere ilişkin talepleriniz için bartylmaz@gmail.com üzerinden bize ulaşabilirsiniz. Uygulama içeriklerini yukarıda açıklanan kontrollerle doğrudan cihazınızdan silebilirsiniz.
