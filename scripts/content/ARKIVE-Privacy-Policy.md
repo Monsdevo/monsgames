@@ -10,7 +10,7 @@ This policy covers the ARKIVE iPhone app. ARKIVE runs AI models on your iPhone. 
 
 ARKIVE processes your prompts, responses, attached photos, and imported documents on your iPhone. It does not send this content to the publisher or to a remote AI service. Chat history, photos attached to saved chats, imported documents and their search indexes, and app preferences are stored locally. Speech playback runs on your device and does not use the microphone.
 
-You can optionally enter a name, date of birth, and notes in Personal Information. These details are stored on your device. ARKIVE may use your preferred name and relevant notes to personalize local replies.
+You can optionally enter a name and notes in Personal Information. These details are stored on your device. ARKIVE may use your preferred name and relevant notes to personalize local replies.
 
 If you take a photo in ARKIVE, iOS asks for camera permission. You can revoke it in iOS Settings. If you choose a photo from your library, ARKIVE receives the item you select through the system photo picker. You can also choose which files to import through the system file picker.
 
