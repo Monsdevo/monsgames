@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Help with offline setup, local models, Knowledge, and Vision in ARKIVE for iPhone.">
+  <link rel="canonical" href="https://monsgames.net/arkive-support">
+  <title>ARKIVE Support</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --canvas: #0a0a0a;
+      --ink: #f5f5f2;
+      --muted: #969696;
+      --rule: #303030;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { background: var(--canvas); scroll-padding-top: 1.5rem; }
+    body {
+      width: calc(100% - 2.5rem);
+      max-width: 68ch;
+      margin: 0 auto;
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 1.0625rem;
+      line-height: 1.65;
+      overflow-wrap: anywhere;
+    }
+    ::selection { background: var(--ink); color: var(--canvas); }
+    header { padding: clamp(2.5rem, 8vw, 5rem) 0 1.5rem; }
+    header svg { display: block; margin-bottom: 1.5rem; }
+    h1, h2, h3 { margin: 0; line-height: 1.17; }
+    h1 { font-size: clamp(2.375rem, 7vw, 4rem); letter-spacing: -.04em; }
+    h2 { font-size: clamp(1.5rem, 4vw, 2rem); letter-spacing: -.025em; }
+    h3 { font-size: 1.2rem; }
+    p { margin: .75rem 0 0; }
+    .intro { color: var(--muted); max-width: 54ch; margin-top: 1rem; }
+    nav ul {
+      display: flex;
+      flex-wrap: wrap;
+      column-gap: 1.5rem;
+      padding: 0;
+      margin: 1.25rem 0 0;
+      list-style: none;
+    }
+    a { color: inherit; text-underline-offset: .22em; text-decoration-thickness: 1px; }
+    a:hover { color: var(--muted); }
+    a:focus { outline: 2px solid var(--ink); outline-offset: 3px; }
+    nav a, .contact-link { display: inline-flex; align-items: center; min-height: 44px; }
+    section { border-top: 1px solid var(--rule); padding: 2.5rem 0; }
+    .answer { margin-top: 1.75rem; }
+    #contact { padding-bottom: 4rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <svg width="26" height="46" viewBox="0 0 48 84" aria-hidden="true" focusable="false">
+      <path fill="#888888" d="M38 2 46 7v71l-8 4Z"/>
+      <path fill="#F5F5F2" d="M4 6 38 2v80L4 80V60h7V50H4Z"/>
+    </svg>
+    <h1>ARKIVE Support</h1>
+    <p class="intro">Get help setting up ARKIVE: Offline AI on your iPhone, managing local models, and troubleshooting chat, Knowledge, and Vision.</p>
+    <nav aria-label="Support topics">
+      <ul>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#troubleshooting">Troubleshooting</a></li>
+        <li><a href="#contact">Contact support</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="faq" aria-labelledby="faq-heading">
+      <h2 id="faq-heading">Frequently asked questions</h2>
+
+      <div class="answer">
+        <h3>Can I use ARKIVE offline?</h3>
+        <p>Connect to the internet for your first model download. You can also import a matching GGUF file already saved on your iPhone. Once a model is installed and selected, chat runs on your iPhone without an internet connection or an account. Any additional model, Vision component, or Knowledge source you choose to download still needs a connection.</p>
+      </div>
+
+      <div class="answer">
+        <h3>How do I download, switch, or remove models?</h3>
+        <p>Go to <strong>Settings → Local models</strong>. Check the listed file size, then tap <strong>Download</strong>. After ARKIVE verifies the file, tap <strong>Use model</strong> to switch to it. Use <strong>Delete model</strong> on an installed file to free storage. <strong>Import GGUF</strong> accepts files that match the app’s supported catalog.</p>
+      </div>
+
+      <div class="answer">
+        <h3>How do I use Knowledge?</h3>
+        <p>Go to <strong>Settings → Knowledge</strong>, choose a category, and use <strong>Import document</strong> to add a PDF, plain text, or Markdown file. You can also download catalog sources that offer a <strong>Download</strong> button. Once indexed, documents can be searched and read offline.</p>
+        <p>To use sources in a chat, open the <strong>+</strong> menu, choose <strong>Knowledge</strong>, and select the categories to search. Ask your question and open any source references in the reply to check the original material. Choose <strong>General</strong> to turn off Knowledge search for chat.</p>
+      </div>
+
+      <div class="answer">
+        <h3>How do I ask about a photo?</h3>
+        <p>In <strong>Local models</strong>, install and select <strong>Gemma 4 E2B</strong> or <strong>Gemma 4 E4B</strong> and download its matching <strong>Vision projector</strong>. Use the E2B projector for E2B and the E4B projector for E4B. In chat, open the <strong>+</strong> menu, select <strong>Photo library</strong> or <strong>Camera</strong>, attach a photo, and send your question. If the photo options are missing, check the selected model and its projector.</p>
+      </div>
+    </section>
+
+    <section id="troubleshooting" aria-labelledby="troubleshooting-heading">
+      <h2 id="troubleshooting-heading">Troubleshooting</h2>
+
+      <div class="answer">
+        <h3>Responses are slow</h3>
+        <p>The first reply after opening ARKIVE or switching models may take longer while the model loads. For text chat, try a smaller model such as <strong>Qwen3.5 0.8B</strong>. You can also start a new conversation and try a shorter prompt.</p>
+      </div>
+
+      <div class="answer">
+        <h3>A model download fails</h3>
+        <p>Check your connection and available iPhone storage. Keep ARKIVE open during the download. If <strong>Resume</strong> is available, tap it. Otherwise, start the download again. If verification fails after a download or import, get a fresh copy of the file.</p>
+      </div>
+
+      <div class="answer">
+        <h3>ARKIVE reports low memory</h3>
+        <p>ARKIVE may stop a reply and release the model when iOS reports low memory. If it happens again, choose a smaller model in <strong>Local models</strong> and retry in a new chat. For a Vision error, check the matching projector and try a smaller image.</p>
+      </div>
+
+      <div class="answer">
+        <h3>The app freezes, closes, or stops mid-reply</h3>
+        <p>Reopen ARKIVE and try the same action in a new chat. If a reply keeps stopping, switch to a smaller model and try again. If the issue persists, email support with the steps below.</p>
+      </div>
+    </section>
+
+    <section id="privacy" aria-labelledby="privacy-heading">
+      <h2 id="privacy-heading">Privacy and on-device processing</h2>
+      <p>ARKIVE processes chat prompts, attached photos, and imported documents on your iPhone. This content stays out of model and Knowledge download requests. When you request a download, the hosting service can receive connection information such as your IP address.</p>
+      <p><a href="https://monsgames.net/arkive-privacypolicy">Read the ARKIVE Privacy Policy</a></p>
+    </section>
+
+    <section id="contact" aria-labelledby="contact-heading">
+      <h2 id="contact-heading">Contact support</h2>
+      <p>Include your iPhone model, iOS version, ARKIVE version, the selected AI model, and what you did before the issue appeared. If you saw an error, include its wording. Leave out private chat content, documents, and photos.</p>
+      <p><a class="contact-link" href="mailto:bartylmaz@gmail.com?subject=ARKIVE%20Support">bartylmaz@gmail.com</a></p>
+    </section>
+  </main>
+</body>
+</html>
