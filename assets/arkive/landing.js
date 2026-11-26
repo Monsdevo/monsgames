@@ -1,18 +1,4 @@
 (() => {
-  const listing = document.querySelector('meta[name="arkive-app-store-url"]').content.trim();
-  if (listing) {
-    let url;
-    try { url = new URL(listing); } catch { /* An incomplete URL keeps the coming-soon state. */ }
-    if (url && url.origin === "https://apps.apple.com" && /\/id\d+\/?$/.test(url.pathname)) {
-      const placeholder = document.querySelector("[data-store-placeholder]");
-      const badge = document.querySelector("#store-badge").content.firstElementChild.cloneNode(true);
-      const footerLink = document.querySelector("[data-store-link]");
-      badge.href = footerLink.href = url.href;
-      placeholder.replaceWith(badge);
-      footerLink.hidden = false;
-    }
-  }
-
   const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
   if (motion.matches) return;
 
