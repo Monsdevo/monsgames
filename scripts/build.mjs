@@ -7,8 +7,9 @@ if (relative(root, dist) !== "dist") throw new Error("Refusing to build outside 
 await rm(dist, { recursive: true, force: true });
 await mkdir(resolve(dist, "client", "assets"), { recursive: true });
 await mkdir(resolve(dist, "server"), { recursive: true });
-for (const file of ["index.html", "bad-haunts.html", "personal.css", "portfolio.css", "portfolio.js", "CNAME", "app-ads.txt", "privacy.html", "privacy-policy.html", "arkive-privacypolicy.html", "arkive-support.html"]) await cp(resolve(root, file), resolve(dist, "client", file));
+for (const file of ["index.html", "bad-haunts.html", "personal.css", "portfolio.css", "portfolio.js", "CNAME", "app-ads.txt", "privacy.html", "privacy-policy.html", "arkive-privacypolicy.html", "arkive-support.html", "arkive.html"]) await cp(resolve(root, file), resolve(dist, "client", file));
 for (const file of ["bad-haunts-logo.png", "mons-games-mark.png", "mons-games-social.png"]) await cp(resolve(root, "assets", file), resolve(dist, "client", "assets", file));
+await cp(resolve(root, "assets/arkive"), resolve(dist, "client/assets/arkive"), { recursive: true });
 // Public allow-list keeps experiments, source, archives and design briefs private.
 for (const directory of ["plates", "fonts"]) {
   const source = resolve(root, "assets", directory);
