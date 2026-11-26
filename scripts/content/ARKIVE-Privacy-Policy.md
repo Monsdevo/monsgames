@@ -18,7 +18,7 @@ If you use Model Laboratory, test prompts, responses, and performance measuremen
 
 ## Downloads, links, and purchases
 
-When you choose to download a model or a knowledge package, ARKIVE connects to the service hosting that file. Model downloads use Hugging Face. Knowledge downloads use the providers identified in the in-app catalog. Those providers may receive connection information such as your IP address and the requested file. ARKIVE does not include your chats, photos, profile, or imported documents in download requests. External websites you choose to open handle your visit under their own privacy policies.
+ARKIVE’s included Knowledge articles are bundled with the app and can be read and searched offline. When you choose to download an AI model or its Vision component, ARKIVE connects to Hugging Face. The hosting service may receive connection information such as your IP address and the requested file. These requests do not include your chats, photos, profile information, or imported documents. External websites you choose to open, including article references, handle your visit under their own privacy policies.
 
 Apple processes App Store purchases. ARKIVE does not receive your payment card details.
 
